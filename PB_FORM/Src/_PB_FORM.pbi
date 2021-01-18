@@ -6,17 +6,14 @@
 ; SOURCE CODE
 ;*********************************************************************************************************************************************
 Module PB_FORM
-  ;- PRIVATE prototypes
-  
-  ;{
+  ;- PRIVATE prototypes 
   Declare newSize(w,h)
   Declare newPosition(x,y)
-  ;}
+  Declare FORM_eventClose()
+  Declare FORM_eventSize()
 
   ;- Prototypes
-  ;{
   Prototype p_flag_get(*this,*parent)
-  ;}
   
   ;- Flag Class ABSTRACT
   Structure _flag
@@ -55,7 +52,6 @@ Module PB_FORM
     posX.i
     posY.i
   EndStructure
-  ;}
   ;- Form Class
   Structure _form
     *methods
@@ -429,10 +425,41 @@ Module PB_FORM
     Protected *this._form = GetWindowData(EventWindow())
     With *this
       CloseWindow(\id)
+      UnbindEvent(#PB_Event_CloseWindow,@FORM_eventClose(),\id)  
+      UnbindEvent(#PB_Event_SizeWindow,@FORM_eventSize(),\id)
       If \mainForm
         End
       EndIf
     EndWith
+  EndProcedure
+  
+  Procedure FORM_eventSize()
+    Protected *this._form = GetWindowData(EventWindow())
+    With *this
+      Protected nw = #PB_Ignore,
+                nh = #PB_Ignore,
+                resize.b = #False
+      If \size\maxWidht And WindowWidth(\id) > \size\maxWidht
+        nw = \size\maxWidht
+        resize = #True
+      EndIf
+      If \size\maxHeight And WindowHeight(\id) > \size\maxHeight
+        nh = \size\maxHeight
+        resize = #True
+      EndIf
+      If \size\minWidht And WindowWidth(\id) < \size\minWidht
+        nw = \size\minWidht
+        resize = #True
+      EndIf
+      If \size\minHeight And WindowHeight(\id) < \size\minHeight
+        nh = \size\minHeight
+        resize = #True
+      EndIf
+      If resize
+        ResizeWindow(\id,#PB_Ignore,#PB_Ignore,nw,nh)
+      EndIf
+    EndWith  
+    
   EndProcedure
   ;}
   ;{ PUBLIC METHODS
@@ -445,6 +472,7 @@ Module PB_FORM
       EndIf
       SetWindowData(\id,*this)
       BindEvent(#PB_Event_CloseWindow,@FORM_eventClose(),\id)
+      BindEvent(#PB_Event_SizeWindow,@FORM_eventSize(),\id)
     EndWith   
   EndProcedure
   
@@ -452,6 +480,7 @@ Module PB_FORM
     With *this
       CloseWindow(\id)
       UnbindEvent(#PB_Event_CloseWindow,@FORM_eventClose(),\id)  
+      UnbindEvent(#PB_Event_SizeWindow,@FORM_eventSize(),\id)
     EndWith
   EndProcedure
   ;}
@@ -565,7 +594,6 @@ Module PB_FORM
   EndDataSection
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 433
-; FirstLine = 50
-; Folding = AAAAAAAAAAwweBg8
+; CursorPosition = 12
+; Folding = BAAAAAAAAAMC-AA9
 ; EnableXP

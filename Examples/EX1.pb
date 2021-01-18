@@ -13,6 +13,11 @@ Procedure openMainForm()
   Define flag.PB_FORM::FormFlag = mainForm\getFlag()
   flag\setScreenCentered(#True)
   flag\setSizeGadget(#True)
+  Define mSize.PB_FORM::Sizes = mainForm\getSize()
+  mSize\setMinWidth(400)
+  mSize\setMinHeight(80)
+  mSize\setMaxWidth(1000)
+  mSize\setMaxHeight(800)
   mainForm\open()
 EndProcedure
 
@@ -22,6 +27,6 @@ Repeat
   WaitWindowEvent()
 ForEver
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 14
+; CursorPosition = 19
 ; Folding = -
 ; EnableXP
