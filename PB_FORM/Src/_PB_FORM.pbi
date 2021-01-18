@@ -14,7 +14,12 @@ Module PB_FORM
 
   ;- Prototypes
   Prototype p_flag_get(*this,*parent)
-  
+  Prototype p_listener_callback(*parent)
+  ;- Listener Class
+  Structure _listener
+    *methods
+    *callback.p_listener_callback
+  EndStructure
   ;- Flag Class ABSTRACT
   Structure _flag
     *methods
@@ -61,6 +66,8 @@ Module PB_FORM
     *flag._FormFlag
     mainForm.b
     title.s
+    List *closeListener._listener()
+    List *sizeListener._listener()
   EndStructure
   
   ;- Flag SRC
@@ -374,7 +381,7 @@ Module PB_FORM
   EndProcedure
   ;}
   
-  ; Form SRC
+  ;- Form SRC
   ;{
   ;{ GETTERS
   Procedure FORM_getFlag(*this._form)
@@ -406,6 +413,12 @@ Module PB_FORM
       ProcedureReturn \mainForm
     EndWith
   EndProcedure
+  
+  Procedure FORM_getID(*this._form)
+    With *this
+      ProcedureReturn \id
+    EndWith
+  EndProcedure
   ;}
   ;{ SETTERS
   Procedure.s FORM_setTitle(*this._form,title.s)
@@ -424,7 +437,14 @@ Module PB_FORM
   Procedure FORM_eventClose()
     Protected *this._form = GetWindowData(EventWindow())
     With *this
+      ForEach \closeListener()
+        ; if the return a avorted value
+        If \closeListener()\callback(*this)
+          ProcedureReturn 
+        EndIf
+      Next
       CloseWindow(\id)
+      \id = 0
       UnbindEvent(#PB_Event_CloseWindow,@FORM_eventClose(),\id)  
       UnbindEvent(#PB_Event_SizeWindow,@FORM_eventSize(),\id)
       If \mainForm
@@ -439,6 +459,12 @@ Module PB_FORM
       Protected nw = #PB_Ignore,
                 nh = #PB_Ignore,
                 resize.b = #False
+      ForEach \sizeListener()
+        ; if the listener the a avorted value
+        If \sizeListener()\callback(*this)
+          ProcedureReturn 
+        EndIf
+      Next
       If \size\maxWidht And WindowWidth(\id) > \size\maxWidht
         nw = \size\maxWidht
         resize = #True
@@ -479,8 +505,40 @@ Module PB_FORM
   Procedure FORM_close(*this._form)
     With *this
       CloseWindow(\id)
+      \id = 0
       UnbindEvent(#PB_Event_CloseWindow,@FORM_eventClose(),\id)  
       UnbindEvent(#PB_Event_SizeWindow,@FORM_eventSize(),\id)
+    EndWith
+  EndProcedure
+  
+  Procedure FORM_addCloseListener(*this._form,*listener)
+    With *this
+      AddElement(\closeListener())
+      \closeListener() = *listener
+      ProcedureReturn *listener
+    EndWith
+  EndProcedure
+  
+  Procedure FORM_addSizeListener(*this._form,*listener)
+    With *this 
+      AddElement(\sizeListener())
+      \sizeListener() = *listener
+      ProcedureReturn *listener
+    EndWith
+  EndProcedure
+  
+  Procedure FORM_free(*this._form)
+    With *this
+      FreeStructure(\position)
+      FreeStructure(\size)
+      FreeStructure(\flag)
+      ForEach \closeListener()
+        FreeStructure(\closeListener())
+      Next
+      ForEach \sizeListener()
+        FreeStructure(\sizeListener())
+      Next
+      FreeStructure(*this)
     EndWith
   EndProcedure
   ;}
@@ -499,6 +557,32 @@ Module PB_FORM
   EndProcedure
   ;}
   
+  ;- Listener SRC
+  ;{
+  ;{ GETTERS
+  Procedure LISTENER_getCallback(*this._listener)
+    With *this
+      ProcedureReturn \callback
+    EndWith
+  EndProcedure
+  ;}
+  ;{ SETTERS
+  Procedure LISTENER_setCallback(*this._listener,*callback)
+    With *this
+       \callback = *callback
+    EndWith
+  EndProcedure
+  ;}
+  ; PUBLIC CONSTRUCTOR
+  Procedure newListener(*callack)
+    Protected *this._listener = AllocateStructure(_listener)
+    With *this
+      \methods = ?S_listener
+      \callback = *callack
+      ProcedureReturn *this
+    EndWith
+  EndProcedure
+  ;}
   
   ;- FormFlag address
   DataSection
@@ -581,6 +665,7 @@ Module PB_FORM
     Data.i @FORM_getPosition()
     Data.i @FORM_getTitle()
     Data.i @FORM_isMainForm()
+    Data.i @FORM_getID()
     ;}
     ;{ SETTERS
     Data.i @FORM_setTitle()
@@ -589,11 +674,28 @@ Module PB_FORM
     ;{ PUBLIC METHODS
     Data.i @FORM_open()
     Data.i @FORM_close()
+    Data.i @FORM_addCloseListener()
+    Data.i @FORM_addSizeListener()
+    Data.i @FORM_free()
     ;}
     E_form:
   EndDataSection
+  
+  ;-Listener address
+  DataSection
+    S_listener:
+    ;{ GETTERS
+    Data.i @LISTENER_getCallback()
+    ;}
+    ;{ SETTERS
+    Data.i @LISTENER_setCallback()
+    ;}
+    E_listener:
+  EndDataSection
+  
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 12
-; Folding = BAAAAAAAAAMC-AA9
+; CursorPosition = 538
+; FirstLine = 148
+; Folding = BBAAAAAAAAYQ9cBAYx
 ; EnableXP

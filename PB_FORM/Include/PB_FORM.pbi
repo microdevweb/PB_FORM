@@ -6,6 +6,14 @@
 ; PROTOTYPES OF CLASS
 ;*********************************************************************************************************************************************
 DeclareModule PB_FORM
+  Interface Listener
+    ;{ GETTERS
+    getCallback()
+    ;}
+    ;{ SETTERS
+    setCallback(callback)
+    ;}
+  EndInterface
   Interface FormFlag
     ;{ GETTERS
     isSystemMenu()
@@ -73,6 +81,7 @@ DeclareModule PB_FORM
     getPosition()
     getTitle.s()
     isMainForm()
+    getID()
     ;}
     ;{ SETTERS
     setTitle(title.s)
@@ -81,16 +90,20 @@ DeclareModule PB_FORM
     ;{ PUBLIC METHODS
     open(motherWindow = 0)
     close()
+    addCloseListener(listener)
+    addSizeListener(listener)
+    free()
     ;}
   EndInterface
   
   Declare newForm(x,y,w,h,title.s)
+  Declare newListener(*callack)
   
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 78
-; FirstLine = 24
-; Folding = 0--
+; CursorPosition = 93
+; FirstLine = 67
+; Folding = ---
 ; EnableXP
