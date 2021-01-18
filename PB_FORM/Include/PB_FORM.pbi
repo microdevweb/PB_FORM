@@ -74,6 +74,20 @@ DeclareModule PB_FORM
     setPosY(y)
     ;}
   EndInterface
+  Interface Menu
+    addMenuTitle(menuTitle)
+  EndInterface
+  Interface MenuTitle
+    ;{ GETTERS
+    getTitle()
+    ;}
+    ;{ SETTERS
+    setTitle(title.s)
+    ;}
+    ;{ PUBLIC METHODS
+    addItem(item)
+    ;}
+  EndInterface
   Interface Form
     ;{ GETTERS
     getFlag()
@@ -92,18 +106,20 @@ DeclareModule PB_FORM
     close()
     addCloseListener(listener)
     addSizeListener(listener)
+    setMenu(menu)
     free()
     ;}
   EndInterface
   
   Declare newForm(x,y,w,h,title.s)
   Declare newListener(*callack)
-  
+  Declare newTextMenu()
+  Declare newMenuTitle(title.s)
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 93
-; FirstLine = 67
-; Folding = ---
+; CursorPosition = 86
+; FirstLine = 75
+; Folding = ----
 ; EnableXP

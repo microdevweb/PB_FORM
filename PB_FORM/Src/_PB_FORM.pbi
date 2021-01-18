@@ -15,6 +15,7 @@ Module PB_FORM
   ;- Prototypes
   Prototype p_flag_get(*this,*parent)
   Prototype p_listener_callback(*parent)
+  Prototype p_menu_build(*this,*parent)
   ;- Listener Class
   Structure _listener
     *methods
@@ -58,7 +59,7 @@ Module PB_FORM
     posY.i
   EndStructure
   ;- Form Class
-  Structure _form
+  Structure _form 
     *methods
     id.i
     *size._size
@@ -68,7 +69,50 @@ Module PB_FORM
     title.s
     List *closeListener._listener()
     List *sizeListener._listener()
+    *menu._menu
   EndStructure
+   ;- Shortcut Class
+  Structure _shortCut
+    *methods
+    keys.i
+    helpText.s
+  EndStructure
+  ;- MenuItem ABSTRACT Class
+  Structure _menuItem
+    *methods
+    *listener._listener
+    shortCut._shortCut
+    build.p_menu_build
+  EndStructure
+  ;- MenuBar extens menuItem
+  Structure _menuBar Extends _menuItem
+    
+  EndStructure
+  ;- MenuText extends menuItem
+  Structure _menuText Extends _menuItem
+    title.s
+  EndStructure
+  ;- MenuImage extends  menuText
+  Structure _menuImage Extends _menuText
+    imageId.i
+  EndStructure
+  ;- MenuTitle Class
+  Structure _menuTitle
+    *methods
+    title.s
+    build.p_menu_build
+    List items._menuItem()
+  EndStructure
+  ;- Menu ABSTRACT Class
+  Structure _menu
+    *methods
+    id.i
+    build.p_menu_build
+    List *titles._menuTitle()
+  EndStructure
+  
+  
+  
   
   ;- Flag SRC
 
@@ -497,6 +541,10 @@ Module PB_FORM
         \id = OpenWindow(#PB_Any,\position\posX,\position\posY,\size\widht,\size\height,\title,\flag\get(\flag,*this),WindowID(*mother\id))
       EndIf
       SetWindowData(\id,*this)
+      ; build menu
+      If \menu
+        \menu\build(\menu,*this)
+      EndIf
       BindEvent(#PB_Event_CloseWindow,@FORM_eventClose(),\id)
       BindEvent(#PB_Event_SizeWindow,@FORM_eventSize(),\id)
     EndWith   
@@ -539,6 +587,13 @@ Module PB_FORM
         FreeStructure(\sizeListener())
       Next
       FreeStructure(*this)
+    EndWith
+  EndProcedure
+  
+  Procedure FORM_setMenu(*this._form,*menu)
+    With *this
+      \menu = *menu
+      ProcedureReturn *menu
     EndWith
   EndProcedure
   ;}
@@ -584,6 +639,92 @@ Module PB_FORM
   EndProcedure
   ;}
   
+  ;- Menu SRC
+  ;{
+  ;{ PROTECTED ABSTRACT METHODS
+  Procedure TEXT_MENU_build(*this._menu,*parent._form)
+    With *this
+      \id = CreateMenu(#PB_Any,WindowID(*parent\id))
+      ForEach \titles()
+        \titles()\build(\titles(),*this)
+      Next
+    EndWith
+  EndProcedure
+  ;}
+  ;{ PUBLIC METHODS
+  Procedure MENU_addMenuTitle(*this._menu,*menuTitle)
+    With *this
+      AddElement(\titles())
+      \titles() = *menuTitle
+      ProcedureReturn *menuTitle
+    EndWith
+  EndProcedure
+  ;}
+  ; PUBLIC CONSTRUCTOR
+  Procedure newTextMenu()
+    Protected *this._menu = AllocateStructure(_menu)
+    With *this
+      \methods = ?S_menu
+      \build = @TEXT_MENU_build()
+      ProcedureReturn *this
+    EndWith
+  EndProcedure
+  ;}
+  
+  ;- MENU_TITLE SRC
+  ;{
+  ;{ PROTECTED ABSTRACT METHODS
+  Procedure MENU_TITLE_build(*this._menuTitle,*parent._menu)
+    With *this
+      MenuTitle(\title)
+    EndWith
+  EndProcedure
+  ;}
+  ;{ GETTERS
+  Procedure.s MENU_TITLE_getTitle(*this._menuTitle)
+    With *this
+      ProcedureReturn \title
+    EndWith
+  EndProcedure
+  ;}
+  ;{ SETTERS
+  Procedure MENU_TITLE_setTitle(*this._menuTitle,title.s)
+    With *this
+       \title = title
+    EndWith
+  EndProcedure
+  ;}
+  ;{ PUBLIC METHODS
+  Procedure MENU_TITLE_addItem(*this._menuTitle,*item)
+    With *this
+      AddElement(\items())
+      \items() = *item
+      ProcedureReturn *item
+    EndWith
+  EndProcedure
+  ;}
+  ; PUBLIC CONSTRUCTOR
+  Procedure newMenuTitle(title.s)
+    Protected *this._menuTitle = AllocateStructure(_menuTitle)
+    With *this
+      \methods = ?S_menuTitle
+      \title = title
+      \build = @MENU_TITLE_build()
+      ProcedureReturn *this
+    EndWith
+  EndProcedure
+  ;}
+  
+  ;- MENU TEXT SRC
+  
+  ; PUBLIC CONSTRUCTOR
+  Procedure newTextItem()
+    Protected *this._menuText = AllocateStructure(_menuText)
+    With *this
+      
+    EndWith
+  EndProcedure
+  ;}
   ;- FormFlag address
   DataSection
     s_form_flag:
@@ -676,6 +817,7 @@ Module PB_FORM
     Data.i @FORM_close()
     Data.i @FORM_addCloseListener()
     Data.i @FORM_addSizeListener()
+    Data.i @FORM_setMenu()
     Data.i @FORM_free()
     ;}
     E_form:
@@ -693,9 +835,34 @@ Module PB_FORM
     E_listener:
   EndDataSection
   
+  ;- Menu address
+  DataSection
+    S_menu:
+    Data.i @MENU_addMenuTitle()
+    E_menu:
+  EndDataSection
+  ;- MenuTitle address
+  DataSection
+    S_menuTitle:
+    ;{ GETTERS
+    Data.i @MENU_TITLE_getTitle()
+    ;}
+    ;{ SETTERS
+    Data.i @MENU_TITLE_setTitle()
+    ;}
+    ;{ PUBLIC METHODS
+    Data.i @MENU_TITLE_addItem()
+    ;}
+    E_menuTitle:
+  EndDataSection
+  
+  ;- Menu text address
+  DataSection
+    
+  EndDataSection
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 538
-; FirstLine = 148
-; Folding = BBAAAAAAAAYQ9cBAYx
+; CursorPosition = 860
+; FirstLine = 69
+; Folding = BAAAAAAAAAAAAAAAAAABAgw
 ; EnableXP
