@@ -45,7 +45,7 @@ Procedure MARGINS_setTop(*this._margins,value)
 EndProcedure
 Procedure MARGINS_setBotom(*this._margins,value)
   With *this
-     \botom = 
+     \botom = value
   EndWith 
 EndProcedure
 ;}
@@ -63,6 +63,6 @@ Procedure newMargins(right,left,up,botom)
 EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 60
+; CursorPosition = 47
 ; Folding = g5
 ; EnableXP

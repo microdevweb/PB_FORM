@@ -91,6 +91,7 @@ DataSection
   ;{ SETTERS
   Data.i @FORM_setTitle()
   Data.i @FORM_setMainForm()
+  Data.i @FORM_setMainLayout()
   ;}
   ;{ PUBLIC METHODS
   Data.i @FORM_open()
@@ -217,7 +218,7 @@ DataSection
 EndDataSection
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 217
-; FirstLine = 187
+; CursorPosition = 93
+; FirstLine = 79
 ; Folding = -------
 ; EnableXP

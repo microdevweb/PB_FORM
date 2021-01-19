@@ -8,7 +8,22 @@
 ;{ PROTECTED ABSTRACT METHODS
 Procedure VLAYOUT_build(*This._VLayout,parentWidht,parentHeight)
   With *This
-    
+    If Not IsGadget(\id)
+      \id = CanvasGadget(#PB_Any,
+                         \margins\right,\margins\top,
+                         parentWidht - (\margins\right + \margins\left),
+                         parentHeight - (\margins\top + \margins\botom),
+                         #PB_Canvas_Container|#PB_Canvas_Keyboard)
+    Else
+      ResizeGadget(\id,\margins\right,\margins\top,
+                   parentWidht - (\margins\right + \margins\left),
+                   parentHeight - (\margins\top + \margins\botom))
+    EndIf
+    ; for debug
+    StartVectorDrawing(CanvasVectorOutput(\id))
+    VectorSourceColor($FF08C208)
+    FillVectorOutput()
+    StopVectorDrawing()
   EndWith
 EndProcedure
 ;}
@@ -23,6 +38,6 @@ Procedure newVLayout()
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 15
+; CursorPosition = 19
 ; Folding = -
 ; EnableXP

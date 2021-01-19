@@ -9,7 +9,7 @@
   Prototype p_flag_get(*this,*parent)
   Prototype p_listener_callback(*parent)
   Prototype p_menu_build(*this,*parent)
-  Prototype p_content_build(*this,width,height)
+  Prototype p_content_build(*this,parentWidth,parentHeight)
   ;- Listener Class
   Structure _listener
     *methods
@@ -126,6 +126,7 @@
   ;- Content ABSTRACT Class
   Structure _content
     *methods
+    id.i
     build.p_content_build
   EndStructure
   ;- Layout ABSTRACT Class extends of Content
@@ -157,7 +158,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 66
-; FirstLine = 42
+; CursorPosition = 128
+; FirstLine = 121
 ; Folding = ----
 ; EnableXP

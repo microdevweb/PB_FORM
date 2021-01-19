@@ -112,6 +112,7 @@ DeclareModule PB_FORM
     ;{ SETTERS
     setTitle(title.s)
     setMainForm(state.b)
+    setMainLayout(layout)
     ;}
     ;{ PUBLIC METHODS
     open(motherWindow = 0)
@@ -189,7 +190,7 @@ EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 186
-; FirstLine = 50
-; Folding = BAAA9--
+; CursorPosition = 189
+; FirstLine = 59
+; Folding = BAAQ0--
 ; EnableXP

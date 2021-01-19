@@ -45,7 +45,7 @@ Procedure PADDINGS_setTop(*this._paddings,value)
 EndProcedure
 Procedure PADDINGS_setBotom(*this._paddings,value)
   With *this
-     \botom = 
+     \botom = value
   EndWith 
 EndProcedure
 ;}
@@ -63,7 +63,7 @@ Procedure newPaddings(right,left,up,botom)
 EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 60
+; CursorPosition = 47
 ; FirstLine = 33
-; Folding = ---
+; Folding = --
 ; EnableXP

@@ -18,7 +18,7 @@ Procedure eventMenuSave(*menu.PB_FORM::MenuTextItem)
 EndProcedure
 
 Procedure openMainForm()
-  mainForm = PB_FORM::newForm(0,0,800,600,"Example 2")
+  mainForm = PB_FORM::newForm(0,0,800,600,"Example 3")
   mainForm\setMainForm(#True)
   Define flag.PB_FORM::FormFlag = mainForm\getFlag()
   flag\setScreenCentered(#True)
@@ -44,7 +44,6 @@ Repeat
   WaitWindowEvent()
 ForEver
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 35
-; FirstLine = 13
+; CursorPosition = 20
 ; Folding = -
 ; EnableXP
