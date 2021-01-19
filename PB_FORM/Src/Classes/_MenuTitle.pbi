@@ -36,7 +36,7 @@ Procedure MENU_TITLE_addItem(*this._menuTitle,*item)
   With *this
     AddElement(\items())
     \items() = *item
-    ProcedureReturn *item
+    ProcedureReturn \items()
   EndWith
 EndProcedure
 ;}
@@ -53,7 +53,7 @@ EndProcedure
 ;}
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 14
-; FirstLine = 7
+; CursorPosition = 38
+; FirstLine = 23
 ; Folding = --
 ; EnableXP

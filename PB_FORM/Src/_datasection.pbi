@@ -146,10 +146,27 @@ DataSection
   ;{ SETTERS
   Data.i @ITEM_TEXT_setTitle()
   ;}
+  ;{ PUBLIC METHODS
+  Data.i @ITEM_TEXT_setShortCut()
+  ;}
   E_menuText:
 EndDataSection
+
+;- shortCut
+DataSection
+  S_shortCut:
+  ;{ GETTERS
+  Data.i @SHORTCUT_getKeys() 
+  Data.i @SHORTCUT_getHelpText()
+  ;}
+  ;{ SETTERS
+  Data.i @SHORTCUT_setKeys()
+  Data.i @SHORTCUT_setHelpText()
+  ;}
+  E_shortCut:
+EndDataSection
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 146
-; FirstLine = 117
+; CursorPosition = 162
+; FirstLine = 136
 ; Folding = -----
 ; EnableXP

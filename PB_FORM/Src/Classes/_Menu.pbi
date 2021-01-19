@@ -11,6 +11,7 @@
 Procedure TEXT_MENU_build(*this._menu,*parent._form)
   With *this
     \id = CreateMenu(#PB_Any,WindowID(*parent\id))
+    \windowId = *parent\id
     ForEach \titles()
       \titles()\build(\titles(),*this)
     Next
@@ -38,6 +39,6 @@ EndProcedure
 ;}
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 5
+; CursorPosition = 13
 ; Folding = --
 ; EnableXP

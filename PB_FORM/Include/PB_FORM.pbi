@@ -79,7 +79,7 @@ DeclareModule PB_FORM
   EndInterface
   Interface MenuTitle
     ;{ GETTERS
-    getTitle()
+    getTitle.s()
     ;}
     ;{ SETTERS
     setTitle(title.s)
@@ -89,7 +89,16 @@ DeclareModule PB_FORM
     ;}
   EndInterface
   Interface MenuTextItem
-    
+    ;{ GETTERS
+    getTitle.s()
+    getlistener()
+    ;}
+    ;{ SETTERS
+    setTitle(title.s)
+    ;}
+    ;{ PUBLIC METHODS
+    setShortCut(shortcut)
+    ;}
   EndInterface
   Interface Form
     ;{ GETTERS
@@ -113,18 +122,28 @@ DeclareModule PB_FORM
     free()
     ;}
   EndInterface
-  
+  Interface ShortCut
+    ;{ GETTERS
+    getKeys() 
+    getHelpText.s()
+    ;}
+    ;{ SETTERS
+    setKeys(keys)
+    setHelpText(text.s)
+    ;}
+  EndInterface
   Declare newForm(x,y,w,h,title.s)
   Declare newListener(*callack)
   Declare newTextMenu()
   Declare newMenuTitle(title.s)
   Declare newMenuTextItem(title.s,*listener)
   Declare newMenuItemBar()
+  Declare newShortCut(keys.i,helpText.s = "")
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 123
-; FirstLine = 93
-; Folding = ----
+; CursorPosition = 142
+; FirstLine = 5
+; Folding = BAAA9
 ; EnableXP

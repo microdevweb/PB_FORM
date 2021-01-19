@@ -75,7 +75,7 @@
     *methods
     *listener._listener
     id.i
-    shortCut._shortCut
+    *shortCut._shortCut
     build.p_menu_build
   EndStructure
   ;- MenuBar extens menuItem
@@ -101,6 +101,7 @@
   Structure _menu
     *methods
     id.i
+    windowId.i
     build.p_menu_build
     List *titles._menuTitle()
   EndStructure
@@ -108,7 +109,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 85
-; FirstLine = 73
+; CursorPosition = 77
+; FirstLine = 66
 ; Folding = ---
 ; EnableXP

@@ -23,12 +23,13 @@ Module PB_FORM
   XIncludeFile "Classes/_MenuTitle.pbi"
   XIncludeFile "Classes/_MenuItemText.pbi"
   XIncludeFile "Classes/_MenuItemBar.pbi"
+  XIncludeFile "Classes/_ShortCut.pbi"
   
   XIncludeFile "_datasection.pbi"
   
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 24
+; CursorPosition = 26
 ; Folding = -
 ; EnableXP

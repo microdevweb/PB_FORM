@@ -42,8 +42,23 @@ EndProcedure
 ;{ PROTECTED ABSTRACT METHODS
 Procedure ITEM_TEXT_build(*this._menuText,*parent._menu)
   With *this
-    MenuItem(\id,\title)
+    Protected text.s = \title
+    If \shortCut And Len(\shortCut\helpText)
+      text + Chr(9) + \shortCut\helpText
+    EndIf
+    MenuItem(\id,text)
+    If \shortCut
+      AddKeyboardShortcut(*parent\windowId,\shortCut\keys,\id)
+    EndIf
     BindMenuEvent(*parent\id,\id,@ITEM_TEXT_eventMenu())
+  EndWith
+EndProcedure
+;}
+;{ PUBLIC METHODS
+Procedure ITEM_TEXT_setShortCut(*this._menuText,*shortcut)
+  With *this
+    \shortCut = *shortcut
+    ProcedureReturn *shortcut
   EndWith
 EndProcedure
 ;}
@@ -52,7 +67,7 @@ Procedure newMenuTextItem(title.s,*listener)
   Protected *this._menuText = AllocateStructure(_menuText)
   Static lastId = 40000
   With *this
-    \methods = S_menuText
+    \methods = ?S_menuText
     \title = title
     \listener = *listener
     \build = @ITEM_TEXT_build()
@@ -66,6 +81,7 @@ EndProcedure
 
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 15
-; Folding = --
+; CursorPosition = 46
+; FirstLine = 33
+; Folding = ---
 ; EnableXP
