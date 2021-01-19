@@ -166,6 +166,7 @@ Procedure FORM_free(*this._form)
     ForEach \sizeListener()
       FreeStructure(\sizeListener())
     Next
+    MENU_free(\menu)
     FreeStructure(*this)
   EndWith
 EndProcedure
@@ -193,6 +194,7 @@ EndProcedure
 ;}
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 5
+; CursorPosition = 168
+; FirstLine = 157
 ; Folding = ----
 ; EnableXP

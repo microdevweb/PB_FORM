@@ -17,6 +17,16 @@ Procedure MENU_TITLE_build(*this._menuTitle,*parent._menu)
   EndWith
 EndProcedure
 ;}
+;{ PROTECTED METHODS
+Procedure MENU_TITLE_free(*this._menuTitle)
+  With *this
+    ForEach \items()
+      ITEM_TEXT_free(\items())
+    Next
+    FreeStructure(*this)
+  EndWith
+EndProcedure
+;}
 ;{ GETTERS
 Procedure.s MENU_TITLE_getTitle(*this._menuTitle)
   With *this
@@ -53,7 +63,7 @@ EndProcedure
 ;}
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 38
-; FirstLine = 23
-; Folding = --
+; CursorPosition = 25
+; FirstLine = 5
+; Folding = ---
 ; EnableXP

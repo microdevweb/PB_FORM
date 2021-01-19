@@ -11,7 +11,10 @@ Module PB_FORM
   Declare newPosition(x,y)
   Declare FORM_eventClose()
   Declare FORM_eventSize()
-
+  Declare MENU_TITLE_free(*this)
+  Declare MENU_free(*this)
+  Declare ITEM_TEXT_free(*this)
+  
   XIncludeFile "_members.pbi"
   
   XIncludeFile "Classes/_FormFlag.pbi"
@@ -30,6 +33,6 @@ Module PB_FORM
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 26
+; CursorPosition = 14
 ; Folding = -
 ; EnableXP

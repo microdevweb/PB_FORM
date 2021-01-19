@@ -26,6 +26,18 @@ Procedure MENU_addMenuTitle(*this._menu,*menuTitle)
     ProcedureReturn *menuTitle
   EndWith
 EndProcedure
+
+
+;}
+;{ PROTECTED METHODS
+Procedure MENU_free(*this._menu)
+  With *this
+    ForEach \titles()
+      MENU_TITLE_free(\titles())
+    Next
+    FreeStructure(*this)
+  EndWith
+EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
 Procedure newTextMenu()
@@ -39,6 +51,7 @@ EndProcedure
 ;}
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 13
+; CursorPosition = 37
+; FirstLine = 12
 ; Folding = --
 ; EnableXP

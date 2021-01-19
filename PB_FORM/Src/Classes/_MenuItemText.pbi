@@ -54,6 +54,15 @@ Procedure ITEM_TEXT_build(*this._menuText,*parent._menu)
   EndWith
 EndProcedure
 ;}
+;{ PROTECTED METHODS
+Procedure ITEM_TEXT_free(*this._menuText)
+  With *this
+    FreeStructure(\listener)
+    FreeStructure(\shortCut)
+    FreeStructure(*this)
+  EndWith
+EndProcedure
+;}
 ;{ PUBLIC METHODS
 Procedure ITEM_TEXT_setShortCut(*this._menuText,*shortcut)
   With *this
@@ -81,7 +90,7 @@ EndProcedure
 
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 46
+; CursorPosition = 57
 ; FirstLine = 33
 ; Folding = ---
 ; EnableXP
