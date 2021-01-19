@@ -11,6 +11,9 @@
 Procedure MENU_TITLE_build(*this._menuTitle,*parent._menu)
   With *this
     MenuTitle(\title)
+    ForEach \items()
+      \items()\build(\items(),*parent)
+    Next
   EndWith
 EndProcedure
 ;}
@@ -50,7 +53,7 @@ EndProcedure
 ;}
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 50
-; FirstLine = 20
+; CursorPosition = 14
+; FirstLine = 7
 ; Folding = --
 ; EnableXP

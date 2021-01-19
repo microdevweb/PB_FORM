@@ -139,10 +139,17 @@ EndDataSection
 ;- Menu text address
 DataSection
   S_menuText:
-  
+  ;{ GETTERS
+  Data.i @ITEM_TEXT_getTitle()
+  Data.i @ITEM_TEXT_getlistener()
+  ;}
+  ;{ SETTERS
+  Data.i @ITEM_TEXT_setTitle()
+  ;}
   E_menuText:
 EndDataSection
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 143
-; Folding = ----
+; CursorPosition = 146
+; FirstLine = 117
+; Folding = -----
 ; EnableXP

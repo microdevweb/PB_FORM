@@ -88,6 +88,9 @@ DeclareModule PB_FORM
     addItem(item)
     ;}
   EndInterface
+  Interface MenuTextItem
+    
+  EndInterface
   Interface Form
     ;{ GETTERS
     getFlag()
@@ -115,11 +118,13 @@ DeclareModule PB_FORM
   Declare newListener(*callack)
   Declare newTextMenu()
   Declare newMenuTitle(title.s)
+  Declare newMenuTextItem(title.s,*listener)
+  Declare newMenuItemBar()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 86
-; FirstLine = 75
+; CursorPosition = 123
+; FirstLine = 93
 ; Folding = ----
 ; EnableXP
