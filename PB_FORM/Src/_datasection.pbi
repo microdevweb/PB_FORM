@@ -165,8 +165,59 @@ DataSection
   ;}
   E_shortCut:
 EndDataSection
+;- Margins
+DataSection
+  S_margins:
+  ;{ GETTERS
+  Data.i @MARGINS_getRight()
+  Data.i @MARGINS_getLeft()
+  Data.i @MARGINS_getTop()
+  Data.i @MARGINS_getBotom()
+  ;}
+  ;{ SETTERS
+  Data.i @MARGINS_setRight()
+  Data.i @MARGINS_setLeft()
+  Data.i @MARGINS_setTop()
+  Data.i @MARGINS_setBotom()
+  ;}
+  E_margins:
+EndDataSection
+;- Paddings
+DataSection
+  S_paddings:
+  ;{ GETTERS
+  Data.i @PADDINGS_getRight()
+  Data.i @PADDINGS_getLeft()
+  Data.i @PADDINGS_getTop()
+  Data.i @PADDINGS_getBotom()
+  ;}
+  ;{ SETTERS
+  Data.i @PADDINGS_setRight()
+  Data.i @PADDINGS_setLeft()
+  Data.i @PADDINGS_setTop()
+  Data.i @PADDINGS_setBotom()
+  ;}
+  E_paddings:
+EndDataSection
+;- layout
+DataSection
+  S_layout:
+  ;{ GETTERS
+  Data.i @LAYOUT_getSpace()
+  Data.i @LAYOUT_getMargins()
+  Data.i @LAYOUT_getPaddings()
+  ;}
+  ;{ SETTERS
+  Data.i @LAYOUT_setSpace()
+  ;}
+  ;{ PUBLIC METHODS
+  Data.i @LAYOUT_addContent()
+  ;}
+  E_layout:
+EndDataSection
+
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 162
-; FirstLine = 136
-; Folding = -----
+; CursorPosition = 217
+; FirstLine = 187
+; Folding = -------
 ; EnableXP

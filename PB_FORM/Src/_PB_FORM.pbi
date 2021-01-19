@@ -14,6 +14,7 @@ Module PB_FORM
   Declare MENU_TITLE_free(*this)
   Declare MENU_free(*this)
   Declare ITEM_TEXT_free(*this)
+  Declare LAYOUT_super(*this)
   
   XIncludeFile "_members.pbi"
   
@@ -27,12 +28,16 @@ Module PB_FORM
   XIncludeFile "Classes/_MenuItemText.pbi"
   XIncludeFile "Classes/_MenuItemBar.pbi"
   XIncludeFile "Classes/_ShortCut.pbi"
+  XIncludeFile "Classes/_Margins.pbi"
+  XIncludeFile "Classes/_Paddings.pbi"
+  XIncludeFile "Classes/_Layout.pbi"
+  XIncludeFile "Classes/_VLayout.pbi"
   
   XIncludeFile "_datasection.pbi"
   
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 14
+; CursorPosition = 33
 ; Folding = -
 ; EnableXP

@@ -132,6 +132,51 @@ DeclareModule PB_FORM
     setHelpText(text.s)
     ;}
   EndInterface
+  Interface Margins
+    ;{ GETTERS
+    getRight()
+    getLeft()
+    getTop()
+    getBotom()
+    ;}
+    ;{ SETTERS
+    setRight(value)
+    setLeft(value)
+    setTop(value)
+    setBotom(value)
+    ;}
+  EndInterface
+  Interface Paddings
+    ;{ GETTERS
+    getRight()
+    getLeft()
+    getTop()
+    getBotom()
+    ;}
+    ;{ SETTERS
+    setRight(value)
+    setLeft(value)
+    setTop(value)
+    setBotom(value)
+    ;}
+  EndInterface
+  Interface __Layout
+    ;{ GETTERS
+    getSpace()
+    getMargins()
+    getPaddings()
+    ;}
+    ;{ SETTERS
+    setSpace(space)
+    ;}
+    ;{ PUBLIC METHODS
+    addContent(content)
+    ;}
+  EndInterface
+  Interface VLayout Extends __Layout
+    
+  EndInterface
+  
   Declare newForm(x,y,w,h,title.s)
   Declare newListener(*callack)
   Declare newTextMenu()
@@ -139,11 +184,12 @@ DeclareModule PB_FORM
   Declare newMenuTextItem(title.s,*listener)
   Declare newMenuItemBar()
   Declare newShortCut(keys.i,helpText.s = "")
+  Declare newVLayout()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 142
-; FirstLine = 5
-; Folding = BAAA9
+; CursorPosition = 186
+; FirstLine = 50
+; Folding = BAAA9--
 ; EnableXP

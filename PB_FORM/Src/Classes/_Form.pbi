@@ -5,8 +5,6 @@
 ; LICENCE  : MIT
 ; CLASS Form SOURCE CODE
 ;*********************************************************************************************************************************************
-;- Form SRC
-;{
 ;{ GETTERS
 Procedure FORM_getFlag(*this._form)
   With *this
@@ -45,15 +43,22 @@ Procedure FORM_getID(*this._form)
 EndProcedure
 ;}
 ;{ SETTERS
-Procedure.s FORM_setTitle(*this._form,title.s)
+Procedure FORM_setTitle(*this._form,title.s)
   With *this
     \title = title
   EndWith
 EndProcedure
 
-Procedure.s FORM_setMainForm(*this._form,state.b)
+Procedure FORM_setMainForm(*this._form,state.b)
   With *this
     \mainForm = state
+  EndWith
+EndProcedure
+
+Procedure FORM_setMainLayout(*this._form,*layout)
+  With *this
+    \mainLayout = *layout
+    ProcedureReturn *layout
   EndWith
 EndProcedure
 ;}
@@ -191,10 +196,9 @@ Procedure newForm(x,y,w,h,title.s)
     ProcedureReturn *this
   EndWith
 EndProcedure
-;}
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 168
-; FirstLine = 157
-; Folding = ----
+; CursorPosition = 60
+; FirstLine = 6
+; Folding = AeA5
 ; EnableXP
