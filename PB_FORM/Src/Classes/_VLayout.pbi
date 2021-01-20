@@ -5,6 +5,19 @@
 ; LICENCE  : MIT
 ; CLASS VLayout  SOURCE CODE extends Layout
 ;***************************************************************
+;{ PRIVATE METHODS
+Procedure VLAYOUT_buildContent(*this._VLayout)
+  With *this
+    ; set height of each content
+    Protected nContent = ListSize(\myContents()),
+              hContent = (GadgetHeight(\id) / nContent) - (\paddings\botom + \paddings\top) 
+    
+    
+    
+    
+  EndWith
+EndProcedure
+;}
 ;{ PROTECTED ABSTRACT METHODS
 Procedure VLAYOUT_build(*This._VLayout,x,y,w,h,*parent)
   With *This
@@ -39,6 +52,7 @@ Procedure newVLayout()
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 26
+; CursorPosition = 14
+; FirstLine = 3
 ; Folding = -
 ; EnableXP
