@@ -9,7 +9,7 @@
   Prototype p_flag_get(*this,*parent)
   Prototype p_listener_callback(*parent)
   Prototype p_menu_build(*this,*parent)
-  Prototype p_content_build(*this,parentWidth,parentHeight)
+  Prototype p_content_build(*this,x,y,Width,Height,*parent)
   ;- Listener Class
   Structure _listener
     *methods
@@ -35,6 +35,14 @@
     minimize.b
     noGadget.b
     noActivate.b
+  EndStructure
+  ;- GadgetButton Flag
+  Structure _gadgetbuttonFlags Extends _flag
+    right.b
+    left.b
+    def.b
+    mutliligne.b
+    toggle.b
   EndStructure
   ;- Size Class 
   Structure _size
@@ -128,6 +136,7 @@
     *methods
     id.i
     build.p_content_build
+    isGadget.b
   EndStructure
   ;- Layout ABSTRACT Class extends of Content
   Structure _layout Extends _content
@@ -139,7 +148,7 @@
   ;- Gadget ABSTRACT Class extends of Content
   Structure _gadget Extends _content
     *flag._flag
-    sizes._size
+    *sizes._size
   EndStructure
   ;- VLayout Class extends of Layout
   Structure _VLayout Extends _layout
@@ -153,12 +162,12 @@
   Structure _gadgetButton Extends _gadget
     *clickListener._listener
     *shotCut._shortCut
+    title.s
   EndStructure
   
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 128
-; FirstLine = 121
-; Folding = ----
+; CursorPosition = 11
+; Folding = AAA6
 ; EnableXP

@@ -177,6 +177,13 @@ DeclareModule PB_FORM
   Interface VLayout Extends __Layout
     
   EndInterface
+  Interface __Gadget
+    getSizes()
+    getFlags()
+  EndInterface
+  Interface GadgetButton Extends __Gadget
+    
+  EndInterface
   
   Declare newForm(x,y,w,h,title.s)
   Declare newListener(*callack)
@@ -186,11 +193,12 @@ DeclareModule PB_FORM
   Declare newMenuItemBar()
   Declare newShortCut(keys.i,helpText.s = "")
   Declare newVLayout()
+  Declare newGadgetButton(title.s,*ClickListener)
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 189
-; FirstLine = 59
-; Folding = BAAQ0--
+; CursorPosition = 181
+; FirstLine = 4
+; Folding = BAAACAU-
 ; EnableXP

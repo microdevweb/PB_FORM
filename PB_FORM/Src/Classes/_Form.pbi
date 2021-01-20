@@ -115,7 +115,7 @@ Procedure FORM_eventSize()
     EndIf
     ; resize main layout
     If \mainLayout
-      \mainLayout\build(\mainLayout,WindowWidth(\id),WindowHeight(\id))
+      \mainLayout\build(\mainLayout,0,0,WindowWidth(\id),WindowHeight(\id),0)
     EndIf
   EndWith  
 EndProcedure
@@ -135,7 +135,7 @@ Procedure FORM_open(*this._form,*mother._form = 0)
     EndIf
     ; build layout
     If \mainLayout
-      \mainLayout\build(\mainLayout,WindowWidth(\id),WindowHeight(\id))
+      \mainLayout\build(\mainLayout,0,0,WindowWidth(\id),WindowHeight(\id),0)
     EndIf
     BindEvent(#PB_Event_CloseWindow,@FORM_eventClose(),\id)
     BindEvent(#PB_Event_SizeWindow,@FORM_eventSize(),\id)
@@ -205,7 +205,7 @@ Procedure newForm(x,y,w,h,title.s)
 EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 117
-; FirstLine = 46
+; CursorPosition = 137
+; FirstLine = 71
 ; Folding = A+O5
 ; EnableXP

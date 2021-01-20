@@ -216,9 +216,39 @@ DataSection
   ;}
   E_layout:
 EndDataSection
+;- Gadget
+DataSection
+  S_gadget:
+  Data.i @GADGET_getSizes()
+  Data.i @GADGET_getFlags()
+  E_gadget:
+EndDataSection
+DataSection
+  S_gadgetbutton:
+  
+  E_gadgetbutton:
+EndDataSection
+DataSection
+  S_gadgetbtflags:
+  ;{ GETTERS
+  Data.i @GADGETBTFLAGS_isDefault()
+  Data.i @GADGETBTFLAGS_isRight()
+  Data.i @GADGETBTFLAGS_isLeft()
+  Data.i @GADGETBTFLAGS_isMultiLine()
+  Data.i @GADGETBTFLAGS_isToogle()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETBTFLAGS_setDefault()
+  Data.i @GADGETBTFLAGS_setRight()
+  Data.i @GADGETBTFLAGS_setLeft()
+  Data.i @GADGETBTFLAGS_setMultiLine()
+  Data.i @GADGETBTFLAGS_setToogle()
+  ;}
+  E_gadgetbtflags:
+EndDataSection
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 93
-; FirstLine = 79
-; Folding = -------
+; CursorPosition = 244
+; FirstLine = 216
+; Folding = --------
 ; EnableXP

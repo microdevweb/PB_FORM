@@ -6,18 +6,19 @@
 ; CLASS VLayout  SOURCE CODE extends Layout
 ;***************************************************************
 ;{ PROTECTED ABSTRACT METHODS
-Procedure VLAYOUT_build(*This._VLayout,parentWidht,parentHeight)
+Procedure VLAYOUT_build(*This._VLayout,x,y,w,h,*parent)
   With *This
     If Not IsGadget(\id)
       \id = CanvasGadget(#PB_Any,
                          \margins\right,\margins\top,
-                         parentWidht - (\margins\right + \margins\left),
-                         parentHeight - (\margins\top + \margins\botom),
+                         w - (\margins\right + \margins\left),
+                         h - (\margins\top + \margins\botom),
                          #PB_Canvas_Container|#PB_Canvas_Keyboard)
+      CloseGadgetList()
     Else
       ResizeGadget(\id,\margins\right,\margins\top,
-                   parentWidht - (\margins\right + \margins\left),
-                   parentHeight - (\margins\top + \margins\botom))
+                   w - (\margins\right + \margins\left),
+                   h - (\margins\top + \margins\botom))
     EndIf
     ; for debug
     StartVectorDrawing(CanvasVectorOutput(\id))
@@ -38,6 +39,6 @@ Procedure newVLayout()
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 19
+; CursorPosition = 26
 ; Folding = -
 ; EnableXP
