@@ -192,13 +192,13 @@ DeclareModule PB_FORM
   Declare newMenuTextItem(title.s,*listener)
   Declare newMenuItemBar()
   Declare newShortCut(keys.i,helpText.s = "")
-  Declare newVLayout()
-  Declare newGadgetButton(title.s,*ClickListener)
+;   Declare newVLayout()
+;   Declare newGadgetButton(title.s,*ClickListener)
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 181
-; FirstLine = 4
-; Folding = BAAACAU-
+; CursorPosition = 197
+; FirstLine = 15
+; Folding = BAAQCAE-
 ; EnableXP

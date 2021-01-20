@@ -6,7 +6,7 @@
 ; MEMBERS SOURCE CODE
 ;*********************************************************************************************************************************************
 ;- Prototypes
-  Prototype p_flag_get(*this,*parent)
+  Prototype.s p_flag_get(*this)
   Prototype p_listener_callback(*parent)
   Prototype p_menu_build(*this,*parent)
   Prototype p_content_build(*this,x,y,Width,Height,*parent)
@@ -73,6 +73,8 @@
     List *sizeListener._listener()
     *menu._menu
     *mainLayout._layout
+    xml.i
+    dialog.i
   EndStructure
    ;- Shortcut Class
   Structure _shortCut
@@ -168,6 +170,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 11
-; Folding = AAA6
+; CursorPosition = 8
+; FirstLine = 4
+; Folding = ABA6
 ; EnableXP

@@ -85,60 +85,64 @@ EndProcedure
 Procedure FORM_eventSize()
   Protected *this._form = GetWindowData(EventWindow())
   With *this
-    Protected nw = #PB_Ignore,
-              nh = #PB_Ignore,
-              resize.b = #False
     ForEach \sizeListener()
-      ; if the listener the a avorted value
-      If \sizeListener()\callback(*this)
-        ProcedureReturn 
-      EndIf
+      \sizeListener()\callback(*this)
     Next
-    If \size\maxWidht And WindowWidth(\id) > \size\maxWidht
-      nw = \size\maxWidht
-      resize = #True
-    EndIf
-    If \size\maxHeight And WindowHeight(\id) > \size\maxHeight
-      nh = \size\maxHeight
-      resize = #True
-    EndIf
-    If \size\minWidht And WindowWidth(\id) < \size\minWidht
-      nw = \size\minWidht
-      resize = #True
-    EndIf
-    If \size\minHeight And WindowHeight(\id) < \size\minHeight
-      nh = \size\minHeight
-      resize = #True
-    EndIf
-    If resize
-      ResizeWindow(\id,#PB_Ignore,#PB_Ignore,nw,nh)
-    EndIf
-    ; resize main layout
-    If \mainLayout
-      \mainLayout\build(\mainLayout,0,0,WindowWidth(\id),WindowHeight(\id),0)
-    EndIf
   EndWith  
+EndProcedure
+
+Procedure.s FORM_buildXml(*this._form)
+  With *this
+    Protected flags.s = \flag\get(*this)
+    Protected xml.s = "<window id='#PB_Any' name='"+Str(*this)+"' text = '"+\title+"'"
+    If \size\minWidht
+      xml + " minwidht='"+Str(\size\minWidht)+"'"
+    EndIf 
+    If \size\minHeight
+      xml + " minheight='"+Str(\size\minHeight)+"'"
+    EndIf
+    If \size\maxWidht
+      xml + " maxwidht='"+Str(\size\maxWidht)+"'"
+    EndIf 
+    If \size\maxHeight
+      xml + " maxheight='"+Str(\size\maxHeight)+"'"
+    EndIf
+    If Len(flags)
+      xml + " flags = '" + \flag\get(\flag)+"'"
+    EndIf
+    xml + ">"
+    xml + "</window>"
+    ProcedureReturn xml
+  EndWith
 EndProcedure
 ;}
 ;{ PUBLIC METHODS
 Procedure FORM_open(*this._form,*mother._form = 0)
   With *this
-    If Not *mother
-      \id = OpenWindow(#PB_Any,\position\posX,\position\posY,\size\widht,\size\height,\title,\flag\get(\flag,*this))
+    \xml = ParseXML(#PB_Any,FORM_buildXml(*this))
+    If \Xml And XMLStatus(\xml) = #PB_XML_Success
+      \dialog = CreateDialog(#PB_Any)
+      If Not \dialog
+        MessageRequester("PB FORM DIALOG ERROR","Cannot create dialog",#PB_MessageRequester_Error)
+        End
+      EndIf
+      If Not *mother
+        OpenXMLDialog(\dialog,\xml,Str(*this),\position\posX,\position\posY,\size\widht,\size\height)
+      Else
+        OpenXMLDialog(\dialog,\xml,Str(*this),\position\posX,\position\posY,\size\widht,\size\height,WindowID(*mother\id))
+      EndIf
+      \id = DialogWindow(\dialog)
+      SetWindowData(\id,*this)
+      ; create menu
+      If \menu
+        \menu\build(\menu,*this)
+      EndIf
+      BindEvent(#PB_Event_CloseWindow,@FORM_eventClose(),\id)
+      BindEvent(#PB_Event_SizeWindow,@FORM_eventSize(),\id)
     Else
-      \id = OpenWindow(#PB_Any,\position\posX,\position\posY,\size\widht,\size\height,\title,\flag\get(\flag,*this),WindowID(*mother\id))
+      MessageRequester("PB FORM XML ERROR",XMLError(\xml) + " (Line: " + XMLErrorLine(\xml) + ")",#PB_MessageRequester_Error)
+      End
     EndIf
-    SetWindowData(\id,*this)
-    ; build menu
-    If \menu
-      \menu\build(\menu,*this)
-    EndIf
-    ; build layout
-    If \mainLayout
-      \mainLayout\build(\mainLayout,0,0,WindowWidth(\id),WindowHeight(\id),0)
-    EndIf
-    BindEvent(#PB_Event_CloseWindow,@FORM_eventClose(),\id)
-    BindEvent(#PB_Event_SizeWindow,@FORM_eventSize(),\id)
   EndWith   
 EndProcedure
 
@@ -178,7 +182,7 @@ Procedure FORM_free(*this._form)
     ForEach \sizeListener()
       FreeStructure(\sizeListener())
     Next
-    MENU_free(\menu)
+;     MENU_free(\menu)
     FreeStructure(*this)
   EndWith
 EndProcedure
@@ -206,6 +210,6 @@ EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
 ; CursorPosition = 137
-; FirstLine = 71
-; Folding = A+O5
+; FirstLine = 15
+; Folding = Agam
 ; EnableXP

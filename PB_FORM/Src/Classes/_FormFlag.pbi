@@ -142,44 +142,56 @@ Procedure FORM_FLAG_setNoActivated(*this._FormFlag,state.b)
 EndProcedure
 ;}
 ;{ PEOTECTED ABSTRACT METHODS
-Procedure FORM_FLAG_get(*this._FormFlag,*parent._form)
+Procedure.s FORM_FLAG_get(*this._FormFlag)
   With *this
-    Protected flag
+    Protected flag.s
     If \sytemMenu
-      flag | #PB_Window_SystemMenu
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_SystemMenu"
     EndIf
     If \screenCentered
-      flag | #PB_Window_ScreenCentered
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_ScreenCentered"
     EndIf
     If \windowCentered
-      flag | #PB_Window_WindowCentered
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_WindowCentered"
     EndIf
     If \sizeGadget
-      flag | #PB_Window_SizeGadget
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_SizeGadget"
     EndIf
     If \maximize
-      flag | #PB_Window_Maximize
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_Maximize"
     EndIf
     If \minimize
-      flag | #PB_Window_Minimize
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_Minimize"
     EndIf
     If \maximizeGadget
-      flag | #PB_Window_MaximizeGadget
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_MaximizeGadget"
     EndIf
     If \minizeGadget
-      flag | #PB_Window_MinimizeGadget
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_MinimizeGadget"
     EndIf
     If \titleBar
-      flag | #PB_Window_TitleBar
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_TitleBar"
     EndIf
     If \invisible
-      flag | #PB_Window_Invisible
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_Invisible"
     EndIf
     If \noGadget
-      flag | #PB_Window_NoGadgets
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_NoGadgets"
     EndIf
     If \noActivate
-      flag | #PB_Window_NoActivate
+      If Len(flag):flag + "|" :EndIf
+      flag +"#PB_Window_NoActivate"
     EndIf
     ProcedureReturn flag
   EndWith
@@ -198,6 +210,7 @@ EndProcedure
 ;}
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 198
+; CursorPosition = 144
+; FirstLine = 140
 ; Folding = ------
 ; EnableXP

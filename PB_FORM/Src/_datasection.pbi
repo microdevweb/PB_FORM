@@ -115,7 +115,7 @@ DataSection
   ;}
   E_listener:
 EndDataSection
-
+; 
 ;- Menu address
 DataSection
   S_menu:
@@ -166,89 +166,89 @@ DataSection
   ;}
   E_shortCut:
 EndDataSection
-;- Margins
-DataSection
-  S_margins:
-  ;{ GETTERS
-  Data.i @MARGINS_getRight()
-  Data.i @MARGINS_getLeft()
-  Data.i @MARGINS_getTop()
-  Data.i @MARGINS_getBotom()
-  ;}
-  ;{ SETTERS
-  Data.i @MARGINS_setRight()
-  Data.i @MARGINS_setLeft()
-  Data.i @MARGINS_setTop()
-  Data.i @MARGINS_setBotom()
-  ;}
-  E_margins:
-EndDataSection
-;- Paddings
-DataSection
-  S_paddings:
-  ;{ GETTERS
-  Data.i @PADDINGS_getRight()
-  Data.i @PADDINGS_getLeft()
-  Data.i @PADDINGS_getTop()
-  Data.i @PADDINGS_getBotom()
-  ;}
-  ;{ SETTERS
-  Data.i @PADDINGS_setRight()
-  Data.i @PADDINGS_setLeft()
-  Data.i @PADDINGS_setTop()
-  Data.i @PADDINGS_setBotom()
-  ;}
-  E_paddings:
-EndDataSection
-;- layout
-DataSection
-  S_layout:
-  ;{ GETTERS
-  Data.i @LAYOUT_getSpace()
-  Data.i @LAYOUT_getMargins()
-  Data.i @LAYOUT_getPaddings()
-  ;}
-  ;{ SETTERS
-  Data.i @LAYOUT_setSpace()
-  ;}
-  ;{ PUBLIC METHODS
-  Data.i @LAYOUT_addContent()
-  ;}
-  E_layout:
-EndDataSection
-;- Gadget
-DataSection
-  S_gadget:
-  Data.i @GADGET_getSizes()
-  Data.i @GADGET_getFlags()
-  E_gadget:
-EndDataSection
-DataSection
-  S_gadgetbutton:
-  
-  E_gadgetbutton:
-EndDataSection
-DataSection
-  S_gadgetbtflags:
-  ;{ GETTERS
-  Data.i @GADGETBTFLAGS_isDefault()
-  Data.i @GADGETBTFLAGS_isRight()
-  Data.i @GADGETBTFLAGS_isLeft()
-  Data.i @GADGETBTFLAGS_isMultiLine()
-  Data.i @GADGETBTFLAGS_isToogle()
-  ;}
-  ;{ SETTERS
-  Data.i @GADGETBTFLAGS_setDefault()
-  Data.i @GADGETBTFLAGS_setRight()
-  Data.i @GADGETBTFLAGS_setLeft()
-  Data.i @GADGETBTFLAGS_setMultiLine()
-  Data.i @GADGETBTFLAGS_setToogle()
-  ;}
-  E_gadgetbtflags:
-EndDataSection
+; ;- Margins
+; DataSection
+;   S_margins:
+;   ;{ GETTERS
+;   Data.i @MARGINS_getRight()
+;   Data.i @MARGINS_getLeft()
+;   Data.i @MARGINS_getTop()
+;   Data.i @MARGINS_getBotom()
+;   ;}
+;   ;{ SETTERS
+;   Data.i @MARGINS_setRight()
+;   Data.i @MARGINS_setLeft()
+;   Data.i @MARGINS_setTop()
+;   Data.i @MARGINS_setBotom()
+;   ;}
+;   E_margins:
+; EndDataSection
+; ;- Paddings
+; DataSection
+;   S_paddings:
+;   ;{ GETTERS
+;   Data.i @PADDINGS_getRight()
+;   Data.i @PADDINGS_getLeft()
+;   Data.i @PADDINGS_getTop()
+;   Data.i @PADDINGS_getBotom()
+;   ;}
+;   ;{ SETTERS
+;   Data.i @PADDINGS_setRight()
+;   Data.i @PADDINGS_setLeft()
+;   Data.i @PADDINGS_setTop()
+;   Data.i @PADDINGS_setBotom()
+;   ;}
+;   E_paddings:
+; EndDataSection
+; ;- layout
+; DataSection
+;   S_layout:
+;   ;{ GETTERS
+;   Data.i @LAYOUT_getSpace()
+;   Data.i @LAYOUT_getMargins()
+;   Data.i @LAYOUT_getPaddings()
+;   ;}
+;   ;{ SETTERS
+;   Data.i @LAYOUT_setSpace()
+;   ;}
+;   ;{ PUBLIC METHODS
+;   Data.i @LAYOUT_addContent()
+;   ;}
+;   E_layout:
+; EndDataSection
+; ;- Gadget
+; DataSection
+;   S_gadget:
+;   Data.i @GADGET_getSizes()
+;   Data.i @GADGET_getFlags()
+;   E_gadget:
+; EndDataSection
+; DataSection
+;   S_gadgetbutton:
+;   
+;   E_gadgetbutton:
+; EndDataSection
+; DataSection
+;   S_gadgetbtflags:
+;   ;{ GETTERS
+;   Data.i @GADGETBTFLAGS_isDefault()
+;   Data.i @GADGETBTFLAGS_isRight()
+;   Data.i @GADGETBTFLAGS_isLeft()
+;   Data.i @GADGETBTFLAGS_isMultiLine()
+;   Data.i @GADGETBTFLAGS_isToogle()
+;   ;}
+;   ;{ SETTERS
+;   Data.i @GADGETBTFLAGS_setDefault()
+;   Data.i @GADGETBTFLAGS_setRight()
+;   Data.i @GADGETBTFLAGS_setLeft()
+;   Data.i @GADGETBTFLAGS_setMultiLine()
+;   Data.i @GADGETBTFLAGS_setToogle()
+;   ;}
+;   E_gadgetbtflags:
+; EndDataSection
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 244
-; FirstLine = 216
-; Folding = --------
+; CursorPosition = 167
+; FirstLine = 141
+; Folding = -----
 ; EnableXP
