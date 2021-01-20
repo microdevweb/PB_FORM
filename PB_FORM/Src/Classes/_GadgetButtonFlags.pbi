@@ -6,24 +6,30 @@
 ; CLASS GadgetButtonFlags   SOURCE CODE extends of Flags
 ;***************************************************************
 ;{ PROTECTED ABSTRACT METHODS
-Procedure GADGETBTFLAGS_get(*this._gadgetbuttonFlags)
+Procedure.s GADGETBTFLAGS_get(*this._gadgetbuttonFlags)
   With *this
-    Protected flags
+    Protected flags.s
     If \def
-      flags | #PB_Button_Default
+      If Len(flags):flags+"|":EndIf
+      flags +"#PB_Button_Default"
     EndIf
     If \right
-      flags | #PB_Button_Right
+      If Len(flags):flags+"|":EndIf
+      flags +"#PB_Button_Right"
     EndIf
     If \left
-      flags | #PB_Button_Left
+      If Len(flags):flags+"|":EndIf
+      flags +"#PB_Button_Left"
     EndIf
     If \mutliligne
-      flags | #PB_Button_MultiLine
+      If Len(flags):flags+"|":EndIf
+      flags +"#PB_Button_MultiLine"
     EndIf
     If \toggle
-      flags | #PB_Button_Toggle
+      If Len(flags):flags+"|":EndIf
+      flags +"#PB_Button_Toggle"
     EndIf
+    Debug flags
     ProcedureReturn flags
   EndWith
 EndProcedure
@@ -76,7 +82,7 @@ Procedure GADGETBTFLAGS_setMultiLine(*this._gadgetbuttonFlags,state.b)
     \mutliligne = state
   EndWith
 EndProcedure
-Procedure GADGETBTFLAGS_setToogle(*this._gadgetbuttonFlags)
+Procedure GADGETBTFLAGS_setToogle(*this._gadgetbuttonFlags,state.b)
   With *this
     \toggle = state
   EndWith
@@ -87,12 +93,12 @@ Procedure newGadgetButtonFlags()
   Protected *this._gadgetbuttonFlags = AllocateStructure(_gadgetbuttonFlags)
   With *this
     \methods = ?S_gadgetbtflags
-    \def = #True
     \get = @GADGETBTFLAGS_get()
     ProcedureReturn *this
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 88
-; Folding = AE+
+; CursorPosition = 84
+; FirstLine = 19
+; Folding = DE+
 ; EnableXP

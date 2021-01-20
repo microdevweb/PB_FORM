@@ -27,7 +27,7 @@ Procedure POSITION_setPosX(*this._position,x)
 EndProcedure
 Procedure POSITION_setPosY(*this._position,y)
   With *this
-    \posY = x
+    \posY = y
   EndWith
 EndProcedure
 ;}
@@ -44,6 +44,7 @@ EndProcedure
 ;}
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 5
+; CursorPosition = 29
+; FirstLine = 7
 ; Folding = --
 ; EnableXP

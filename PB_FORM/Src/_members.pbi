@@ -9,7 +9,8 @@
   Prototype.s p_flag_get(*this)
   Prototype p_listener_callback(*parent)
   Prototype p_menu_build(*this,*parent)
-  Prototype p_content_build(*this,x,y,Width,Height,*parent)
+  Prototype.s p_content_build(*this)
+  Prototype p_content_makeID(*this,*form)
   ;- Listener Class
   Structure _listener
     *methods
@@ -138,13 +139,14 @@
     *methods
     id.i
     build.p_content_build
+    makeId.p_content_makeID
     isGadget.b
   EndStructure
   ;- Layout ABSTRACT Class extends of Content
   Structure _layout Extends _content
-    *margins._margins
-    *paddings._paddings
     space.i
+    expand.i
+    align.i
     List *myContents._content()
   EndStructure
   ;- Gadget ABSTRACT Class extends of Content
@@ -170,7 +172,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 8
-; FirstLine = 4
-; Folding = ABA6
+; CursorPosition = 148
+; FirstLine = 36
+; Folding = AAw6
 ; EnableXP

@@ -6,40 +6,42 @@
 ; CLASS VLayout  SOURCE CODE extends Layout
 ;***************************************************************
 ;{ PRIVATE METHODS
-Procedure VLAYOUT_buildContent(*this._VLayout)
-  With *this
-    ; set height of each content
-    Protected nContent = ListSize(\myContents()),
-              hContent = (GadgetHeight(\id) / nContent) - (\paddings\botom + \paddings\top) 
-    
-    
-    
-    
-  EndWith
-EndProcedure
+
 ;}
 ;{ PROTECTED ABSTRACT METHODS
-Procedure VLAYOUT_build(*This._VLayout,x,y,w,h,*parent)
+Procedure.s VLAYOUT_build(*This._VLayout)
   With *This
-    If Not IsGadget(\id)
-      \id = CanvasGadget(#PB_Any,
-                         \margins\right,\margins\top,
-                         w - (\margins\right + \margins\left),
-                         h - (\margins\top + \margins\botom),
-                         #PB_Canvas_Container|#PB_Canvas_Keyboard)
-      CloseGadgetList()
-    Else
-      ResizeGadget(\id,\margins\right,\margins\top,
-                   w - (\margins\right + \margins\left),
-                   h - (\margins\top + \margins\botom))
+    Protected xml.s = "<vbox "
+    If \expand > 0
+      xml + " expand = 'item:"+Str(\expand)+"' "
+    ElseIf \expand = PB_FORM::#LAYOUT_EXPAND_NO
+      xml + " expand = 'no'"
+    ElseIf \expand = PB_FORM::#LAYOUT_EXPAND_YES
+      xml + " expand = 'yes'"
+    ElseIf \expand = PB_FORM::#LAYOUT_EXPAND_EQUAL
+      xml + " expand = 'equal'"
     EndIf
-    ; for debug
-    StartVectorDrawing(CanvasVectorOutput(\id))
-    VectorSourceColor($FF08C208)
-    FillVectorOutput()
-    StopVectorDrawing()
+    If \space
+      xml + " spacing = '"+Str(\space)+"'"
+    EndIf
+    If \align
+      If \align = PB_FORM::#ALIGN_CENTER
+        xml + " align = 'center'"
+      ElseIf \align = PB_FORM::#ALIGN_TOP
+        xml + " align = 'top'"
+      ElseIf \align = PB_FORM::#ALIGN_BOTTOM
+        xml + " align = 'bottom'"
+      EndIf
+    EndIf
+    xml + ">"+Chr(10)
+    ForEach \myContents()
+      xml + \myContents()\build(\myContents())
+    Next
+    xml + "</vbox>"+Chr(10)
+    ProcedureReturn xml
   EndWith
 EndProcedure
+
 ;}
 ; PUBLIC CONSTRUCTOR
 Procedure newVLayout()
@@ -52,7 +54,6 @@ Procedure newVLayout()
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 14
-; FirstLine = 3
+; CursorPosition = 43
 ; Folding = -
 ; EnableXP

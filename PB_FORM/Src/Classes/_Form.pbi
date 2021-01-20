@@ -110,8 +110,12 @@ Procedure.s FORM_buildXml(*this._form)
     If Len(flags)
       xml + " flags = '" + \flag\get(\flag)+"'"
     EndIf
-    xml + ">"
-    xml + "</window>"
+    xml + ">"+Chr(10)
+    If \mainLayout
+      xml + \mainLayout\build(\mainLayout)
+    EndIf
+    xml + "</window>"+Chr(10)
+    Debug xml
     ProcedureReturn xml
   EndWith
 EndProcedure
@@ -136,6 +140,10 @@ Procedure FORM_open(*this._form,*mother._form = 0)
       ; create menu
       If \menu
         \menu\build(\menu,*this)
+      EndIf
+      ; create gadget id and bind event for each gadget
+      If \mainLayout
+        \mainLayout\makeId(\mainLayout,*this)
       EndIf
       BindEvent(#PB_Event_CloseWindow,@FORM_eventClose(),\id)
       BindEvent(#PB_Event_SizeWindow,@FORM_eventSize(),\id)
@@ -209,7 +217,7 @@ Procedure newForm(x,y,w,h,title.s)
 EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 137
-; FirstLine = 15
-; Folding = Agam
+; CursorPosition = 117
+; FirstLine = 39
+; Folding = Ayem
 ; EnableXP

@@ -16,17 +16,55 @@ Procedure GADGETBUTTON_eventClick()
 EndProcedure
 ;}
 ;{ PROTECTED ABSTRACT METHODS
-Procedure GADGETBUTTON_build(*this._gadgetButton,x,y,w,h,*parent._content)
+Procedure.s GADGETBUTTON_build(*this._gadgetButton)
   With *this
-    If Not IsGadget(\id)
-      \id = ButtonGadget(#PB_Any,x,y,w,h,\title,\flag\get(\flag,*this))
-      SetGadgetData(\id,*this)
-      If \clickListener
-        BindGadgetEvent(\id,@GADGETBUTTON_eventClick())
-      EndIf
-    Else
-      ResizeGadget(\id,x,y,w,h)
+    Protected xml.s = "<button id='#PB_Any' name='"+*this+"' text='"+\title+"'"
+    Protected flags.s = \flag\get(\flag)
+    If Len(flags)
+      xml + " flags='"+flags+"' "
     EndIf
+    If \sizes\widht
+      xml + " width='"+Str(\sizes\widht)+"' "
+    EndIf
+    If \sizes\height
+      xml + " height='"+Str(\sizes\height)+"' "
+    EndIf
+    xml + "/>"+Chr(10)
+    ProcedureReturn xml
+  EndWith
+EndProcedure
+
+Procedure GADGETBUTTON_makeId(*this._gadgetButton,*form._form)
+  With *this
+    \id = DialogGadget(*form\dialog,Str(*this))
+    SetGadgetData(\id,*this)
+    BindGadgetEvent(\id,@GADGETBUTTON_eventClick())
+  EndWith
+EndProcedure
+;}
+;{ GETTERS
+Procedure.s GADGETBUTTON_getTitle(*this._gadgetButton)
+  With *this
+    ProcedureReturn \title
+  EndWith
+EndProcedure
+
+Procedure GADGETBUTTON_getShortcut(*this._gadgetButton)
+  With *this
+     ProcedureReturn \shotCut 
+  EndWith
+EndProcedure
+;}
+;{ SETTERS
+Procedure GADGETBUTTON_setTitle(*this._gadgetButton,title.s)
+  With *this
+     \title = title
+  EndWith
+EndProcedure
+
+Procedure GADGETBUTTON_setShortcut(*this._gadgetButton,*shortcut)
+  With *this
+     \shotCut = *shortcut
   EndWith
 EndProcedure
 ;}
@@ -46,11 +84,12 @@ Procedure newGadgetButton(title.s,*ClickListener)
     \title = title
     \clickListener = *ClickListener
     \build = @GADGETBUTTON_build()
+    \makeId = @GADGETBUTTON_makeId()
     ProcedureReturn *this
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 21
-; FirstLine = 11
-; Folding = -
+; CursorPosition = 29
+; FirstLine = 6
+; Folding = ---
 ; EnableXP

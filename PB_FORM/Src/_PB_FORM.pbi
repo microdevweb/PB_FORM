@@ -6,6 +6,7 @@
 ; SOURCE CODE
 ;*********************************************************************************************************************************************
 Module PB_FORM
+  EnableExplicit
   ;- PRIVATE prototypes 
   Declare newSize(w,h)
   Declare newPosition(x,y)
@@ -14,9 +15,9 @@ Module PB_FORM
   Declare MENU_TITLE_free(*this)
   Declare MENU_free(*this)
   Declare ITEM_TEXT_free(*this)
-;   Declare LAYOUT_super(*this)
-;   Declare GADGET_super(*this)
-;   Declare newGadgetButtonFlags()
+  Declare LAYOUT_super(*this)
+  Declare GADGET_super(*this)
+  Declare newGadgetButtonFlags()
   
   XIncludeFile "_members.pbi"
   
@@ -30,13 +31,11 @@ Module PB_FORM
   XIncludeFile "Classes/_MenuItemText.pbi"
   XIncludeFile "Classes/_MenuItemBar.pbi"
   XIncludeFile "Classes/_ShortCut.pbi"
-;   XIncludeFile "Classes/_Margins.pbi"
-;   XIncludeFile "Classes/_Paddings.pbi"
-;   XIncludeFile "Classes/_Layout.pbi"
-;   XIncludeFile "Classes/_VLayout.pbi"
-;   XIncludeFile "Classes/_GadgetButtonFlags.pbi"
-;   XIncludeFile "Classes/_Gadget.pbi"
-;   XIncludeFile "Classes/_GadgetButton.pbi"
+  XIncludeFile "Classes/_Layout.pbi"
+  XIncludeFile "Classes/_VLayout.pbi"
+  XIncludeFile "Classes/_GadgetButtonFlags.pbi"
+  XIncludeFile "Classes/_Gadget.pbi"
+  XIncludeFile "Classes/_GadgetButton.pbi"
   
   
   XIncludeFile "_datasection.pbi"
@@ -44,6 +43,6 @@ Module PB_FORM
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 18
+; CursorPosition = 8
 ; Folding = -
 ; EnableXP

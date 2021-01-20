@@ -6,6 +6,17 @@
 ; PROTOTYPES OF CLASS
 ;*********************************************************************************************************************************************
 DeclareModule PB_FORM
+  #LAYOUT_EXPAND_YES   = -1
+  #LAYOUT_EXPAND_NO    = -2
+  #LAYOUT_EXPAND_EQUAL = -3
+  Enumeration  
+    #ALIGN_TOP
+    #ALIGN_CENTER
+    #ALIGN_BOTTOM
+    #ALIGN_LEFT
+    #ALIGN_RIGHT
+  EndEnumeration
+  
   Interface Listener
     ;{ GETTERS
     getCallback()
@@ -14,7 +25,7 @@ DeclareModule PB_FORM
     setCallback(callback)
     ;}
   EndInterface
-  Interface FormFlag
+  Interface FormFlags
     ;{ GETTERS
     isSystemMenu()
     isMinimizeGadget()
@@ -46,6 +57,22 @@ DeclareModule PB_FORM
     setNoActivated(state.b)
     ;}
   EndInterface
+  Interface ButtonFlags
+    ;{ GETTERS
+    isDefault()
+    isRight()
+    isLeft()
+    isMultiLine()
+    isToogle()
+    ;}
+    ;{ SETTERS
+    setDefault(state.b)
+    setRight(state.b)
+    setLeft(state.b)
+    setMultiLine(state.b)
+    setToogle(state.b)
+  ;}
+  EndInterface
   Interface Sizes
     ;{ GETTERS
     getWidth()
@@ -57,7 +84,7 @@ DeclareModule PB_FORM
     ;}
     ;{ SETTERS
     setWidth(w)
-    setHeighth()
+    setHeighth(h)
     setMaxWidth(w)
     setMaxHeight(h)
     setMinWidth(w)
@@ -164,11 +191,13 @@ DeclareModule PB_FORM
   Interface __Layout
     ;{ GETTERS
     getSpace()
-    getMargins()
-    getPaddings()
+    getExpand()
+    getAlignement()
     ;}
     ;{ SETTERS
     setSpace(space)
+    setExpand(expand)
+    setAlignement(alignement)
     ;}
     ;{ PUBLIC METHODS
     addContent(content)
@@ -182,7 +211,14 @@ DeclareModule PB_FORM
     getFlags()
   EndInterface
   Interface GadgetButton Extends __Gadget
-    
+    ;{ GETTERS
+    getTitle.s()
+    getShortcut()
+    ;}
+    ;{ SETTERS
+    setTitle(title.s)
+    setShortcut(shortcut)
+    ;}
   EndInterface
   
   Declare newForm(x,y,w,h,title.s)
@@ -192,13 +228,13 @@ DeclareModule PB_FORM
   Declare newMenuTextItem(title.s,*listener)
   Declare newMenuItemBar()
   Declare newShortCut(keys.i,helpText.s = "")
-;   Declare newVLayout()
-;   Declare newGadgetButton(title.s,*ClickListener)
+  Declare newVLayout()
+  Declare newGadgetButton(title.s,*ClickListener)
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 197
-; FirstLine = 15
-; Folding = BAAQCAE-
+; CursorPosition = 198
+; FirstLine = 19
+; Folding = BcBAQA97
 ; EnableXP

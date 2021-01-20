@@ -33,7 +33,7 @@ EndProcedure
 Procedure newShortCut(keys.i,helpText.s = "")
   Protected *this._shortCut = AllocateStructure(_shortCut)
   With *this
-    \methods = S_shortCut
+    \methods = ?S_shortCut
     \keys = keys
     \helpText = helpText
     ProcedureReturn *this
@@ -41,7 +41,7 @@ Procedure newShortCut(keys.i,helpText.s = "")
 EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 20
-; FirstLine = 3
+; CursorPosition = 35
+; FirstLine = 4
 ; Folding = --
 ; EnableXP
