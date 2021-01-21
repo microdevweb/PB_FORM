@@ -226,10 +226,43 @@ DataSection
   ;}
   E_gadgetbtflags:
 EndDataSection
-
+;- gadgetStringFlags
+DataSection
+  S_gadgetStringFlags:
+  ;{ GETTERS
+  Data.i @GADGETSTRINGFLAGS_isNumeric()
+  Data.i @GADGETSTRINGFLAGS_isPassword()
+  Data.i @GADGETSTRINGFLAGS_isReadOnly()
+  Data.i @GADGETSTRINGFLAGS_isLowerCase()
+  Data.i @GADGETSTRINGFLAGS_isUpperCase()
+  Data.i @GADGETSTRINGFLAGS_isBorderLess()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETSTRINGFLAGS_setNumeric()
+  Data.i @GADGETSTRINGFLAGS_setPassword()
+  Data.i @GADGETSTRINGFLAGS_setReadOnly()
+  Data.i @GADGETSTRINGFLAGS_setLowerCase()
+  Data.i @GADGETSTRINGFLAGS_setUpperCase()
+  Data.i @GADGETSTRINGFLAGS_setBorderLess()
+  ;}
+  E_gadgetStringFlags:
+EndDataSection
+;- gadgetString
+DataSection
+  S_gadgetString:
+  ;{ GETTERS
+  Data.i @GADGETSTRING_getValue()
+  Data.i @GADGETSTRING_getChangeListener()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETSTRING_setValue()
+  Data.i @GADGETSTRING_setChangeListener()
+  ;}
+  E_gadgetString:
+EndDataSection
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 228
-; FirstLine = 197
-; Folding = -------
+; CursorPosition = 259
+; FirstLine = 230
+; Folding = --------
 ; EnableXP

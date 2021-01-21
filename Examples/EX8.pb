@@ -1,9 +1,9 @@
 ﻿;*********************************************************************************************************************************************
 ; AUTHOR   : microdevWeb
 ; MODULE   : PB_FORM
-; VERSION  : BETA 1.4
+; VERSION  : BETA 1.5
 ; LICENCE  : MIT
-; EXAMPLE  : use Layout
+; EXAMPLE  : use Layout and string gadget
 ;*********************************************************************************************************************************************
 XIncludeFile "../PB_FORM/Include/PB_FORM.pbi"
 Global mainForm.PB_FORM::Form 
@@ -12,10 +12,14 @@ Procedure evButton(*button.PB_FORM::GadgetButton)
   Debug "You're clicked on the button "+*button\getTitle()
 EndProcedure
 
+Procedure evChange(*string.PB_FORM::GadgetString)
+  Debug *string\getValue()
+EndProcedure
+
 Procedure openMainForm()
   UseModule PB_FORM
   ; open window
-  mainForm = newForm(0,0,800,0,"Example 7 use HLayout and VLayout")
+  mainForm = newForm(0,0,800,0,"Example 8 use HLayout and VLayout with button and String gadget")
   mainForm\setMainForm(#True)
   Define flag.FormFlags = mainForm\getFlag()
   flag\setScreenCentered(#True)
@@ -26,12 +30,17 @@ Procedure openMainForm()
   mainLayout\setExpand(1)
   ; we create the left layout into the main layout
   Define leftLayout.VLayout = mainLayout\addContent(newVLayout())
-  leftLayout\setAlignement(#ALIGN_CENTER)
-  ; we add button like field
-  leftLayout\addContent(newGadgetButton("Field 1",newListener(@evButton())))
-  leftLayout\addContent(newGadgetButton("Field 2",newListener(@evButton())))
-  leftLayout\addContent(newGadgetButton("Field 3",newListener(@evButton())))
-  leftLayout\addContent(newGadgetButton("Field 4",newListener(@evButton())))
+  leftLayout\setExpand(#LAYOUT_EXPAND_YES)
+  leftLayout\setSpace(15)
+  ; we add string gadget
+  Define string.GadgetString = leftLayout\addContent(newGadgetString("Field 1"))
+  String\setChangeListener(newListener(@evChange()))
+  
+  leftLayout\addContent(newGadgetString("Field 2"))
+  Define string.GadgetString = leftLayout\addContent(newGadgetString("PassWord"))
+  Define sflag.PB_FORM::StringFlags = String\getFlags() : sflag\setPassword(#True)
+  Define string.GadgetString =leftLayout\addContent(newGadgetString("Border less"))
+  Define sflag.PB_FORM::StringFlags = String\getFlags() : sflag\setBorderLess(#True)
   ; we create the right layout
   Define rightLayout.VLayout = mainLayout\addContent(newVLayout())
   ; we add button into the right layout
@@ -53,7 +62,7 @@ Repeat
   WaitWindowEvent()
 ForEver
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 28
-; FirstLine = 9
+; CursorPosition = 36
+; FirstLine = 29
 ; Folding = -
 ; EnableXP

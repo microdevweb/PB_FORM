@@ -73,6 +73,24 @@ DeclareModule PB_FORM
     setToogle(state.b)
   ;}
   EndInterface
+  Interface StringFlags
+    ;{ GETTERS
+    isNumeric()
+    isPassword()
+    isReadOnly()
+    isLowerCase()
+    isUpperCase()
+    isBorderLess()
+    ;}
+    ;{ SETTERS
+    setNumeric(state.b)
+    setPassword(state.b)
+    setReadOnly(state.b)
+    setLowerCase(state.b)
+    setUpperCase(state.b)
+    setBorderLess(state.b)
+    ;}
+  EndInterface
   Interface Sizes
     ;{ GETTERS
     getWidth()
@@ -225,6 +243,17 @@ DeclareModule PB_FORM
     ;}
   EndInterface
   
+  Interface GadgetString Extends __Gadget
+    ;{ GETTERS
+    getValue.s()
+    getChangeListener()
+    ;}
+    ;{ SETTERS
+    setValue(value.s)
+    setChangeListener(listener)
+    ;}
+  EndInterface
+  
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -239,12 +268,13 @@ DeclareModule PB_FORM
   Declare newVLayout()
   Declare newHLayout()
   Declare newGadgetButton(title.s,*ClickListener)
+  Declare newGadgetString(value.s = "")
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 86
-; FirstLine = 14
-; Folding = BcBAQA94-
+; CursorPosition = 273
+; FirstLine = 56
+; Folding = BsJAACg-+-
 ; EnableXP

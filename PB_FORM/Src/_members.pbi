@@ -45,6 +45,15 @@
     mutliligne.b
     toggle.b
   EndStructure
+  ;- GadgetString Flag
+  Structure _gadetstringFlags Extends _flag
+    numeric.b
+    password.b
+    readOnly.b
+    lowerCase.b
+    upperCase.b
+    borderLess.b
+  EndStructure
   ;- Size Class 
   Structure _size
     *methods
@@ -169,6 +178,11 @@
     *shotCut._shortCut
     title.s
   EndStructure
+  ;- GadgetString Class extends of Gadget
+  Structure _gadgetString Extends _gadget
+    value.s
+    *eventChangeListener._listener
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -177,7 +191,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 172
-; FirstLine = 47
-; Folding = AAw6
+; CursorPosition = 183
+; FirstLine = 67
+; Folding = YAgz-
 ; EnableXP

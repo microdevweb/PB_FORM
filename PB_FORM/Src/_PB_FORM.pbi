@@ -18,6 +18,7 @@ Module PB_FORM
   Declare LAYOUT_super(*this)
   Declare GADGET_super(*this)
   Declare newGadgetButtonFlags()
+  Declare newGadgetStringFlags()
   
   XIncludeFile "_members.pbi"
   
@@ -35,8 +36,10 @@ Module PB_FORM
   XIncludeFile "Classes/_VLayout.pbi"
   XIncludeFile "Classes/_HLayout.pbi"
   XIncludeFile "Classes/_GadgetButtonFlags.pbi"
+  XIncludeFile "Classes/_GadgetStringFlags.pbi"
   XIncludeFile "Classes/_Gadget.pbi"
   XIncludeFile "Classes/_GadgetButton.pbi"
+  XIncludeFile "Classes/_GadgetString.pbi"
   XIncludeFile "Classes/_Empty.pbi"
   
   
@@ -45,7 +48,7 @@ Module PB_FORM
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 39
+; CursorPosition = 41
 ; FirstLine = 13
 ; Folding = -
 ; EnableXP
