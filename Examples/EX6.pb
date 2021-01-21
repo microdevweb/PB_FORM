@@ -14,21 +14,18 @@ EndProcedure
 
 Procedure openMainForm()
   UseModule PB_FORM
-  mainForm = newForm(0,0,800,600,"Example 5 use VLayout")
+  mainForm = newForm(0,0,800,600,"Example 6 use HLayout")
   mainForm\setMainForm(#True)
   Define flag.FormFlags = mainForm\getFlag()
   flag\setScreenCentered(#True)
   flag\setSizeGadget(#True)
   ; Layout
-  ; add vertical layout
-  VLayout.VLayout = mainForm\setMainLayout(newVLayout())
-  VLayout\addContent(newGadgetButton("Button 1",newListener(@evButton())))
-  Define bt.GadgetButton = VLayout\addContent(newGadgetButton("Button 2",newListener(@evButton())))
-  Define btSize.Sizes = bt\getSizes()
-  btSize\setHeighth(80)
-  Define btFlag.ButtonFlags = bt\getFlags()
-  btFlag\setToogle(#True)
-  VLayout\addContent(newGadgetButton("Button 3",newListener(@evButton())))
+  ; add horizontal layout
+  HLayout.HLayout = mainForm\setMainLayout(newHLayout())
+  HLayout\setExpand(#LAYOUT_EXPAND_YES)
+  HLayout\addContent(newGadgetButton("Button 1",newListener(@evButton())))
+  HLayout\addContent(newGadgetButton("Button 2",newListener(@evButton())))
+  HLayout\addContent(newGadgetButton("Button 3",newListener(@evButton())))
   mainForm\open()
 EndProcedure
 
@@ -38,7 +35,6 @@ Repeat
   WaitWindowEvent()
 ForEver
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 38
-; FirstLine = 1
+; CursorPosition = 16
 ; Folding = -
 ; EnableXP

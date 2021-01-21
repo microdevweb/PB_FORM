@@ -14,21 +14,26 @@ EndProcedure
 
 Procedure openMainForm()
   UseModule PB_FORM
-  mainForm = newForm(0,0,800,600,"Example 5 use VLayout")
+  ; open window
+  mainForm = newForm(0,0,800,600,"Example 7 use HLayout and VLayout")
   mainForm\setMainForm(#True)
   Define flag.FormFlags = mainForm\getFlag()
   flag\setScreenCentered(#True)
   flag\setSizeGadget(#True)
-  ; Layout
-  ; add vertical layout
-  VLayout.VLayout = mainForm\setMainLayout(newVLayout())
-  VLayout\addContent(newGadgetButton("Button 1",newListener(@evButton())))
-  Define bt.GadgetButton = VLayout\addContent(newGadgetButton("Button 2",newListener(@evButton())))
-  Define btSize.Sizes = bt\getSizes()
-  btSize\setHeighth(80)
-  Define btFlag.ButtonFlags = bt\getFlags()
-  btFlag\setToogle(#True)
-  VLayout\addContent(newGadgetButton("Button 3",newListener(@evButton())))
+  ; use HLayout as main layout
+  mainLayout.HLayout = mainForm\setMainLayout(newHLayout())
+  ; we will expand the left layout
+  mainLayout\setExpand(1)
+  ; we create the left layout into the main layout
+  Define leftLayout.VLayout = mainLayout\addContent(newVLayout())
+  ; we create the right layout
+  Define rightLayout.VLayout = mainLayout\addContent(newVLayout())
+  ; we add button into the right layout
+  rightLayout\addContent(newGadgetButton("New",newListener(@evButton())))
+  rightLayout\addContent(newGadgetButton("Edit",newListener(@evButton())))
+  rightLayout\addContent(newGadgetButton("Delete",newListener(@evButton())))
+  rightLayout\addContent(newGadgetButton("Exit",newListener(@evButton())))
+  ; open window
   mainForm\open()
 EndProcedure
 
@@ -38,7 +43,7 @@ Repeat
   WaitWindowEvent()
 ForEver
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 38
-; FirstLine = 1
+; CursorPosition = 34
+; FirstLine = 10
 ; Folding = -
 ; EnableXP

@@ -206,6 +206,9 @@ DeclareModule PB_FORM
   Interface VLayout Extends __Layout
     
   EndInterface
+  Interface HLayout Extends __Layout
+    
+  EndInterface
   Interface __Gadget
     getSizes()
     getFlags()
@@ -229,12 +232,13 @@ DeclareModule PB_FORM
   Declare newMenuItemBar()
   Declare newShortCut(keys.i,helpText.s = "")
   Declare newVLayout()
+  Declare newHLayout()
   Declare newGadgetButton(title.s,*ClickListener)
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 198
-; FirstLine = 19
-; Folding = BcBAQA97
+; CursorPosition = 208
+; FirstLine = 37
+; Folding = BcBAQA94-
 ; EnableXP

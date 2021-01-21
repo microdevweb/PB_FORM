@@ -33,6 +33,7 @@ Module PB_FORM
   XIncludeFile "Classes/_ShortCut.pbi"
   XIncludeFile "Classes/_Layout.pbi"
   XIncludeFile "Classes/_VLayout.pbi"
+  XIncludeFile "Classes/_HLayout.pbi"
   XIncludeFile "Classes/_GadgetButtonFlags.pbi"
   XIncludeFile "Classes/_Gadget.pbi"
   XIncludeFile "Classes/_GadgetButton.pbi"
@@ -43,6 +44,7 @@ Module PB_FORM
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 8
+; CursorPosition = 35
+; FirstLine = 6
 ; Folding = -
 ; EnableXP
