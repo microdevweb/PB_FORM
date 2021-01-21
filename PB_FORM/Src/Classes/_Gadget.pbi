@@ -11,6 +11,13 @@ Procedure GADGET_getSizes(*this._gadget)
   EndWith
 EndProcedure
 
+Procedure GADGET_setSizes(*this._gadget,width,height)
+  With *this
+    \sizes\widht = width
+    \sizes\height = height
+  EndWith
+EndProcedure
+
 Procedure GADGET_getFlags(*this._gadget)
   With *this
     ProcedureReturn \flag
@@ -26,6 +33,6 @@ Procedure GADGET_super(*this._gadget)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 23
+; CursorPosition = 13
 ; Folding = -
 ; EnableXP

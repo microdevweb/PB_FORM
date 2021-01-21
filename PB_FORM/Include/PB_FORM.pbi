@@ -231,6 +231,7 @@ DeclareModule PB_FORM
   Interface __Gadget
     getSizes()
     getFlags()
+    setSizes(width,height)
   EndInterface
   Interface GadgetButton Extends __Gadget
     ;{ GETTERS
@@ -274,7 +275,7 @@ EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 273
-; FirstLine = 56
-; Folding = BsJAACg-+-
+; CursorPosition = 233
+; FirstLine = 12
+; Folding = BAAAAAAgA+
 ; EnableXP

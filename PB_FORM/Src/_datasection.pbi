@@ -122,6 +122,7 @@ DataSection
   Data.i @MENU_addMenuTitle()
   E_menu:
 EndDataSection
+
 ;- MenuTitle address
 DataSection
   S_menuTitle:
@@ -192,6 +193,7 @@ DataSection
   S_gadget:
   Data.i @GADGET_getSizes()
   Data.i @GADGET_getFlags()
+  Data.i @GADGET_setSizes()
   E_gadget:
 EndDataSection
 ;- GadgetButton
@@ -262,7 +264,7 @@ DataSection
 EndDataSection
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 259
-; FirstLine = 230
-; Folding = --------
+; CursorPosition = 195
+; FirstLine = 14
+; Folding = AAAAAEA5
 ; EnableXP
