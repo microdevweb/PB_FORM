@@ -29,6 +29,18 @@ Procedure.s GADGETBUTTON_build(*this._gadgetButton)
     If \sizes\height
       xml + " height='"+Str(\sizes\height)+"' "
     EndIf
+    If \sizes\minWidht
+      xml + " minwidht='"+Str(\sizes\minWidht)+"'"
+    EndIf 
+    If \sizes\minHeight
+      xml + " minheight='"+Str(\sizes\minHeight)+"'"
+    EndIf
+    If \sizes\maxWidht
+      xml + " maxwidht='"+Str(\sizes\maxWidht)+"'"
+    EndIf 
+    If \sizes\maxHeight
+      xml + " maxheight='"+Str(\sizes\maxHeight)+"'"
+    EndIf
     xml + "/>"+Chr(10)
     ProcedureReturn xml
   EndWith
@@ -89,7 +101,7 @@ Procedure newGadgetButton(title.s,*ClickListener)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 29
-; FirstLine = 6
+; CursorPosition = 32
+; FirstLine = 13
 ; Folding = ---
 ; EnableXP

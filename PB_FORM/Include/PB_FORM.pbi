@@ -84,7 +84,7 @@ DeclareModule PB_FORM
     ;}
     ;{ SETTERS
     setWidth(w)
-    setHeighth(h)
+    setHeight(h)
     setMaxWidth(w)
     setMaxHeight(h)
     setMinWidth(w)
@@ -193,6 +193,7 @@ DeclareModule PB_FORM
     getSpace()
     getExpand()
     getAlignement()
+    getSizes()
     ;}
     ;{ SETTERS
     setSpace(space)
@@ -224,6 +225,10 @@ DeclareModule PB_FORM
     ;}
   EndInterface
   
+  Interface Empty Extends __Gadget
+    
+  EndInterface
+  
   Declare newForm(x,y,w,h,title.s)
   Declare newListener(*callack)
   Declare newTextMenu()
@@ -234,11 +239,12 @@ DeclareModule PB_FORM
   Declare newVLayout()
   Declare newHLayout()
   Declare newGadgetButton(title.s,*ClickListener)
+  Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 208
-; FirstLine = 37
+; CursorPosition = 86
+; FirstLine = 14
 ; Folding = BcBAQA94-
 ; EnableXP

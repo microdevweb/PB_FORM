@@ -115,7 +115,7 @@ Procedure.s FORM_buildXml(*this._form)
       xml + \mainLayout\build(\mainLayout)
     EndIf
     xml + "</window>"+Chr(10)
-    Debug xml
+;     Debug xml
     ProcedureReturn xml
   EndWith
 EndProcedure
@@ -218,6 +218,6 @@ EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
 ; CursorPosition = 117
-; FirstLine = 39
+; FirstLine = 45
 ; Folding = Ayem
 ; EnableXP

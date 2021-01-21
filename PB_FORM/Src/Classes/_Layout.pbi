@@ -24,6 +24,12 @@ Procedure LAYOUT_getAlign(*this._layout)
   EndWith
 EndProcedure
 
+Procedure LAYOUT_getSizes(*this._layout)
+  With *this
+    ProcedureReturn \sizes
+  EndWith
+EndProcedure
+
 ;}
 ;{ SETTERS
 Procedure LAYOUT_setSpace(*this._layout,space)
@@ -57,7 +63,9 @@ EndProcedure
 Procedure LAYOUT_makeId(*this._layout,*form)
   With *this
     ForEach \myContents()
-      \myContents()\makeId(\myContents(),*form)
+      If \myContents()\makeId
+        \myContents()\makeId(\myContents(),*form)
+      EndIf
     Next
   EndWith
 EndProcedure
@@ -65,13 +73,13 @@ EndProcedure
 ; SUPER CONSTRUCTOR
 Procedure LAYOUT_super(*this._layout)
   With *this
-;     \sizes = newSize(0,0)
+    \sizes = newSize(0,0)
     \makeId = @LAYOUT_makeId()
     \expand = PB_FORM::#LAYOUT_EXPAND_NO
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 69
-; FirstLine = 33
+; CursorPosition = 67
+; FirstLine = 43
 ; Folding = ---
 ; EnableXP

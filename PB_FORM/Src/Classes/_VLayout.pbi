@@ -33,6 +33,24 @@ Procedure.s VLAYOUT_build(*This._VLayout)
         xml + " align = 'bottom'"
       EndIf
     EndIf
+    If \sizes\minWidht
+      xml + " minwidht='"+Str(\sizes\minWidht)+"'"
+    EndIf 
+    If \sizes\minHeight
+      xml + " minheight='"+Str(\sizes\minHeight)+"'"
+    EndIf
+    If \sizes\maxWidht
+      xml + " maxwidht='"+Str(\sizes\maxWidht)+"'"
+    EndIf 
+    If \sizes\maxHeight
+      xml + " maxheight='"+Str(\sizes\maxHeight)+"'"
+    EndIf
+    If \sizes\widht
+      xml + " widht='"+Str(\sizes\widht)+"'"
+    EndIf
+    If \sizes\height
+      xml + " height='"+Str(\sizes\height)+"'"
+    EndIf
     xml + ">"+Chr(10)
     ForEach \myContents()
       xml + \myContents()\build(\myContents())
@@ -54,6 +72,7 @@ Procedure newVLayout()
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 43
+; CursorPosition = 36
+; FirstLine = 25
 ; Folding = -
 ; EnableXP

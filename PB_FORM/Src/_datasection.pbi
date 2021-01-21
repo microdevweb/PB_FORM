@@ -174,6 +174,7 @@ DataSection
   Data.i @LAYOUT_getSpace()
   Data.i @LAYOUT_getExpand()
   Data.i @LAYOUT_getAlign()
+  Data.i @LAYOUT_getSizes()
   ;}
   ;{ SETTERS
   Data.i @LAYOUT_setSpace()
@@ -226,8 +227,9 @@ DataSection
   E_gadgetbtflags:
 EndDataSection
 
+
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 179
-; FirstLine = 165
+; CursorPosition = 228
+; FirstLine = 197
 ; Folding = -------
 ; EnableXP

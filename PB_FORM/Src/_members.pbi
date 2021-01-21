@@ -147,6 +147,7 @@
     space.i
     expand.i
     align.i
+    *sizes._size
     List *myContents._content()
   EndStructure
   ;- Gadget ABSTRACT Class extends of Content
@@ -168,11 +169,15 @@
     *shotCut._shortCut
     title.s
   EndStructure
+  ;- Empty Class extends of Gadget
+  Structure _empty Extends _gadget
+    
+  EndStructure
   
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 148
-; FirstLine = 36
+; CursorPosition = 172
+; FirstLine = 47
 ; Folding = AAw6
 ; EnableXP
