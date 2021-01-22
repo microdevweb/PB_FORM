@@ -101,7 +101,7 @@ Procedure newGadgetCustom(*build,*event)
     \methods = AllocateMemory(mothenL + ClassL)
     MoveMemory(*method,\methods,mothenL)
     MoveMemory(?S_gadgetCustom,\methods + mothenL,ClassL)
-    \flag = newGadgetStringFlags()
+    \flag = newGadgetCanvasFlags()
     
     \isCustom = #True
     \build = @GADGETCUSTOM_build()
@@ -112,7 +112,7 @@ Procedure newGadgetCustom(*build,*event)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 20
-; FirstLine = 1
+; CursorPosition = 103
+; FirstLine = 79
 ; Folding = --
 ; EnableXP
