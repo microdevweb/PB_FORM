@@ -103,6 +103,20 @@ DeclareModule PB_FORM
     setFlat(state.b)
     ;}
   EndInterface
+  Interface CanvasFlags
+    ;{ GETTERS
+    isBorder()
+    isKeyboard()
+    isDrawFocus()
+    isContainer()
+    ;}
+    ;{ SETTERS
+    setBorder(state.b)
+    setKeyboard(state.b)
+    setDrawFocus(state.b)
+    setContainer(state.b)
+    ;}
+  EndInterface
   Interface Sizes
     ;{ GETTERS
     getWidth()
@@ -244,6 +258,7 @@ DeclareModule PB_FORM
   Interface __Gadget
     getSizes()
     getFlags()
+    getId()
     setSizes(width,height)
   EndInterface
   Interface GadgetButton Extends __Gadget
@@ -276,6 +291,11 @@ DeclareModule PB_FORM
     setContent(content)
     ;}
   EndInterface
+  
+  Interface GadgetCustom Extends __Gadget
+    setFlags(flags)
+  EndInterface
+  
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -292,12 +312,13 @@ DeclareModule PB_FORM
   Declare newGadgetButton(title.s,*ClickListener)
   Declare newGadgetString(value.s = "")
   Declare newGadgetFrame(title.s)
+  Declare newGadgetCustom(*build,*event)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 275
-; FirstLine = 42
-; Folding = BAOAAIAAg9-
+; CursorPosition = 260
+; FirstLine = 165
+; Folding = tt0--------
 ; EnableXP

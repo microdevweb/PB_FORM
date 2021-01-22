@@ -69,6 +69,7 @@ Procedure LAYOUT_makeId(*this._layout,*form)
     Next
   EndWith
 EndProcedure
+
 ;}
 ; SUPER CONSTRUCTOR
 Procedure LAYOUT_super(*this._layout)
@@ -76,10 +77,11 @@ Procedure LAYOUT_super(*this._layout)
     \sizes = newSize(0,0)
     \makeId = @LAYOUT_makeId()
     \expand = PB_FORM::#LAYOUT_EXPAND_NO
+    \isLayout = #True
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 67
-; FirstLine = 43
+; CursorPosition = 71
+; FirstLine = 48
 ; Folding = ---
 ; EnableXP

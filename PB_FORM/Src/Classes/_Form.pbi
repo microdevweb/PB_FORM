@@ -255,7 +255,7 @@ Procedure newForm(x,y,w,h,title.s)
 EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 155
-; FirstLine = 17
-; Folding = AAJA-
+; CursorPosition = 127
+; FirstLine = 7
+; Folding = AANA-
 ; EnableXP

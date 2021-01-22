@@ -194,6 +194,7 @@ DataSection
   S_gadget:
   Data.i @GADGET_getSizes()
   Data.i @GADGET_getFlags()
+  Data.i @GADGET_getId()
   Data.i @GADGET_setSizes()
   E_gadget:
 EndDataSection
@@ -293,9 +294,32 @@ DataSection
   ;}
   E_gadgetFrame:
 EndDataSection
+;- gadgetCanvasFlags
+DataSection
+  S_gadgetCanvasFlags:
+  ;{ GETTERS
+  Data.i @GADGETSCANVASFLAGS_isBorder()
+  Data.i @GADGETSCANVASFLAGS_isKeyboard()
+  Data.i @GADGETSCANVASFLAGS_isDrawFocus()
+  Data.i @GADGETSCANVASFLAGS_isContainer()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETSCANVASFLAGS_setBorder()
+  Data.i @GADGETSCANVASFLAGS_setKeyboard()
+  Data.i @GADGETSCANVASFLAGS_setDrawFocus()
+  Data.i @GADGETSCANVASFLAGS_setContainer()
+  ;}
+  E_gadgetCanvasFlags:
+EndDataSection
+;- gadgetCustom
+DataSection
+  S_gadgetCustom:
+  Data.i @GADGETCUSTOM_setFlags()
+  E_gadgetCustom:
+EndDataSection
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 291
-; FirstLine = 68
-; Folding = AoAAAgA0-
+; CursorPosition = 196
+; FirstLine = 48
+; Folding = AoAAAkA0--
 ; EnableXP

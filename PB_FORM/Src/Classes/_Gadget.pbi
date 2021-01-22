@@ -24,6 +24,12 @@ Procedure GADGET_getFlags(*this._gadget)
   EndWith
 EndProcedure
 
+Procedure GADGET_getId(*this._gadget)
+  With *this
+    ProcedureReturn \id
+  EndWith
+EndProcedure
+
 Procedure GADGET_super(*this._gadget)
   With *this
     \sizes = newSize(0,0)
@@ -33,6 +39,7 @@ Procedure GADGET_super(*this._gadget)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 20
+; CursorPosition = 28
+; FirstLine = 3
 ; Folding = -
 ; EnableXP

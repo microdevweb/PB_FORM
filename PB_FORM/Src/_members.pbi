@@ -11,6 +11,7 @@
   Prototype p_menu_build(*this,*parent)
   Prototype.s p_content_build(*this)
   Prototype p_content_makeID(*this,*form)
+  Prototype p_custom_build(*this)
   ;- Listener Class
   Structure _listener
     *methods
@@ -59,6 +60,13 @@
     single.b
     double.b
     flat.b
+  EndStructure
+  ;- GadgetCanvas Flags
+  Structure _gadgetCanvasFlags Extends _flag
+    border.b
+    Keyboard.b
+    drawFocus.b
+    container.b
   EndStructure
   ;- Size Class 
   Structure _size
@@ -155,7 +163,10 @@
     id.i
     build.p_content_build
     makeId.p_content_makeID
+    buildCustom.p_content_build
     isGadget.b
+    isCustom.b
+    isLayout.b
   EndStructure
   ;- Layout ABSTRACT Class extends of Content
   Structure _layout Extends _content
@@ -194,6 +205,10 @@
     title.s
     *content._content
   EndStructure
+  Structure _customeGadget Extends _gadget
+    userbuild.p_custom_build
+    userevent.p_custom_build
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -202,7 +217,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 193
-; FirstLine = 48
-; Folding = gAAA7
+; CursorPosition = 96
+; FirstLine = 25
+; Folding = AIAGs
 ; EnableXP
