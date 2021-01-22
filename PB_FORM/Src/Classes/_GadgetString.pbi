@@ -16,6 +16,26 @@ Procedure GADGETSTRING_eventChange()
   EndWith
 EndProcedure
 ;}
+Procedure GADGETSTRING_setFlags(*this._gadgetString,flags)
+  With *this
+    Protected *f._gadetstringFlags = \flag
+    If flags & #PB_String_LowerCase = #PB_String_LowerCase
+      *f\lowerCase = #True
+    EndIf
+    If flags & #PB_String_UpperCase = #PB_String_UpperCase
+      *f\upperCase = #True
+    EndIf
+    If flags & #PB_String_Numeric = #PB_String_Numeric
+      *f\numeric = #True
+    EndIf
+    If flags & #PB_String_Password = #PB_String_Password
+      *f\password = #True
+    EndIf
+    If flags & #PB_String_BorderLess = #PB_String_BorderLess
+      *f\borderLess = #True
+    EndIf
+  EndWith
+EndProcedure
 ;{ PROTECTED ABSTRACT METHODS
 Procedure.s GADGETSTRING_build(*this._gadgetString)
   With *this
@@ -104,7 +124,7 @@ Procedure newGadgetString(value.s = "")
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 75
-; FirstLine = 50
-; Folding = -e-
+; CursorPosition = 18
+; FirstLine = 3
+; Folding = -0+
 ; EnableXP

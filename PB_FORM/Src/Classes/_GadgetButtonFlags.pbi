@@ -29,7 +29,6 @@ Procedure.s GADGETBTFLAGS_get(*this._gadgetbuttonFlags)
       If Len(flags):flags+"|":EndIf
       flags +"#PB_Button_Toggle"
     EndIf
-    Debug flags
     ProcedureReturn flags
   EndWith
 EndProcedure
@@ -98,7 +97,7 @@ Procedure newGadgetButtonFlags()
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 84
-; FirstLine = 19
+; CursorPosition = 30
+; FirstLine = 10
 ; Folding = DE+
 ; EnableXP

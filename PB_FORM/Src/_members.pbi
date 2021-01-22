@@ -54,6 +54,12 @@
     upperCase.b
     borderLess.b
   EndStructure
+  ;- GadgetFrame Flags
+  Structure _gadgetframeFlags Extends _flag
+    single.b
+    double.b
+    flat.b
+  EndStructure
   ;- Size Class 
   Structure _size
     *methods
@@ -183,6 +189,11 @@
     value.s
     *eventChangeListener._listener
   EndStructure
+  ;- GadgetFrame extends of Gadget
+  Structure _gadgetFrame Extends _gadget
+    title.s
+    *content._content
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -191,7 +202,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 183
-; FirstLine = 67
-; Folding = YAgz-
+; CursorPosition = 193
+; FirstLine = 48
+; Folding = gAAA7
 ; EnableXP

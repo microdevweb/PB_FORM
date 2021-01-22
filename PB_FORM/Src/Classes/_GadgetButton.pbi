@@ -15,6 +15,26 @@ Procedure GADGETBUTTON_eventClick()
   EndWith
 EndProcedure
 ;}
+Procedure GADGETBUTTON_setFlags(*this._gadgetButton,flags)
+  With *this
+    Protected *f._gadgetbuttonFlags = \flag
+    If flags & #PB_Button_Default = #PB_Button_Default
+      *f\def = #True
+    EndIf
+    If flags & #PB_Button_Right = #PB_Button_Right
+      *f\right = #True
+    EndIf
+    If flags & #PB_Button_Left = #PB_Button_Left
+      *f\left = #True
+    EndIf
+    If flags & #PB_Button_MultiLine = #PB_Button_MultiLine
+      *f\mutliligne = #True
+    EndIf
+    If flags & #PB_Button_Toggle = #PB_Button_Toggle
+      *f\toggle = #True
+    EndIf
+  EndWith
+EndProcedure
 ;{ PROTECTED ABSTRACT METHODS
 Procedure.s GADGETBUTTON_build(*this._gadgetButton)
   With *this
@@ -101,7 +121,7 @@ Procedure newGadgetButton(title.s,*ClickListener)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 32
-; FirstLine = 13
+; CursorPosition = 63
+; FirstLine = 47
 ; Folding = ---
 ; EnableXP

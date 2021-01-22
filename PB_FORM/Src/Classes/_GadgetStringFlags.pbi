@@ -33,7 +33,6 @@ Procedure.s GADGETSTRINGFLAGS_get(*this._gadetstringFlags)
       If Len(flags):flags+"|":EndIf
       flags +"#PB_String_BorderLess"
     EndIf
-    Debug flags
     ProcedureReturn flags
   EndWith
 EndProcedure
@@ -112,7 +111,7 @@ Procedure newGadgetStringFlags()
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 33
+; CursorPosition = 34
 ; FirstLine = 6
 ; Folding = DIg
 ; EnableXP

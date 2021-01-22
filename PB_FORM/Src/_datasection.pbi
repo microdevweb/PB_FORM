@@ -92,6 +92,7 @@ DataSection
   Data.i @FORM_setTitle()
   Data.i @FORM_setMainForm()
   Data.i @FORM_setMainLayout()
+  Data.i @FORM_setFlags()
   ;}
   ;{ PUBLIC METHODS
   Data.i @FORM_open()
@@ -206,6 +207,7 @@ DataSection
   ;{ SETTERS
   Data.i @GADGETBUTTON_setTitle()
   Data.i @GADGETBUTTON_setShortcut()
+  Data.i @GADGETBUTTON_setFlags()
   ;}
   E_gadgetbutton:
 EndDataSection
@@ -259,12 +261,41 @@ DataSection
   ;{ SETTERS
   Data.i @GADGETSTRING_setValue()
   Data.i @GADGETSTRING_setChangeListener()
+  Data.i @GADGETSTRING_setFlags()
   ;}
   E_gadgetString:
 EndDataSection
 
+;- gadgetFrame flags
+DataSection
+  S_gadgetframeFlags:
+  ;{ GETTERS
+  Data.i @GADGETSFRAMEFLAGS_isSingle()
+  Data.i @GADGETSFRAMEFLAGS_isDouble()
+  Data.i @GADGETSFRAMEFLAGS_isFlat()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETSFRAMEFLAGS_setSingle()
+  Data.i @GADGETSFRAMEFLAGS_setDouble()
+  Data.i @GADGETSFRAMEFLAGS_setFlat()
+  ;}
+  E_gadgetframeFlags:
+EndDataSection
+
+;- gadgetFrame
+DataSection
+  S_gadgetFrame:
+  ;{ GETTERS
+  Data.i @GADGETFRAME_getContent()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETFRAME_setContent()
+  ;}
+  E_gadgetFrame:
+EndDataSection
+
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 195
-; FirstLine = 14
-; Folding = AAAAAEA5
+; CursorPosition = 291
+; FirstLine = 68
+; Folding = AoAAAgA0-
 ; EnableXP

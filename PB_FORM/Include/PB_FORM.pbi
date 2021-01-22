@@ -91,6 +91,18 @@ DeclareModule PB_FORM
     setBorderLess(state.b)
     ;}
   EndInterface
+  Interface FrameFlags
+    ;{ GETTERS
+    isSingle()
+    isDouble()
+    isFlat()
+    ;}
+    ;{ SETTERS
+    setSingle(state.b)
+    setDouble(state.b)
+    setFlat(state.b)
+    ;}
+  EndInterface
   Interface Sizes
     ;{ GETTERS
     getWidth()
@@ -158,6 +170,7 @@ DeclareModule PB_FORM
     setTitle(title.s)
     setMainForm(state.b)
     setMainLayout(layout)
+    setFlags(flags)
     ;}
     ;{ PUBLIC METHODS
     open(motherWindow = 0)
@@ -241,9 +254,9 @@ DeclareModule PB_FORM
     ;{ SETTERS
     setTitle(title.s)
     setShortcut(shortcut)
+    setFlags(flags)
     ;}
   EndInterface
-  
   Interface GadgetString Extends __Gadget
     ;{ GETTERS
     getValue.s()
@@ -252,9 +265,17 @@ DeclareModule PB_FORM
     ;{ SETTERS
     setValue(value.s)
     setChangeListener(listener)
+    setFlags(flags)
+    ;}
+  EndInterface 
+  Interface GadgetFrame Extends __Gadget
+    ;{ GETTERS
+    getContent()
+    ;}
+    ;{ SETTERS
+    setContent(content)
     ;}
   EndInterface
-  
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -270,12 +291,13 @@ DeclareModule PB_FORM
   Declare newHLayout()
   Declare newGadgetButton(title.s,*ClickListener)
   Declare newGadgetString(value.s = "")
+  Declare newGadgetFrame(title.s)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 233
-; FirstLine = 12
-; Folding = BAAAAAAgA+
+; CursorPosition = 275
+; FirstLine = 42
+; Folding = BAOAAIAAg9-
 ; EnableXP

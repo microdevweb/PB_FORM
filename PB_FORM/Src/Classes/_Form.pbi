@@ -61,6 +61,44 @@ Procedure FORM_setMainLayout(*this._form,*layout)
     ProcedureReturn *layout
   EndWith
 EndProcedure
+
+Procedure FORM_setFlags(*this._form,flags)
+  With *this
+    If flags & #PB_Window_ScreenCentered = #PB_Window_ScreenCentered
+      \flag\screenCentered = #True
+    EndIf
+    If flags & #PB_Window_WindowCentered = #PB_Window_WindowCentered
+      \flag\windowCentered = #True
+    EndIf
+    If flags & #PB_Window_SizeGadget = #PB_Window_SizeGadget
+      \flag\sizeGadget = #True
+    EndIf
+    If flags & #PB_Window_Maximize = #PB_Window_Maximize
+      \flag\maximize = #True
+    EndIf
+    If flags & #PB_Window_Minimize = #PB_Window_Minimize
+      \flag\minimize = #True
+    EndIf
+    If flags & #PB_Window_MaximizeGadget = #PB_Window_MaximizeGadget
+      \flag\maximizeGadget = #True
+    EndIf
+    If flags & #PB_Window_MinimizeGadget = #PB_Window_MinimizeGadget
+      \flag\minizeGadget = #True
+    EndIf
+    If flags & #PB_Window_Invisible = #PB_Window_Invisible
+      \flag\invisible = #True
+    EndIf
+    If flags & #PB_Window_NoActivate = #PB_Window_NoActivate
+      \flag\noActivate = #True
+    EndIf
+    If flags & #PB_Window_NoGadgets = #PB_Window_NoGadgets
+      \flag\noGadget = #True
+    EndIf
+    If flags & #PB_Window_SystemMenu = #PB_Window_SystemMenu
+      \flag\sytemMenu = #True
+    EndIf
+  EndWith
+EndProcedure
 ;}
 ;{ PRIVATE METHODS
 Procedure FORM_eventClose()
@@ -96,7 +134,7 @@ Procedure.s FORM_buildXml(*this._form)
     Protected flags.s = \flag\get(*this)
     Protected xml.s = "<window id='#PB_Any' name='"+Str(*this)+"' text = '"+\title+"'"
     If \size\minWidht
-      xml + " minwidht='"+Str(\size\minWidht)+"'"
+      xml + " minwidth='"+Str(\size\minWidht)+"'"
     EndIf 
     If \size\minHeight
       xml + " minheight='"+Str(\size\minHeight)+"'"
@@ -217,7 +255,7 @@ Procedure newForm(x,y,w,h,title.s)
 EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 117
-; FirstLine = 45
-; Folding = Ayem
+; CursorPosition = 155
+; FirstLine = 17
+; Folding = AAJA-
 ; EnableXP

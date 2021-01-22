@@ -33,6 +33,6 @@ Procedure GADGET_super(*this._gadget)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 13
+; CursorPosition = 20
 ; Folding = -
 ; EnableXP
