@@ -20,7 +20,7 @@ Module PB_FORM
   Declare newGadgetButtonFlags()
   Declare newGadgetStringFlags()
   Declare newGadgetFrameFlags()
-
+  Declare newGadgetTextFlags()
   
   XIncludeFile "_members.pbi"
   
@@ -41,11 +41,13 @@ Module PB_FORM
   XIncludeFile "Classes/_GadgetStringFlags.pbi"
   XIncludeFile "Classes/_GadgetFrameFlags.pbi"
   XIncludeFile "Classes/_GadgetCanvasFlags.pbi"
+  XIncludeFile "Classes/_GadgetTextFlags.pbi"
   XIncludeFile "Classes/_Gadget.pbi"
   XIncludeFile "Classes/_GadgetButton.pbi"
   XIncludeFile "Classes/_GadgetString.pbi"
   XIncludeFile "Classes/_GadgetFrame.pbi"
   XIncludeFile "Classes/_GadgetCustom.pbi"
+  XIncludeFile "Classes/_GadgetText.pbi"
   XIncludeFile "Classes/_Empty.pbi"
   
   
@@ -54,7 +56,7 @@ Module PB_FORM
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 22
-; FirstLine = 4
+; CursorPosition = 49
+; FirstLine = 18
 ; Folding = -
 ; EnableXP

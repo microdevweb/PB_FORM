@@ -68,6 +68,12 @@
     drawFocus.b
     container.b
   EndStructure
+  ;- GadgetText Flags
+  Structure _gadgetTextFlags Extends _flag
+    center.b
+    right.b
+    border.b
+  EndStructure
   ;- Size Class 
   Structure _size
     *methods
@@ -167,6 +173,8 @@
     isGadget.b
     isCustom.b
     isLayout.b
+    isFrame.b
+    font.i
   EndStructure
   ;- Layout ABSTRACT Class extends of Content
   Structure _layout Extends _content
@@ -209,6 +217,10 @@
     userbuild.p_custom_build
     userevent.p_custom_build
   EndStructure
+  ;- gadget text
+  Structure _gadgetText Extends _gadget
+    title.s
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -217,7 +229,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 96
-; FirstLine = 25
-; Folding = AIAGs
+; CursorPosition = 220
+; FirstLine = 42
+; Folding = AAAAg+
 ; EnableXP

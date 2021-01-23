@@ -117,6 +117,18 @@ DeclareModule PB_FORM
     setContainer(state.b)
     ;}
   EndInterface
+  Interface TextFlags
+    ;{ GETTERS
+    isCenter()
+    isRight()
+    isBorder()
+    ;}
+    ;{ SETTERS
+    setCenter(state.b)
+    setRight(state.b)
+    setBorder(state.b)
+    ;}
+  EndInterface
   Interface Sizes
     ;{ GETTERS
     getWidth()
@@ -239,11 +251,13 @@ DeclareModule PB_FORM
     getExpand()
     getAlignement()
     getSizes()
+    getFont()
     ;}
     ;{ SETTERS
     setSpace(space)
     setExpand(expand)
     setAlignement(alignement)
+    setFont(font)
     ;}
     ;{ PUBLIC METHODS
     addContent(content)
@@ -256,10 +270,16 @@ DeclareModule PB_FORM
     
   EndInterface
   Interface __Gadget
+    ;{ GETTERS
     getSizes()
     getFlags()
     getId()
+    getFont()
+    ;}
+    ;{ SETTERS
     setSizes(width,height)
+    setFont(font)
+    ;}
   EndInterface
   Interface GadgetButton Extends __Gadget
     ;{ GETTERS
@@ -296,6 +316,16 @@ DeclareModule PB_FORM
     setFlags(flags)
   EndInterface
   
+  Interface GadgetText Extends __Gadget
+    ;{ GETTERS
+    getTitle.s()
+    ;}
+    ;{ SETTERS
+    setTitle(title.s)
+    setFlags(flag)
+    ;}
+  EndInterface
+  
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -313,12 +343,13 @@ DeclareModule PB_FORM
   Declare newGadgetString(value.s = "")
   Declare newGadgetFrame(title.s)
   Declare newGadgetCustom(*build,*event)
+  Declare newGadgetText(title.s)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 260
-; FirstLine = 165
-; Folding = tt0--------
+; CursorPosition = 348
+; FirstLine = 41
+; Folding = ttttN4db8Yb--
 ; EnableXP

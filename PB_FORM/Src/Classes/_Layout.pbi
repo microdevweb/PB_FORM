@@ -30,6 +30,11 @@ Procedure LAYOUT_getSizes(*this._layout)
   EndWith
 EndProcedure
 
+Procedure LAYOUT_getFont(*this._layout)
+  With *this
+    ProcedureReturn \font
+  EndWith
+EndProcedure
 ;}
 ;{ SETTERS
 Procedure LAYOUT_setSpace(*this._layout,space)
@@ -49,12 +54,21 @@ Procedure LAYOUT_setAlign(*this._layout,align)
     \align = align
   EndWith
 EndProcedure
+
+Procedure LAYOUT_setFont(*this._layout,font)
+  With *this
+     \font = font
+  EndWith
+EndProcedure
 ;}
 ;{ PUBLIC METHODS
 Procedure LAYOUT_addContent(*this._layout,*content)
   With *this
     AddElement(\myContents())
     \myContents() = *content
+    If \font > -1
+      \myContents()\font = \font
+    EndIf
     ProcedureReturn *content
   EndWith
 EndProcedure
@@ -65,6 +79,10 @@ Procedure LAYOUT_makeId(*this._layout,*form)
     ForEach \myContents()
       If \myContents()\makeId
         \myContents()\makeId(\myContents(),*form)
+        ; change font
+        If IsGadget(\myContents()\id) And \myContents()\font > -1
+          SetGadgetFont(\myContents()\id,FontID(\myContents()\font))
+        EndIf
       EndIf
     Next
   EndWith
@@ -78,10 +96,11 @@ Procedure LAYOUT_super(*this._layout)
     \makeId = @LAYOUT_makeId()
     \expand = PB_FORM::#LAYOUT_EXPAND_NO
     \isLayout = #True
+    \font = -1
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 71
-; FirstLine = 48
-; Folding = ---
+; CursorPosition = 85
+; FirstLine = 34
+; Folding = xh-
 ; EnableXP

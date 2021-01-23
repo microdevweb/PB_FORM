@@ -177,11 +177,13 @@ DataSection
   Data.i @LAYOUT_getExpand()
   Data.i @LAYOUT_getAlign()
   Data.i @LAYOUT_getSizes()
+  Data.i @LAYOUT_getFont()
   ;}
   ;{ SETTERS
   Data.i @LAYOUT_setSpace()
   Data.i @LAYOUT_setExpand()
   Data.i @LAYOUT_setAlign()
+  Data.i @LAYOUT_setFont()
   ;}
   ;{ PUBLIC METHODS
   Data.i @LAYOUT_addContent()
@@ -192,10 +194,14 @@ EndDataSection
 ;- Gadget
 DataSection
   S_gadget:
+  ;{ GETTERS
   Data.i @GADGET_getSizes()
   Data.i @GADGET_getFlags()
   Data.i @GADGET_getId()
+  Data.i @GADGET_getFont()
+  ;}
   Data.i @GADGET_setSizes()
+  Data.i @GADGET_setFont()
   E_gadget:
 EndDataSection
 ;- GadgetButton
@@ -318,8 +324,37 @@ DataSection
   E_gadgetCustom:
 EndDataSection
 
+;- gadgetTextFlags
+DataSection
+  S_textFlags:
+  ;{ GETTERS
+  Data.i @GADGETTEXTFLAGS_isCenter()
+  Data.i @GADGETTEXTFLAGS_isRight()
+  Data.i @GADGETTEXTFLAGS_isBorder()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETTEXTFLAGS_setCenter()
+  Data.i @GADGETTEXTFLAGS_setRight()
+  Data.i @GADGETTEXTFLAGS_setBorder()
+  ;}
+  E_textFlags:
+EndDataSection
+
+;- gadget text
+DataSection
+  S_gadgetText:
+  ;{ GETTERS
+  Data.i @GADGETSTRING_getTitle()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETSTRING_setTitle()
+  Data.i @GADGETTEXT_setFlags()
+  ;}
+  E_gadgetText:
+EndDataSection
+
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 196
-; FirstLine = 48
-; Folding = AoAAAkA0--
+; CursorPosition = 351
+; FirstLine = 39
+; Folding = AAAAAAAAAk-
 ; EnableXP
