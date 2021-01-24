@@ -13,8 +13,8 @@ Enumeration
 EndEnumeration
 
 Global mainForm.PB_FORM::Form 
-Global.PB_FORM::GadgetString field1,field3,field4
-Global.PB_FORM::GadgetSpin field2
+
+
 
 LoadFont(#BT_FONT,"arial",12,#PB_Font_Bold)
 LoadFont(#STR_FONT,"arial",11)
@@ -40,7 +40,7 @@ EndProcedure
 Procedure openMainForm()
   UseModule PB_FORM
   ; open window
-  mainForm = newForm(0,0,800,0,"Example 15 button  shortcut ")
+  mainForm = newForm(0,0,800,0,"Example 16 panel gadget ")
   ; for close application
   mainForm\setMainForm(#True)
   mainForm\setFlags(#PB_Window_ScreenCentered|#PB_Window_SizeGadget)
@@ -54,24 +54,32 @@ Procedure openMainForm()
   Define leftLayout.VLayout = mainLayout\addContent(newVLayout())
   leftLayout\setFont(#STR_FONT)
   leftLayout\setExpand(#LAYOUT_EXPAND_YES)
-  leftLayout\setSpace(15)
-  ; we add string gadget
-  Define   lb.GadgetText = leftLayout\addContent(newGadgetText("Field 1"))
-  lb\setFrontColor($0000EE)
-  field1 = leftLayout\addContent(newGadgetString("i'm the field 1"))
-  field1\setBackgroundColor($0066CD)
-
-  
-  Define   lb.GadgetText = leftLayout\addContent(newGadgetText("Field 2"))
-  field2 = leftLayout\addContent(newGadgetSpin(0,100))
-  field2\setListener(newListener(@spinChange()))
-  
-  Define   lb.GadgetText = leftLayout\addContent(newGadgetText("Field 3"))
-  field3 = leftLayout\addContent(newGadgetString())
-  
-  Define   lb.GadgetText = leftLayout\addContent(newGadgetText("Field 4"))
-  field4 = leftLayout\addContent(newGadgetString())
-  
+  ; we create an panel gadget
+  Define panel.GadgetPanel = leftLayout\addContent(newGadgetPanel())
+  Define tab1.GadgetTab = panel\addTab(newGadgetTab("TAB 1"))
+  Define t1Layout.VLayout = tab1\setContent(newVLayout())
+  t1Layout\addContent(newGadgetText("Field 1"))
+  t1Layout\addContent(newGadgetString())
+  t1Layout\addContent(newGadgetText("Field 2"))
+  t1Layout\addContent(newGadgetString())
+  t1Layout\addContent(newGadgetText("Field 3"))
+  t1Layout\addContent(newGadgetString())
+  Define tab2.GadgetTab = panel\addTab(newGadgetTab("TAB 2"))
+  Define t2Layout.VLayout = tab2\setContent(newVLayout())
+  t2Layout\addContent(newGadgetText("Field 4"))
+  t2Layout\addContent(newGadgetString())
+  t2Layout\addContent(newGadgetText("Field 5"))
+  t2Layout\addContent(newGadgetString())
+  t2Layout\addContent(newGadgetText("Field 6"))
+  t2Layout\addContent(newGadgetString())
+  t2Layout\addContent(newGadgetText("Field 7"))
+  t2Layout\addContent(newGadgetString())
+  Define tab3.GadgetTab = panel\addTab(newGadgetTab("TAB 3"))
+  Define t3Layout.VLayout = tab3\setContent(newVLayout())
+  t3Layout\addContent(newGadgetText("Field 8"))
+  t3Layout\addContent(newGadgetString())
+  t3Layout\addContent(newGadgetText("Field 9"))
+  t3Layout\addContent(newGadgetString())
   ; we create the right layout
   Define rightLayout.VLayout = mainLayout\addContent(newVLayout())
   rightLayout\setFont(#BT_FONT)
@@ -99,7 +107,7 @@ Repeat
   WaitWindowEvent()
 ForEver
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 25
-; FirstLine = 6
+; CursorPosition = 80
+; FirstLine = 62
 ; Folding = -
 ; EnableXP

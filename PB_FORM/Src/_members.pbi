@@ -239,6 +239,16 @@
     value.i
     *listener._listener
   EndStructure
+  ;- gadget tab
+  Structure _gadgetTab Extends _gadget
+    title.s
+    *content._content
+    *listener._listener
+  EndStructure
+  ;- gadget panel
+  Structure _gadgetPanel Extends _gadget
+    List *myTabs._gadgetTab()
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -247,7 +257,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 122
-; FirstLine = 28
-; Folding = AACAAw
+; CursorPosition = 249
+; FirstLine = 69
+; Folding = AACAAY-
 ; EnableXP

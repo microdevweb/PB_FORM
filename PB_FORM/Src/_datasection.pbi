@@ -391,8 +391,37 @@ DataSection
   ;}
   E_gadgetSpin:
 EndDataSection
+
+;- Gadget Panel
+DataSection
+  S_gadgetPanel:
+  ;{ GETTERS
+  Data.i @GADGETPANEL_getTab()
+  ;}
+  ;{ PUBLIC METHODS
+  Data.i @GADGETPANEL_addTab()
+  ;}
+  E_gadgetPanel:
+EndDataSection
+
+;- Gadget Tab
+DataSection
+  S_gadgetTab:
+  ;{ GETTERS
+  Data.i @GADGETTAB_getTitle()
+  Data.i @GADGETTAB_getContent()
+  Data.i @GADGETTAB_getListener()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETTAB_setTitle()
+  Data.i @GADGETTAB_setContent()
+  Data.i @GADGETTAB_setListener()
+  ;}
+  E_gadgetTab:
+EndDataSection
+
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 389
-; FirstLine = 64
-; Folding = AAAAAAAAAA6-
+; CursorPosition = 417
+; FirstLine = 85
+; Folding = AAAAAAAAAA6+-
 ; EnableXP

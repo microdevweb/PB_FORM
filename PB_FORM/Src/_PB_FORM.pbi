@@ -51,6 +51,8 @@ Module PB_FORM
   XIncludeFile "Classes/_GadgetCustom.pbi"
   XIncludeFile "Classes/_GadgetText.pbi"
   XIncludeFile "Classes/_GadgetSpin.pbi"
+  XIncludeFile "Classes/_GadgetPanel.pbi"
+  XIncludeFile "Classes/_GadgetTab.pbi"
   XIncludeFile "Classes/_Empty.pbi"
   
   
@@ -59,7 +61,7 @@ Module PB_FORM
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 52
-; FirstLine = 27
+; CursorPosition = 54
+; FirstLine = 34
 ; Folding = -
 ; EnableXP

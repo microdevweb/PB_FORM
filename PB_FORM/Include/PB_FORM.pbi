@@ -356,6 +356,28 @@ DeclareModule PB_FORM
     ;}
   EndInterface
   
+  Interface GadgetPanel Extends __Gadget
+    ;{ GETTERS
+    getTab(nTab)
+    ;}
+    ;{ PUBLIC METHODS
+    addTab(tab)
+    ;}
+  EndInterface
+  
+  Interface GadgetTab Extends __Gadget
+    ;{ GETTERS
+    getTitle.s()
+    getContent()
+    getListener()
+    ;}
+    ;{ SETTERS
+    setTitle(title.s)
+    setContent(content)
+    setListener(listener)
+    ;}
+  EndInterface
+  
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -375,12 +397,14 @@ DeclareModule PB_FORM
   Declare newGadgetCustom(*build,*event)
   Declare newGadgetText(title.s)
   Declare newGadgetSpin(minimum,maximum)
+  Declare newGadgetPanel()
+  Declare newGadgetTab(title.s)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 380
-; FirstLine = 55
-; Folding = ttttt6ubbHb8+-
+; CursorPosition = 367
+; FirstLine = 49
+; Folding = ttttt6ubbHb83--
 ; EnableXP
