@@ -12,7 +12,7 @@
 ;{ PROTECTED ABSTRACT METHODS
 Procedure.s GADGETTEXT_build(*this._gadgetText)
   With *this
-    Protected xml.s = "<text id='#PB_Any' name='"+*this+"' text='"+\title+"'"
+    Protected xml.s = "<text id='#PB_Any' name='"+*this+"' text="+Chr(34)+\title+Chr(34)
     Protected flags.s = \flag\get(\flag)
     If Len(flags)
       xml + " flags='"+flags+"' "
@@ -100,7 +100,7 @@ Procedure newGadgetText(title.s)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 83
-; FirstLine = 32
+; CursorPosition = 14
+; FirstLine = 10
 ; Folding = W6
 ; EnableXP

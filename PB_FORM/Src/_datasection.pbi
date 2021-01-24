@@ -199,9 +199,15 @@ DataSection
   Data.i @GADGET_getFlags()
   Data.i @GADGET_getId()
   Data.i @GADGET_getFont()
+  Data.i @GADGET_getBgColor()
+  Data.i @GADGET_getFgColor()
   ;}
+  ;{ SETTERS
   Data.i @GADGET_setSizes()
   Data.i @GADGET_setFont()
+  Data.i @GADGET_setBgColor()
+  Data.i @GADGET_setFgColor()
+  ;}
   E_gadget:
 EndDataSection
 ;- GadgetButton
@@ -354,7 +360,7 @@ DataSection
 EndDataSection
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 351
-; FirstLine = 39
-; Folding = AAAAAAAAAk-
+; CursorPosition = 208
+; FirstLine = 31
+; Folding = AAAAAcAAAI-
 ; EnableXP

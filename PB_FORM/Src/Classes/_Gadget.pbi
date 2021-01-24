@@ -29,6 +29,19 @@ Procedure GADGET_getFont(*this._gadget)
     ProcedureReturn \font 
   EndWith
 EndProcedure
+
+Procedure GADGET_getBgColor(*this._gadget)
+  With *this
+    ProcedureReturn \colors\bgColor
+  EndWith
+EndProcedure
+
+Procedure GADGET_getFgColor(*this._gadget)
+  With *this
+    ProcedureReturn \colors\fgColor
+  EndWith
+EndProcedure
+
 ;}
 ;{ SETTERS
 Procedure GADGET_setSizes(*this._gadget,width,height)
@@ -44,6 +57,17 @@ Procedure GADGET_setFont(*this._gadget,font)
   EndWith
 EndProcedure
 
+Procedure GADGET_setBgColor(*this._gadget,color)
+  With *this
+     \colors\bgColor = color
+  EndWith
+EndProcedure
+
+Procedure GADGET_setFgColor(*this._gadget,color)
+  With *this
+     \colors\fgColor = color
+  EndWith
+EndProcedure
 ;}
 
 
@@ -57,6 +81,7 @@ Procedure GADGET_super(*this._gadget)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 54
-; Folding = h9
+; CursorPosition = 65
+; FirstLine = 8
+; Folding = BC-
 ; EnableXP

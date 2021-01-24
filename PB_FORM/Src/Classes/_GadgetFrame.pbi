@@ -12,7 +12,7 @@
 ;{ PROTECTED ABSTRACT METHODS
 Procedure.s GADGETFRAME_build(*this._gadgetFrame)
   With *this
-    Protected xml.s = "<frame text='"+\title+"'"
+    Protected xml.s = "<frame text="+Chr(34)+\title+Chr(34)
     Protected flags.s = \flag\get(\flag)
     If Len(flags)
       xml + " flags='"+flags+"' "
@@ -82,6 +82,6 @@ Procedure newGadgetFrame(title.s)
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
 ; CursorPosition = 14
-; FirstLine = 3
+; FirstLine = 10
 ; Folding = u-
 ; EnableXP

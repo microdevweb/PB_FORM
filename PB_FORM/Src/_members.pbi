@@ -12,6 +12,10 @@
   Prototype.s p_content_build(*this)
   Prototype p_content_makeID(*this,*form)
   Prototype p_custom_build(*this)
+  Structure _colors
+    bgColor.i
+    fgColor.i
+  EndStructure
   ;- Listener Class
   Structure _listener
     *methods
@@ -175,6 +179,7 @@
     isLayout.b
     isFrame.b
     font.i
+    colors._colors
   EndStructure
   ;- Layout ABSTRACT Class extends of Content
   Structure _layout Extends _content
@@ -229,7 +234,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 220
-; FirstLine = 42
-; Folding = AAAAg+
+; CursorPosition = 181
+; FirstLine = 45
+; Folding = BAAoA0
 ; EnableXP

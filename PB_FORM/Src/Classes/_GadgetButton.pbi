@@ -38,7 +38,7 @@ EndProcedure
 ;{ PROTECTED ABSTRACT METHODS
 Procedure.s GADGETBUTTON_build(*this._gadgetButton)
   With *this
-    Protected xml.s = "<button id='#PB_Any' name='"+*this+"' text='"+\title+"'"
+    Protected xml.s = "<button id='#PB_Any' name='"+*this+"' text="+Chr(34)+\title+Chr(34)
     Protected flags.s = \flag\get(\flag)
     If Len(flags)
       xml + " flags='"+flags+"' "
@@ -121,7 +121,7 @@ Procedure newGadgetButton(title.s,*ClickListener)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 63
-; FirstLine = 47
+; CursorPosition = 40
+; FirstLine = 38
 ; Folding = ---
 ; EnableXP

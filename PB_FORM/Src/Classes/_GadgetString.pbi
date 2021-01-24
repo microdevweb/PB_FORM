@@ -39,7 +39,7 @@ EndProcedure
 ;{ PROTECTED ABSTRACT METHODS
 Procedure.s GADGETSTRING_build(*this._gadgetString)
   With *this
-    Protected xml.s = "<string id='#PB_Any' name='"+*this+"' text='"+\value+"'"
+    Protected xml.s = "<string id='#PB_Any' name='"+*this+"' text="+Chr(34)+\value+Chr(34)
     Protected flags.s = \flag\get(\flag)
     If Len(flags)
       xml + " flags='"+flags+"' "
@@ -124,7 +124,7 @@ Procedure newGadgetString(value.s = "")
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 18
-; FirstLine = 3
+; CursorPosition = 44
+; FirstLine = 31
 ; Folding = -0+
 ; EnableXP

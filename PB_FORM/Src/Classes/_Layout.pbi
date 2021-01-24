@@ -83,6 +83,13 @@ Procedure LAYOUT_makeId(*this._layout,*form)
         If IsGadget(\myContents()\id) And \myContents()\font > -1
           SetGadgetFont(\myContents()\id,FontID(\myContents()\font))
         EndIf
+        ; change bgColor
+        If IsGadget(\myContents()\id) And \myContents()\colors\bgColor
+          SetGadgetColor(\myContents()\id,#PB_Gadget_BackColor,\myContents()\colors\bgColor)
+        EndIf
+        If IsGadget(\myContents()\id) And \myContents()\colors\fgColor
+          SetGadgetColor(\myContents()\id,#PB_Gadget_FrontColor,\myContents()\colors\fgColor)
+        EndIf
       EndIf
     Next
   EndWith
@@ -100,7 +107,7 @@ Procedure LAYOUT_super(*this._layout)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 85
-; FirstLine = 34
+; CursorPosition = 90
+; FirstLine = 49
 ; Folding = xh-
 ; EnableXP

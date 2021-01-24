@@ -275,10 +275,14 @@ DeclareModule PB_FORM
     getFlags()
     getId()
     getFont()
+    getBackgroundColor()
+    getFrontColor()
     ;}
     ;{ SETTERS
     setSizes(width,height)
     setFont(font)
+    setBackgroundColor(color)
+    setFrontColor(color)
     ;}
   EndInterface
   Interface GadgetButton Extends __Gadget
@@ -349,7 +353,7 @@ EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 348
-; FirstLine = 41
-; Folding = ttttN4db8Yb--
+; CursorPosition = 284
+; FirstLine = 29
+; Folding = ttttN4db8cb--
 ; EnableXP
