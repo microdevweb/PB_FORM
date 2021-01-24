@@ -120,6 +120,7 @@
     *methods
     keys.i
     helpText.s
+    lastID.i
   EndStructure
   ;- MenuItem ABSTRACT Class
   Structure _menuItem
@@ -246,7 +247,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 238
-; FirstLine = 56
-; Folding = AIAAA1
+; CursorPosition = 122
+; FirstLine = 28
+; Folding = AACAAw
 ; EnableXP

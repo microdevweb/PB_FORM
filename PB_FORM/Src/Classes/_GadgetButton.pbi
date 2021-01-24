@@ -5,9 +5,23 @@
 ; LICENCE  : MIT
 ; CLASS GadgetButton   SOURCE CODE extends of Gadget
 ;***************************************************************
+Global NewMap *g_buttonShortcutId()
 ;{ PRIVATE METHODS
 Procedure GADGETBUTTON_eventClick()
   Protected *this._gadgetButton = GetGadgetData(EventGadget())
+  With *this
+    If \clickListener\callback
+      \clickListener\callback(*this)
+    EndIf
+  EndWith
+EndProcedure
+
+Procedure GADGETBUTTON_eventClickFromShort()
+  Protected *this._gadgetButton
+  If Not FindMapElement(*g_buttonShortcutId(),Str(EventMenu()))
+    ProcedureReturn 
+  EndIf
+  *this = *g_buttonShortcutId()
   With *this
     If \clickListener\callback
       \clickListener\callback(*this)
@@ -71,6 +85,20 @@ Procedure GADGETBUTTON_makeId(*this._gadgetButton,*form._form)
     \id = DialogGadget(*form\dialog,Str(*this))
     SetGadgetData(\id,*this)
     BindGadgetEvent(\id,@GADGETBUTTON_eventClick())
+    ; push shortcut
+    If \shotCut
+      If Len(\shotCut\helpText)
+        GadgetToolTip(\id,\shotCut\helpText)
+      EndIf
+      If \shotCut\keys
+        AddKeyboardShortcut(*form\id,\shotCut\keys,\shotCut\lastID)
+        If Not FindMapElement(*g_buttonShortcutId(),Str(\shotCut\lastID))
+          AddMapElement(*g_buttonShortcutId(),Str(\shotCut\lastID))
+        EndIf
+        *g_buttonShortcutId() = *this
+        BindEvent(#PB_Event_Menu,@GADGETBUTTON_eventClickFromShort(),*form\id,\shotCut\lastID)
+      EndIf
+    EndIf
   EndWith
 EndProcedure
 ;}
@@ -96,7 +124,7 @@ EndProcedure
 
 Procedure GADGETBUTTON_setShortcut(*this._gadgetButton,*shortcut)
   With *this
-     \shotCut = *shortcut
+    \shotCut = *shortcut
   EndWith
 EndProcedure
 ;}
@@ -121,7 +149,7 @@ Procedure newGadgetButton(title.s,*ClickListener)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 40
-; FirstLine = 38
-; Folding = ---
+; CursorPosition = 92
+; FirstLine = 33
+; Folding = XR0
 ; EnableXP

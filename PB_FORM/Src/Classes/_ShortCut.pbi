@@ -6,6 +6,7 @@
 ; CLASS ShortCut SOURCE CODE
 ;*********************************************************************************************************************************************
 ;{ GETTERS
+Global gLastShortCutID = 20000
 Procedure SHORTCUT_getKeys(*this._shortCut)
   With *this
     ProcedureReturn \keys
@@ -36,12 +37,14 @@ Procedure newShortCut(keys.i,helpText.s = "")
     \methods = ?S_shortCut
     \keys = keys
     \helpText = helpText
+    \lastID = gLastShortCutID
+    gLastShortCutID + 1
     ProcedureReturn *this
   EndWith
 EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 35
-; FirstLine = 4
+; CursorPosition = 40
+; FirstLine = 11
 ; Folding = --
 ; EnableXP
