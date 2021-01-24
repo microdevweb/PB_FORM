@@ -129,6 +129,16 @@ DeclareModule PB_FORM
     setBorder(state.b)
     ;}
   EndInterface
+  Interface SpinFlags
+    ;{ GETTERS
+    isReadOnly()
+    isNumeric()
+    ;}
+    ;{ SETTERS
+    setReadOnly(state.b)
+    setNumeric(state.b)
+    ;}
+  EndInterface
   Interface Sizes
     ;{ GETTERS
     getWidth()
@@ -330,6 +340,22 @@ DeclareModule PB_FORM
     ;}
   EndInterface
   
+  Interface GadgetSpin Extends __Gadget
+    ;{ GETTERS
+    getValue()
+    getminimumValue()
+    getmaximuValue()
+    getListener()
+    ;}
+    ;{ SETTERS
+    setValue(value)
+    setminimumValue(value)
+    setmaximuValue(value)
+    setFlags(flags)
+    setListener(listener)
+    ;}
+  EndInterface
+  
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -348,12 +374,13 @@ DeclareModule PB_FORM
   Declare newGadgetFrame(title.s)
   Declare newGadgetCustom(*build,*event)
   Declare newGadgetText(title.s)
+  Declare newGadgetSpin(minimum,maximum)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 284
-; FirstLine = 29
-; Folding = ttttN4db8cb--
+; CursorPosition = 380
+; FirstLine = 55
+; Folding = ttttt6ubbHb8+-
 ; EnableXP

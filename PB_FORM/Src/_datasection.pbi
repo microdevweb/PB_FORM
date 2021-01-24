@@ -359,8 +359,40 @@ DataSection
   E_gadgetText:
 EndDataSection
 
+;- Spin Flags
+DataSection
+  S_spinFlags:
+  ;{ GETTERS
+  Data.i @GADGETSPINFLAGS_isReadOnly()
+  Data.i @GADGETSPINFLAGS_isNumeric()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETSPINFLAGS_setReadOnly()
+  Data.i @GADGETSPINFLAGS_setNumeric()
+  ;}
+  E_spinFlags:
+EndDataSection
+
+;- Gadget spin
+DataSection
+  S_gadgetSpin:
+  ;{ GETTERS
+  Data.i @GADGETSPIN_getValue()
+  Data.i @GADGETSPIN_getminimumValue()
+  Data.i @GADGETSPIN_getmaximuValue()
+  Data.i @GADGETSPIN_getListener()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETSPIN_setValue()
+  Data.i @GADGETSPIN_setminimumValue()
+  Data.i @GADGETSPIN_setmaximuValue()
+  Data.i @GADGETSPIN_setFlags()
+  Data.i @GADGETSPIN_setListener()
+  ;}
+  E_gadgetSpin:
+EndDataSection
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 208
-; FirstLine = 31
-; Folding = AAAAAcAAAI-
+; CursorPosition = 389
+; FirstLine = 64
+; Folding = AAAAAAAAAA6-
 ; EnableXP

@@ -78,6 +78,11 @@
     right.b
     border.b
   EndStructure
+  ;- GadgetSpin Flags
+  Structure _gadgetSpinFlags Extends _flag
+    readOnly.b
+    numeric.b
+  EndStructure
   ;- Size Class 
   Structure _size
     *methods
@@ -226,6 +231,13 @@
   Structure _gadgetText Extends _gadget
     title.s
   EndStructure
+  ;- gadget spin
+  Structure _gadgetSpin Extends _gadget
+    min.i
+    max.i
+    value.i
+    *listener._listener
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -234,7 +246,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 181
-; FirstLine = 45
-; Folding = BAAoA0
+; CursorPosition = 238
+; FirstLine = 56
+; Folding = AIAAA1
 ; EnableXP
