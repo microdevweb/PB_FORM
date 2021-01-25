@@ -53,11 +53,11 @@ Procedure newGadgetDateFlags()
   Protected *this._gadgetDateFlags = AllocateStructure(_gadgetDateFlags)
   With *this
     \methods = ?S_DATEFLAGS
-    \get = @GADGETDATEFLAGS_setUpDown()
+    \get = @GADGETDATEFLAGS_get()
     ProcedureReturn *this
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 51
+; CursorPosition = 55
 ; Folding = B9
 ; EnableXP

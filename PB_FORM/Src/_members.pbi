@@ -88,6 +88,10 @@
     upDown.b
     ckeckBox.b
   EndStructure
+  Structure _trackBarFlags Extends _flag
+    ticks.b
+    vertical.b
+  EndStructure
   ;- Size Class 
   Structure _size
     *methods
@@ -260,6 +264,13 @@
     value.i
     *listener._listener
   EndStructure
+  ;- gadget trackBar
+  Structure _gadgetTrackBar Extends _gadget
+    minimum.i
+    maximum.i
+    value.i
+    *listener._listener
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -268,7 +279,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 259
-; FirstLine = 71
-; Folding = AQEAAw0
+; CursorPosition = 271
+; FirstLine = 76
+; Folding = AwIAAg4
 ; EnableXP

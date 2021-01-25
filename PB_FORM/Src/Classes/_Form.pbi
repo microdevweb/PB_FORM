@@ -269,6 +269,6 @@ EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
 ; CursorPosition = 168
-; FirstLine = 24
+; FirstLine = 22
 ; Folding = ACNA-
 ; EnableXP

@@ -3,11 +3,11 @@
 ; MODULE   : PB_FORM
 ; VERSION  : BETA 1.3
 ; LICENCE  : MIT
-; CLASS GadgetDate   SOURCE CODE extends of Gadget
+; CLASS GadgetTrackBar   SOURCE CODE extends of Gadget
 ;***************************************************************
 ;{ PRIVATE METHODS
-Procedure GADGETDATE_evChange()
-  Protected *this._gadgetDate = GetGadgetData(EventGadget())
+Procedure GADGETTRACKBAR_evChange()
+  Protected *this._gadgetTrackBar = GetGadgetData(EventGadget())
   With *this
     \value = GetGadgetState(\id)
     If \listener And \listener\callback
@@ -18,9 +18,9 @@ EndProcedure
 ;}
 
 ;{ PROTECTED ABSTRACT METHODS
-Procedure.s GADGETDATE_build(*this._gadgetDate)
+Procedure.s GADGETTRACKBAR_build(*this._gadgetTrackBar)
   With *this
-    Protected xml.s = "<date id='#PB_Any' name='"+*this+"' text='"+\mask+"'"
+    Protected xml.s = "<trackbar id = '#PB_Any' name = '"+*this+"' min = '"+Str(\minimum)+"'" + " max = '"+Str(\maximum)+"'"+ " value = '"+Str(\value)+"'"
     Protected flags.s = \flag\get(\flag)
     If Len(flags)
       xml + " flags='"+flags+"' "
@@ -48,37 +48,42 @@ Procedure.s GADGETDATE_build(*this._gadgetDate)
   EndWith
 EndProcedure
 
-Procedure GADGETDATE_makeId(*this._gadgetDate,*form._form)
+Procedure GADGETTRACKBAR_makeId(*this._gadgetTrackBar,*form._form)
   With *this
     \id = DialogGadget(*form\dialog,Str(*this))
     SetGadgetData(\id,*this)
-    SetGadgetState(\id,\value)
     
-    BindGadgetEvent(\id,@GADGETDATE_evChange())
+    BindGadgetEvent(\id,@GADGETTRACKBAR_evChange())
   EndWith
 EndProcedure
 ;}
 ;{ GETTERS
-Procedure GADGETDATE_getValue(*this._gadgetDate)
+Procedure GADGETTRACKBAR_getValue(*this._gadgetTrackBar)
   With *this
     ProcedureReturn \value
   EndWith
 EndProcedure
 
-Procedure.s GADGETDATE_getMask(*this._gadgetDate)
+Procedure GADGETTRACKBAR_getMin(*this._gadgetTrackBar)
   With *this
-    ProcedureReturn \mask
+    ProcedureReturn \minimum
   EndWith
 EndProcedure
 
-Procedure GADGETDATE_getListener(*this._gadgetDate)
+Procedure GADGETTRACKBAR_getMax(*this._gadgetTrackBar)
+  With *this
+    ProcedureReturn \maximum
+  EndWith
+EndProcedure
+
+Procedure GADGETTRACKBAR_getListener(*this._gadgetTrackBar)
   With *this
     ProcedureReturn \listener
   EndWith
 EndProcedure
 ;}
 ;{ SETTERS
-Procedure GADGETDATE_setValue(*this._gadgetDate,value)
+Procedure GADGETTRACKBAR_setValue(*this._gadgetTrackBar,value)
   With *this
     \value = value
     If IsGadget(\id)
@@ -87,27 +92,39 @@ Procedure GADGETDATE_setValue(*this._gadgetDate,value)
   EndWith
 EndProcedure
 
-Procedure GADGETDATE_setMask(*this._gadgetDate,mask.s)
+Procedure GADGETTRACKBAR_setMin(*this._gadgetTrackBar,min)
   With *this
-     \mask = mask
-  EndWith
-EndProcedure
-
-Procedure GADGETDATE_setFlags(*this._gadgetDate,flags)
-  With *this
-    Protected *f._gadgetDateFlags = \flag
-    *f\upDown = #False
-    *f\ckeckBox = #False
-    If flags & #PB_Date_UpDown = #PB_Date_UpDown
-      *f\upDown = #True
-    EndIf
-    If flags & #PB_Date_CheckBox = #PB_Date_CheckBox
-      *f\ckeckBox = #True
+    \minimum = min
+    If IsGadget(\id)
+      SetGadgetAttribute(\id,#PB_TrackBar_Minimum,\minimum)
     EndIf
   EndWith
 EndProcedure
 
-Procedure GADGETDATE_setListener(*this._gadgetDate,*listener)
+Procedure GADGETTRACKBAR_setMax(*this._gadgetTrackBar,max)
+  With *this
+    \maximum = max
+    If IsGadget(\id)
+      SetGadgetAttribute(\id,#PB_TrackBar_Maximum,\maximum)
+    EndIf
+  EndWith
+EndProcedure
+
+Procedure GADGETTRACKBAR_setFlags(*this._gadgetTrackBar,flags)
+  With *this
+    Protected *f._trackBarFlags = \flag
+    *f\ticks = #False
+    *f\vertical = #False
+    If flags & #PB_TrackBar_Ticks = #PB_TrackBar_Ticks
+      *f\ticks = #True
+    EndIf
+    If flags & #PB_TrackBar_Vertical = #PB_TrackBar_Vertical
+      *f\vertical = #True
+    EndIf
+  EndWith
+EndProcedure
+
+Procedure GADGETTRACKBAR_setListener(*this._gadgetTrackBar,*listener)
   With *this
     \listener = *listener
     ProcedureReturn *listener
@@ -115,26 +132,28 @@ Procedure GADGETDATE_setListener(*this._gadgetDate,*listener)
 EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetDate(mask.s,value)
-  Protected *this._gadgetDate = AllocateStructure(_gadgetDate)
+Procedure newGadgetTrackBar(min,max,value)
+  Protected *this._gadgetTrackBar = AllocateStructure(_gadgetTrackBar)
   With *this
     Protected mothenL,ClassL,*method
     mothenL = GADGET_super(*this)
-    ClassL = ?E_GADGETDATE - ?S_GADGETDATE
+    ClassL = ?E_GADGETTRACKBAR - ?S_GADGETTRACKBAR
     *method = \methods
     ; empilate method addresses
     \methods = AllocateMemory(mothenL + ClassL)
     MoveMemory(*method,\methods,mothenL)
-    MoveMemory(?S_GADGETDATE,\methods + mothenL,ClassL)
-    \flag = newGadgetDateFlags()
+    MoveMemory(?S_GADGETTRACKBAR,\methods + mothenL,ClassL)
+    \flag = newTrackBarFlags()
     \value = value
-    \mask = mask
-    \build = @GADGETDATE_build()
-    \makeId = @GADGETDATE_makeId()
+    \minimum = min
+    \maximum = max
+    \build = @GADGETTRACKBAR_build()
+    \makeId = @GADGETTRACKBAR_makeId()
     ProcedureReturn *this
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 2
-; Folding = AA5
+; CursorPosition = 9
+; FirstLine = 3
+; Folding = -Wg
 ; EnableXP

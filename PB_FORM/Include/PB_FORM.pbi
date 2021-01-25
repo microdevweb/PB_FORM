@@ -149,6 +149,16 @@ DeclareModule PB_FORM
     setCheckBox(state.b)
     ;}
   EndInterface
+  Interface TrackBarFlags
+    ;{ GETTERS
+    isTicks()
+    isVertical()
+    ;}
+    ;{ SETTERS
+    setTicks(state.b)
+    setVertical(state.b)
+    ;}
+  EndInterface
   Interface Sizes
     ;{ GETTERS
     getWidth()
@@ -402,6 +412,22 @@ DeclareModule PB_FORM
     ;}
   EndInterface
   
+  Interface GadgetTrackBar Extends __Gadget
+    ;{ GETTERS
+    getValue()
+    getMin()
+    getMax()
+    getListener()
+    ;}
+    ;{ SETTERS
+    setValue(value)
+    setMin(min)
+    setMax(max)
+    setFlags(flags)
+    setListener(listener)
+    ;}
+  EndInterface
+  
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -424,12 +450,13 @@ DeclareModule PB_FORM
   Declare newGadgetPanel()
   Declare newGadgetTab(title.s)
   Declare newGadgetDate(mask.s,value)
+  Declare newGadgetTrackBar(min,max,value)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 428
-; FirstLine = 64
-; Folding = BAAAOAAAAAAAAA5+
+; CursorPosition = 158
+; FirstLine = 29
+; Folding = BAAA+BAAAAAAAAA3+
 ; EnableXP

@@ -31,6 +31,10 @@ Procedure evChangeDate(*dt.PB_FORM::GadgetDate)
   Debug FormatDate("%yyyy-%mm-%dd",*dt\getValue())
 EndProcedure
 
+Procedure evChangeTrackBar(*tb.PB_FORM::GadgetTrackBar)
+  Debug *tb\getValue()
+EndProcedure
+
 
 Procedure openMainForm()
   UseModule PB_FORM
@@ -47,8 +51,15 @@ Procedure openMainForm()
   mainLayout\setExpand(1)
   ;{----------------------------- we create the left layout into the main layout --------------------------------
   Define leftLayout.VLayout = mainLayout\addContent(newVLayout())
+  ;leftLayout\setExpand(#LAYOUT_EXPAND_YES)
   Define myDate.GadgetDate = leftLayout\addContent(newGadgetDate("%dd-%mm-%yyyy",Date()))
   myDate\setListener(newListener(@evChangeDate()))
+  leftLayout\addContent(newGadgetText("Track bar"))
+  Define trb.GadgetTrackBar = leftLayout\addContent(newGadgetTrackBar(0,100,10))
+  trb\setSizes(0,30)
+  trb\setListener(newListener(@evChangeTrackBar()))
+  Define tbflags.TrackBarFlags = trb\getFlags()
+  tbflags\setTicks(#True)
   ;} ------------------------------------------------------------------------------------------------------------
   ;{------------------------------ we create the right layout ---------------------------------------------------
   Define rightLayout.VLayout = mainLayout\addContent(newVLayout())
@@ -77,7 +88,7 @@ Repeat
   WaitWindowEvent()
 ForEver
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 50
-; FirstLine = 23
-; Folding = v
+; CursorPosition = 61
+; FirstLine = 31
+; Folding = f-
 ; EnableXP

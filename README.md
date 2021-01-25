@@ -46,6 +46,7 @@ SOFTWARE.
 * GadgetSpin  _(extends of Gadget)_
 * GadgetPanel  _(extends of Gadget)_
 * GadgetTab  _(extends of Gadget)_
+* GadgetDate _(extends of Gadget)_
 * Empty _(extends of Gadget)_
 * FormFlags
 * ButtonFlags
@@ -53,4 +54,6 @@ SOFTWARE.
 * CanvasFlags
 * TextFlags
 * SpinFlags
+* DateFlags
+* TrackBarFlags
 

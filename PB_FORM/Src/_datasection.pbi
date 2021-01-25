@@ -451,13 +451,44 @@ DataSection
   E_GADGETDATE:
 EndDataSection
 
+; TackBar flags
+DataSection
+  S_TRACKBARFLAGS:
+  ;{ GETTERS
+  Data.i @TRACKBARFLAGS_isTicks()
+  Data.i @TRACKBARFLAGS_isVertical()
+  ;}
+  ;{ SETTERS
+  Data.i @TRACKBARFLAGS_setTicks()
+  Data.i @TRACKBARFLAGS_setVertical()
+  ;}
+  E_TRACKBARFLAGS:
+EndDataSection
 
+; GadgetTrackBar
+DataSection
+  S_GADGETTRACKBAR:
+  ;{ GETTERS
+  Data.i @GADGETTRACKBAR_getValue()
+  Data.i @GADGETTRACKBAR_getMin()
+  Data.i @GADGETTRACKBAR_getMax()
+  Data.i @GADGETTRACKBAR_getListener()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETTRACKBAR_setValue()
+  Data.i @GADGETTRACKBAR_setMin()
+  Data.i @GADGETTRACKBAR_setMax()
+  Data.i @GADGETTRACKBAR_setFlags()
+  Data.i @GADGETTRACKBAR_setListener()
+  ;}
+  E_GADGETTRACKBAR:
+EndDataSection
 
 
 
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 448
-; FirstLine = 74
-; Folding = AAAAAAAAAAAA5-
+; CursorPosition = 482
+; FirstLine = 71
+; Folding = AAAAAAAAAAAAw+-
 ; EnableXP
