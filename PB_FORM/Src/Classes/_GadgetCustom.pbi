@@ -26,6 +26,10 @@ EndProcedure
 Procedure GADGETCUSTOM_setFlags(*this._customeGadget,flags)
   With *this
     Protected *f._gadgetCanvasFlags = \flag
+    *f\border = #False
+    *f\container = #False
+    *f\drawFocus = #False
+    *f\Keyboard =  #False
     If flags & #PB_Canvas_Border = #PB_Canvas_Border
       *f\border = #True
     EndIf
@@ -112,7 +116,7 @@ Procedure newGadgetCustom(*build,*event)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 103
-; FirstLine = 79
+; CursorPosition = 31
+; FirstLine = 24
 ; Folding = --
 ; EnableXP

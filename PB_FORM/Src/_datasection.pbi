@@ -420,8 +420,44 @@ DataSection
   E_gadgetTab:
 EndDataSection
 
+;- Date Flags
+DataSection
+  S_DATEFLAGS:
+  ;{ GETTERS
+  Data.i @GADGETDATEFLAGS_isUpDown()
+  Data.i @GADGETDATEFLAGS_isCheckBox()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETDATEFLAGS_setUpDown()
+  Data.i @GADGETDATEFLAGS_setCheckBox()
+  ;}
+  E_DATEFLAGS:
+EndDataSection
+
+;- GadgetDate
+DataSection
+  S_GADGETDATE:
+  ;{ GETTERS
+  Data.i @GADGETDATE_getValue()
+  Data.i @GADGETDATE_getMask()
+  Data.i @GADGETDATE_getListener()
+  ;}
+  ;{ SETTERS
+  Data.i @GADGETDATE_setValue()
+  Data.i @GADGETDATE_setMask()
+  Data.i @GADGETDATE_setFlags()
+  Data.i @GADGETDATE_setListener()
+  ;}
+  E_GADGETDATE:
+EndDataSection
+
+
+
+
+
+
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 417
-; FirstLine = 85
-; Folding = AAAAAAAAAA6+-
+; CursorPosition = 448
+; FirstLine = 74
+; Folding = AAAAAAAAAAAA5-
 ; EnableXP

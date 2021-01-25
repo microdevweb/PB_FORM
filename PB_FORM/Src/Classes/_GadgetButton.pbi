@@ -32,6 +32,11 @@ EndProcedure
 Procedure GADGETBUTTON_setFlags(*this._gadgetButton,flags)
   With *this
     Protected *f._gadgetbuttonFlags = \flag
+    *f\left = #False
+    *f\def = #False
+    *f\mutliligne = #False
+    *f\right = #False
+    *f\toggle = #False
     If flags & #PB_Button_Default = #PB_Button_Default
       *f\def = #True
     EndIf
@@ -149,7 +154,7 @@ Procedure newGadgetButton(title.s,*ClickListener)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 92
-; FirstLine = 33
-; Folding = XR0
+; CursorPosition = 38
+; FirstLine = 31
+; Folding = fR0
 ; EnableXP

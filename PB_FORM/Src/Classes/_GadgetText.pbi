@@ -68,6 +68,9 @@ EndProcedure
 Procedure GADGETTEXT_setFlags(*this._gadgetText,flags)
   With *this
     Protected *f._gadgetTextFlags = \flag
+    *f\border = #False
+    *f\center = #False
+    *f\right = #False
     If flags & #PB_Text_Center= #PB_Text_Center
       *f\center = #True
     EndIf
@@ -100,7 +103,7 @@ Procedure newGadgetText(title.s)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 14
-; FirstLine = 10
-; Folding = W6
+; CursorPosition = 72
+; FirstLine = 32
+; Folding = W0
 ; EnableXP

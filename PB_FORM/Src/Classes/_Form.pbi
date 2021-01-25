@@ -64,6 +64,19 @@ EndProcedure
 
 Procedure FORM_setFlags(*this._form,flags)
   With *this
+    \flag\borderLess = #False
+    \flag\invisible = #False
+    \flag\maximize = #False
+    \flag\maximizeGadget = #False
+    \flag\minimize = #False
+    \flag\minizeGadget = #False
+    \flag\noActivate = #False
+    \flag\noGadget = #False
+    \flag\screenCentered = #False
+    \flag\sizeGadget = #False
+    \flag\sytemMenu = #False
+    \flag\titleBar = #False
+    \flag\windowCentered = #False
     If flags & #PB_Window_ScreenCentered = #PB_Window_ScreenCentered
       \flag\screenCentered = #True
     EndIf
@@ -255,7 +268,7 @@ Procedure newForm(x,y,w,h,title.s)
 EndProcedure
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 155
-; FirstLine = 25
-; Folding = AANA-
+; CursorPosition = 168
+; FirstLine = 24
+; Folding = ACNA-
 ; EnableXP

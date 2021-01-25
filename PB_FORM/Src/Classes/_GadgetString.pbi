@@ -19,6 +19,12 @@ EndProcedure
 Procedure GADGETSTRING_setFlags(*this._gadgetString,flags)
   With *this
     Protected *f._gadetstringFlags = \flag
+    *f\borderLess = #False
+    *f\lowerCase = #False
+    *f\numeric = #False
+    *f\password = #False
+    *f\readOnly = #False
+    *f\upperCase = #False
     If flags & #PB_String_LowerCase = #PB_String_LowerCase
       *f\lowerCase = #True
     EndIf
@@ -124,7 +130,7 @@ Procedure newGadgetString(value.s = "")
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 44
-; FirstLine = 31
+; CursorPosition = 26
+; FirstLine = 18
 ; Folding = -0+
 ; EnableXP

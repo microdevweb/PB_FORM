@@ -139,6 +139,16 @@ DeclareModule PB_FORM
     setNumeric(state.b)
     ;}
   EndInterface
+  Interface DateFlags
+    ;{ GETTERS
+    isUpDown()
+    isCheckBox()
+    ;}
+    ;{ SETTERS
+    setUpDown(state.b)
+    setCheckBox(state.b)
+    ;}
+  EndInterface
   Interface Sizes
     ;{ GETTERS
     getWidth()
@@ -378,6 +388,20 @@ DeclareModule PB_FORM
     ;}
   EndInterface
   
+  Interface GadgetDate Extends __Gadget
+    ;{ GETTERS
+    getValue()
+    getMask.s()
+    getListener()
+    ;}
+    ;{ SETTERS
+    setValue(value)
+    setMask(mask.s)
+    setFlags(flags)
+    setListener(listener)
+    ;}
+  EndInterface
+  
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -399,12 +423,13 @@ DeclareModule PB_FORM
   Declare newGadgetSpin(minimum,maximum)
   Declare newGadgetPanel()
   Declare newGadgetTab(title.s)
+  Declare newGadgetDate(mask.s,value)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 367
-; FirstLine = 49
-; Folding = ttttt6ubbHb83--
+; CursorPosition = 428
+; FirstLine = 64
+; Folding = BAAAOAAAAAAAAA5+
 ; EnableXP

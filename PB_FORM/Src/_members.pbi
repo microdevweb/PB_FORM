@@ -83,6 +83,11 @@
     readOnly.b
     numeric.b
   EndStructure
+  ;- GadgetDate flags
+  Structure _gadgetDateFlags Extends _flag
+    upDown.b
+    ckeckBox.b
+  EndStructure
   ;- Size Class 
   Structure _size
     *methods
@@ -249,6 +254,12 @@
   Structure _gadgetPanel Extends _gadget
     List *myTabs._gadgetTab()
   EndStructure
+  ;- gadget date
+  Structure _gadgetDate Extends _gadget
+    mask.s
+    value.i
+    *listener._listener
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -257,7 +268,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 249
-; FirstLine = 69
-; Folding = AACAAY-
+; CursorPosition = 259
+; FirstLine = 71
+; Folding = AQEAAw0
 ; EnableXP
