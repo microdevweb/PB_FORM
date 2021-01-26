@@ -84,7 +84,7 @@ Procedure GADGETTEXT_setFlags(*this._gadgetText,flags)
 EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetText(title.s)
+Procedure newTextGadget(title.s)
   Protected *this._gadgetText = AllocateStructure(_gadgetText)
   With *this
     Protected mothenL,ClassL,*method
@@ -103,7 +103,6 @@ Procedure newGadgetText(title.s)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 72
-; FirstLine = 32
-; Folding = W0
+; CursorPosition = 86
+; Folding = Aw
 ; EnableXP

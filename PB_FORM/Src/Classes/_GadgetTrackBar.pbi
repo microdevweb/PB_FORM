@@ -132,7 +132,7 @@ Procedure GADGETTRACKBAR_setListener(*this._gadgetTrackBar,*listener)
 EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetTrackBar(min,max,value)
+Procedure newTrackBarGadget(min,max,value)
   Protected *this._gadgetTrackBar = AllocateStructure(_gadgetTrackBar)
   With *this
     Protected mothenL,ClassL,*method
@@ -153,7 +153,6 @@ Procedure newGadgetTrackBar(min,max,value)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 9
-; FirstLine = 3
-; Folding = -Wg
+; CursorPosition = 134
+; Folding = AAg
 ; EnableXP

@@ -134,7 +134,7 @@ Procedure GADGETBUTTON_setShortcut(*this._gadgetButton,*shortcut)
 EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetButton(title.s,*ClickListener)
+Procedure newButtonGadget(title.s,*ClickListener)
   Protected *this._gadgetButton = AllocateStructure(_gadgetButton)
   With *this
     Protected mothenL,ClassL,*method
@@ -154,7 +154,6 @@ Procedure newGadgetButton(title.s,*ClickListener)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 38
-; FirstLine = 31
-; Folding = fR0
+; CursorPosition = 136
+; Folding = AA+
 ; EnableXP

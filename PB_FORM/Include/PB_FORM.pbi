@@ -159,6 +159,7 @@ DeclareModule PB_FORM
     setVertical(state.b)
     ;}
   EndInterface
+  
   Interface Sizes
     ;{ GETTERS
     getWidth()
@@ -187,6 +188,7 @@ DeclareModule PB_FORM
     setPosY(y)
     ;}
   EndInterface
+  
   Interface Menu
     addMenuTitle(menuTitle)
   EndInterface
@@ -213,6 +215,7 @@ DeclareModule PB_FORM
     setShortCut(shortcut)
     ;}
   EndInterface
+  
   Interface Form
     ;{ GETTERS
     getFlag()
@@ -237,6 +240,7 @@ DeclareModule PB_FORM
     free()
     ;}
   EndInterface
+  
   Interface ShortCut
     ;{ GETTERS
     getKeys() 
@@ -247,34 +251,7 @@ DeclareModule PB_FORM
     setHelpText(text.s)
     ;}
   EndInterface
-  Interface Margins
-    ;{ GETTERS
-    getRight()
-    getLeft()
-    getTop()
-    getBotom()
-    ;}
-    ;{ SETTERS
-    setRight(value)
-    setLeft(value)
-    setTop(value)
-    setBotom(value)
-    ;}
-  EndInterface
-  Interface Paddings
-    ;{ GETTERS
-    getRight()
-    getLeft()
-    getTop()
-    getBotom()
-    ;}
-    ;{ SETTERS
-    setRight(value)
-    setLeft(value)
-    setTop(value)
-    setBotom(value)
-    ;}
-  EndInterface
+  
   Interface __Layout
     ;{ GETTERS
     getSpace()
@@ -299,6 +276,7 @@ DeclareModule PB_FORM
   Interface HLayout Extends __Layout
     
   EndInterface
+  
   Interface __Gadget
     ;{ GETTERS
     getSizes()
@@ -315,7 +293,7 @@ DeclareModule PB_FORM
     setFrontColor(color)
     ;}
   EndInterface
-  Interface GadgetButton Extends __Gadget
+  Interface Button_gadget Extends __Gadget
     ;{ GETTERS
     getTitle.s()
     getShortcut()
@@ -326,7 +304,7 @@ DeclareModule PB_FORM
     setFlags(flags)
     ;}
   EndInterface
-  Interface GadgetString Extends __Gadget
+  Interface String_gadget Extends __Gadget
     ;{ GETTERS
     getValue.s()
     getChangeListener()
@@ -337,7 +315,7 @@ DeclareModule PB_FORM
     setFlags(flags)
     ;}
   EndInterface 
-  Interface GadgetFrame Extends __Gadget
+  Interface Frame_gadget Extends __Gadget
     ;{ GETTERS
     getContent()
     ;}
@@ -345,12 +323,10 @@ DeclareModule PB_FORM
     setContent(content)
     ;}
   EndInterface
-  
-  Interface GadgetCustom Extends __Gadget
+  Interface Custom_gadget Extends __Gadget
     setFlags(flags)
-  EndInterface
-  
-  Interface GadgetText Extends __Gadget
+  EndInterface 
+  Interface Text_gadget Extends __Gadget
     ;{ GETTERS
     getTitle.s()
     ;}
@@ -358,9 +334,8 @@ DeclareModule PB_FORM
     setTitle(title.s)
     setFlags(flag)
     ;}
-  EndInterface
-  
-  Interface GadgetSpin Extends __Gadget
+  EndInterface 
+  Interface Spin_gadget Extends __Gadget
     ;{ GETTERS
     getValue()
     getminimumValue()
@@ -374,18 +349,16 @@ DeclareModule PB_FORM
     setFlags(flags)
     setListener(listener)
     ;}
-  EndInterface
-  
-  Interface GadgetPanel Extends __Gadget
+  EndInterface 
+  Interface Panel_gadget Extends __Gadget
     ;{ GETTERS
     getTab(nTab)
     ;}
     ;{ PUBLIC METHODS
     addTab(tab)
     ;}
-  EndInterface
-  
-  Interface GadgetTab Extends __Gadget
+  EndInterface 
+  Interface Tab_gadget Extends __Gadget
     ;{ GETTERS
     getTitle.s()
     getContent()
@@ -396,9 +369,8 @@ DeclareModule PB_FORM
     setContent(content)
     setListener(listener)
     ;}
-  EndInterface
-  
-  Interface GadgetDate Extends __Gadget
+  EndInterface 
+  Interface Date_gadget Extends __Gadget
     ;{ GETTERS
     getValue()
     getMask.s()
@@ -410,9 +382,8 @@ DeclareModule PB_FORM
     setFlags(flags)
     setListener(listener)
     ;}
-  EndInterface
-  
-  Interface GadgetTrackBar Extends __Gadget
+  EndInterface  
+  Interface TrackBar_gadget Extends __Gadget
     ;{ GETTERS
     getValue()
     getMin()
@@ -427,7 +398,6 @@ DeclareModule PB_FORM
     setListener(listener)
     ;}
   EndInterface
-  
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -441,22 +411,23 @@ DeclareModule PB_FORM
   Declare newShortCut(keys.i,helpText.s = "")
   Declare newVLayout()
   Declare newHLayout()
-  Declare newGadgetButton(title.s,*ClickListener)
-  Declare newGadgetString(value.s = "")
-  Declare newGadgetFrame(title.s)
-  Declare newGadgetCustom(*build,*event)
-  Declare newGadgetText(title.s)
-  Declare newGadgetSpin(minimum,maximum)
-  Declare newGadgetPanel()
-  Declare newGadgetTab(title.s)
-  Declare newGadgetDate(mask.s,value)
-  Declare newGadgetTrackBar(min,max,value)
+  
+  Declare newButtonGadget(title.s,*ClickListener)
+  Declare newStringGadget(value.s = "")
+  Declare newFrameGadget(title.s)
+  Declare newCustomGadget(*build,*event)
+  Declare newTextGadget(title.s)
+  Declare newSpinGadget(minimum,maximum)
+  Declare newPanelGadget()
+  Declare newTabGadget(title.s)
+  Declare newDateGadget(mask.s,value)
+  Declare newTrackBarGadget(min,max,value)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 158
-; FirstLine = 29
-; Folding = BAAA+BAAAAAAAAA3+
+; CursorPosition = 423
+; FirstLine = 42
+; Folding = BAAAAAAAAAAAAAA+
 ; EnableXP

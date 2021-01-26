@@ -94,7 +94,7 @@ EndProcedure
 
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetCustom(*build,*event)
+Procedure newCustomGadget(*build,*event)
   Protected *this._customeGadget = AllocateStructure(_customeGadget)
   With *this
     Protected mothenL,ClassL,*method
@@ -116,7 +116,6 @@ Procedure newGadgetCustom(*build,*event)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 31
-; FirstLine = 24
-; Folding = --
+; CursorPosition = 96
+; Folding = A5
 ; EnableXP

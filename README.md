@@ -38,15 +38,16 @@ SOFTWARE.
 * VLayout _(extends of Layout)_
 * HLayout  _(extends of Layout)_
 * Gadget _(Abstract)_
-* GadgetButton  _(extends of Gadget)_
-* GadgetString  _(extends of Gadget)_
-* GadgetFrame  _(extends of Gadget)_
-* GadgetText  _(extends of Gadget)_
-* GadgetCustom  _(extends of Gadget)_
-* GadgetSpin  _(extends of Gadget)_
-* GadgetPanel  _(extends of Gadget)_
-* GadgetTab  _(extends of Gadget)_
-* GadgetDate _(extends of Gadget)_
+* Button_gadget  _(extends of Gadget)_
+* String_gadget  _(extends of Gadget)_
+* Frame_gadget  _(extends of Gadget)_
+* Text_gadget  _(extends of Gadget)_
+* Custom_gadget  _(extends of Gadget)_
+* Spin_gadget  _(extends of Gadget)_
+* Panel_gadget  _(extends of Gadget)_
+* Tab_gadget  _(extends of Gadget)_
+* Date_gadget _(extends of Gadget)_
+* TrackBar_gadget  _(extends of Gadget)_
 * Empty _(extends of Gadget)_
 * FormFlags
 * ButtonFlags

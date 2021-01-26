@@ -111,7 +111,7 @@ Procedure GADGETSTRING_setChangeListener(*this._gadgetString,*listener)
 EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetString(value.s = "")
+Procedure newStringGadget(value.s = "")
   Protected *this._gadgetString = AllocateStructure(_gadgetString)
   With *this
     Protected mothenL,ClassL,*method
@@ -130,7 +130,6 @@ Procedure newGadgetString(value.s = "")
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 26
-; FirstLine = 18
-; Folding = -0+
+; CursorPosition = 113
+; Folding = AA+
 ; EnableXP

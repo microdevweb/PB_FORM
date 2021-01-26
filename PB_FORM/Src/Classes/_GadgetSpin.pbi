@@ -135,7 +135,7 @@ Procedure GADGETSPIN_setListener(*this._gadgetSpin,*listener)
 EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetSpin(minimum,maximum)
+Procedure newSpinGadget(minimum,maximum)
   Protected *this._gadgetSpin = AllocateStructure(_gadgetSpin)
   With *this
     Protected mothenL,ClassL,*method
@@ -155,7 +155,6 @@ Procedure newGadgetSpin(minimum,maximum)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 119
-; FirstLine = 63
-; Folding = -Q1
+; CursorPosition = 137
+; Folding = AAw
 ; EnableXP

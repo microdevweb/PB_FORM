@@ -115,7 +115,7 @@ Procedure GADGETDATE_setListener(*this._gadgetDate,*listener)
 EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetDate(mask.s,value)
+Procedure newDateGadget(mask.s,value)
   Protected *this._gadgetDate = AllocateStructure(_gadgetDate)
   With *this
     Protected mothenL,ClassL,*method
@@ -135,6 +135,6 @@ Procedure newGadgetDate(mask.s,value)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 2
+; CursorPosition = 117
 ; Folding = AA5
 ; EnableXP

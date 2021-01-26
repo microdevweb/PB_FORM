@@ -80,7 +80,7 @@ Procedure GADGETTAB_setListener(*this._gadgetTab,*listener)
 EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetTab(title.s)
+Procedure newTabGadget(title.s)
   Protected *this._gadgetTab = AllocateStructure(_gadgetTab)
   With *this
     Protected mothenL,ClassL,*method
@@ -98,7 +98,7 @@ Procedure newGadgetTab(title.s)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 21
-; FirstLine = 12
+; CursorPosition = 82
+; FirstLine = 43
 ; Folding = -O-
 ; EnableXP

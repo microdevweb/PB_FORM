@@ -49,7 +49,7 @@ Procedure GADGETPANEL_addTab(*this._gadgetPanel,*tab)
 EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetPanel()
+Procedure newPanelGadget()
   Protected *this._gadgetPanel = AllocateStructure(_gadgetPanel)
   With *this
     Protected mothenL,ClassL,*method
@@ -67,7 +67,7 @@ Procedure newGadgetPanel()
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 61
-; FirstLine = 40
+; CursorPosition = 51
+; FirstLine = 28
 ; Folding = --
 ; EnableXP

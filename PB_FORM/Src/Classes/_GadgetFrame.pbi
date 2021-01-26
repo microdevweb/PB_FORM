@@ -61,7 +61,7 @@ Procedure GADGETFRAME_setContent(*this._gadgetFrame,*content)
 EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newGadgetFrame(title.s)
+Procedure newFrameGadget(title.s)
   Protected *this._gadgetFrame = AllocateStructure(_gadgetFrame)
   With *this
     Protected mothenL,ClassL,*method
@@ -81,7 +81,6 @@ Procedure newGadgetFrame(title.s)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 14
-; FirstLine = 10
-; Folding = u-
+; CursorPosition = 63
+; Folding = A9
 ; EnableXP
