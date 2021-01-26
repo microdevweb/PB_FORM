@@ -14,22 +14,22 @@ Procedure.s HLAYOUT_build(*This._VLayout)
     Protected xml.s = "<hbox "
     If \expand > 0
       xml + " expand = 'item:"+Str(\expand)+"' "
-    ElseIf \expand = PB_FORM::#LAYOUT_EXPAND_NO
+    ElseIf \expand = FORM::#LAYOUT_EXPAND_NO
       xml + " expand = 'no'"
-    ElseIf \expand = PB_FORM::#LAYOUT_EXPAND_YES
+    ElseIf \expand = FORM::#LAYOUT_EXPAND_YES
       xml + " expand = 'yes'"
-    ElseIf \expand = PB_FORM::#LAYOUT_EXPAND_EQUAL
+    ElseIf \expand = FORM::#LAYOUT_EXPAND_EQUAL
       xml + " expand = 'equal'"
     EndIf
     If \space
       xml + " spacing = '"+Str(\space)+"'"
     EndIf
     If \align
-      If \align = PB_FORM::#ALIGN_CENTER
+      If \align = FORM::#ALIGN_CENTER
         xml + " align = 'center'"
-      ElseIf \align = PB_FORM::#ALIGN_LEFT
+      ElseIf \align = FORM::#ALIGN_LEFT
         xml + " align = 'left'"
-      ElseIf \align = PB_FORM::#ALIGN_RIGHT
+      ElseIf \align = FORM::#ALIGN_RIGHT
         xml + " align = 'right'"
       EndIf
     EndIf
@@ -72,7 +72,7 @@ Procedure newHLayout()
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 45
-; FirstLine = 20
+; CursorPosition = 31
+; FirstLine = 12
 ; Folding = -
 ; EnableXP

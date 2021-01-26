@@ -92,6 +92,11 @@
     ticks.b
     vertical.b
   EndStructure
+  Structure _checkboxFlags Extends _flag
+    right.b
+    center.b
+    threeState.b
+  EndStructure
   ;- Size Class 
   Structure _size
     *methods
@@ -271,6 +276,12 @@
     value.i
     *listener._listener
   EndStructure
+  ;- checkbox gadget
+  Structure _checkboxGadget Extends _gadget
+    title.s
+    state.i
+    *listener._listener
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -279,7 +290,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 271
-; FirstLine = 76
-; Folding = AwIAAg4
+; CursorPosition = 282
+; FirstLine = 90
+; Folding = AwRAAAf-
 ; EnableXP

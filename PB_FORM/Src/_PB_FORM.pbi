@@ -5,7 +5,7 @@
 ; LICENCE  : MIT
 ; SOURCE CODE
 ;*********************************************************************************************************************************************
-Module PB_FORM
+Module FORM
   EnableExplicit
   ;- PRIVATE prototypes 
   Declare newSize(w,h)
@@ -24,6 +24,7 @@ Module PB_FORM
   Declare newGadgetSpinFlags()
   Declare newGadgetDateFlags()
   Declare newTrackBarFlags()
+  Declare newCheckboxFlags()
   
   XIncludeFile "_members.pbi"
   
@@ -48,6 +49,7 @@ Module PB_FORM
   XIncludeFile "Classes/_GadgetSpinFlags.pbi"
   XIncludeFile "Classes/_GadgetDateFlags.pbi"
   XIncludeFile "Classes/_GadgetTrackBarFlags.pbi"
+  XIncludeFile "Classes/_CheckboxFlags.pbi"
   XIncludeFile "Classes/_Gadget.pbi"
   XIncludeFile "Classes/_GadgetButton.pbi"
   XIncludeFile "Classes/_GadgetString.pbi"
@@ -59,6 +61,7 @@ Module PB_FORM
   XIncludeFile "Classes/_GadgetTab.pbi"
   XIncludeFile "Classes/_GadgetDate.pbi"
   XIncludeFile "Classes/_GadgetTrackBar.pbi"
+  XIncludeFile "Classes/_checkBoxGadget.pbi"
   XIncludeFile "Classes/_Empty.pbi"
   
   
@@ -67,7 +70,7 @@ Module PB_FORM
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 60
-; FirstLine = 25
+; CursorPosition = 63
+; FirstLine = 30
 ; Folding = -
 ; EnableXP

@@ -48,6 +48,7 @@ SOFTWARE.
 * Tab_gadget  _(extends of Gadget)_
 * Date_gadget _(extends of Gadget)_
 * TrackBar_gadget  _(extends of Gadget)_
+* CheckBox_gadget _(extends of Gadget)_
 * Empty _(extends of Gadget)_
 * FormFlags
 * ButtonFlags
@@ -57,4 +58,5 @@ SOFTWARE.
 * SpinFlags
 * DateFlags
 * TrackBarFlags
+* CheckBoxFlags
 

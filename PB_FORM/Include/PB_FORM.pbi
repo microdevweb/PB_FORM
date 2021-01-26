@@ -5,7 +5,7 @@
 ; LICENCE  : MIT
 ; PROTOTYPES OF CLASS
 ;*********************************************************************************************************************************************
-DeclareModule PB_FORM
+DeclareModule FORM
   #LAYOUT_EXPAND_YES   = -1
   #LAYOUT_EXPAND_NO    = -2
   #LAYOUT_EXPAND_EQUAL = -3
@@ -157,6 +157,18 @@ DeclareModule PB_FORM
     ;{ SETTERS
     setTicks(state.b)
     setVertical(state.b)
+    ;}
+  EndInterface
+  Interface CheckBoxFlags
+    ;{ GETTERS
+    isRight()
+    isCenter()
+    isThreeState()
+    ;}
+    ;{ SETTERS
+    setRight(state.b)
+    setCenter(state.b)
+    setThreeState(state.b)
     ;}
   EndInterface
   
@@ -398,6 +410,17 @@ DeclareModule PB_FORM
     setListener(listener)
     ;}
   EndInterface
+  Interface CheckBox_gadget Extends __Gadget
+    ;{ GETTERS
+    getState()
+    getListener()
+    ;}
+    ;{ SETTERS
+    setState(state)
+    setListener(listener)
+    setFlags(flags)
+    ;}
+  EndInterface
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -422,12 +445,13 @@ DeclareModule PB_FORM
   Declare newTabGadget(title.s)
   Declare newDateGadget(mask.s,value)
   Declare newTrackBarGadget(min,max,value)
+  Declare newCheckBoxGadget(title.s,state = #PB_Checkbox_Unchecked)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 423
-; FirstLine = 42
-; Folding = BAAAAAAAAAAAAAA+
+; CursorPosition = 450
+; FirstLine = 68
+; Folding = BAAAAOAAAAAAAAA5-
 ; EnableXP

@@ -101,13 +101,13 @@ Procedure LAYOUT_super(*this._layout)
   With *this
     \sizes = newSize(0,0)
     \makeId = @LAYOUT_makeId()
-    \expand = PB_FORM::#LAYOUT_EXPAND_NO
+    \expand = FORM::#LAYOUT_EXPAND_NO
     \isLayout = #True
     \font = -1
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 90
-; FirstLine = 49
+; CursorPosition = 103
+; FirstLine = 40
 ; Folding = xh-
 ; EnableXP

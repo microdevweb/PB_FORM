@@ -14,22 +14,22 @@ Procedure.s VLAYOUT_build(*This._VLayout)
     Protected xml.s = "<vbox "
     If \expand > 0
       xml + " expand = 'item:"+Str(\expand)+"' "
-    ElseIf \expand = PB_FORM::#LAYOUT_EXPAND_NO
+    ElseIf \expand = FORM::#LAYOUT_EXPAND_NO
       xml + " expand = 'no'"
-    ElseIf \expand = PB_FORM::#LAYOUT_EXPAND_YES
+    ElseIf \expand = FORM::#LAYOUT_EXPAND_YES
       xml + " expand = 'yes'"
-    ElseIf \expand = PB_FORM::#LAYOUT_EXPAND_EQUAL
+    ElseIf \expand = FORM::#LAYOUT_EXPAND_EQUAL
       xml + " expand = 'equal'"
     EndIf
     If \space
       xml + " spacing = '"+Str(\space)+"'"
     EndIf
     If \align
-      If \align = PB_FORM::#ALIGN_CENTER
+      If \align = FORM::#ALIGN_CENTER
         xml + " align = 'center'"
-      ElseIf \align = PB_FORM::#ALIGN_TOP
+      ElseIf \align = FORM::#ALIGN_TOP
         xml + " align = 'top'"
-      ElseIf \align = PB_FORM::#ALIGN_BOTTOM
+      ElseIf \align = FORM::#ALIGN_BOTTOM
         xml + " align = 'bottom'"
       EndIf
     EndIf
@@ -72,7 +72,7 @@ Procedure newVLayout()
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 36
-; FirstLine = 25
+; CursorPosition = 31
+; FirstLine = 6
 ; Folding = -
 ; EnableXP

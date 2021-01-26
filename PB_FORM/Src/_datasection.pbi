@@ -451,7 +451,7 @@ DataSection
   E_GADGETDATE:
 EndDataSection
 
-; TackBar flags
+;- TackBar flags
 DataSection
   S_TRACKBARFLAGS:
   ;{ GETTERS
@@ -483,12 +483,42 @@ DataSection
   ;}
   E_GADGETTRACKBAR:
 EndDataSection
+;- CHECKBOX FLAGS
+DataSection
+  S_CHECKBOX_FLAGS:
+  ;{ GETTERS
+  Data.i @CHECKBOXFLAGS_isRight()
+  Data.i @CHECKBOXFLAGS_isCenter()
+  Data.i @CHECKBOXFLAGS_isThreeState()
+  ;}
+  ;{ SETTERS
+  Data.i @CHECKBOXFLAGS_setRight()
+  Data.i @CHECKBOXFLAGS_setCenter()
+  Data.i @CHECKBOXFLAGS_setThreeState()
+  ;}
+  E_CHECKBOX_FLAGS:
+EndDataSection
+
+;- CHECKBOX_GADGET
+DataSection
+  S_CHECKBOX_GADGET:
+  ;{ GETTERS
+  Data.i @CHECKBOXGADGET_getState()
+  Data.i @CHECKBOXGADGET_getListener()
+  ;}
+  ;{ SETTERS
+  Data.i @CHECKBOXGADGET_setState()
+  Data.i @CHECKBOXGADGET_setListener()
+  Data.i @CHECKBOXGADGET_setFlags()
+  ;}
+  E_CHECKBOX_GADGET:
+EndDataSection
 
 
 
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 482
-; FirstLine = 71
-; Folding = AAAAAAAAAAAAw+-
+; CursorPosition = 511
+; FirstLine = 94
+; Folding = AAAAAAAAAAAAw3--
 ; EnableXP
