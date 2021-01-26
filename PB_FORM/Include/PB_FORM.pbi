@@ -413,12 +413,26 @@ DeclareModule FORM
   Interface CheckBox_gadget Extends __Gadget
     ;{ GETTERS
     getState()
+    getTitle.s()
     getListener()
     ;}
     ;{ SETTERS
     setState(state)
+    setTitle(title.s)
     setListener(listener)
     setFlags(flags)
+    ;}
+  EndInterface
+  Interface Option_gadget Extends __Gadget
+    ;{ GETTERS
+    getState()
+    getTitle.s()
+    getListener()
+    ;}
+    ;{ SETTERS
+    setState(state.b)
+    setTitle(title.s)
+    setListener(listener)
     ;}
   EndInterface
   Interface Empty Extends __Gadget
@@ -446,12 +460,13 @@ DeclareModule FORM
   Declare newDateGadget(mask.s,value)
   Declare newTrackBarGadget(min,max,value)
   Declare newCheckBoxGadget(title.s,state = #PB_Checkbox_Unchecked)
+  Declare newOptionGadget(title.s,group,state = #False)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 450
-; FirstLine = 68
+; CursorPosition = 434
+; FirstLine = 62
 ; Folding = BAAAAOAAAAAAAAA5-
 ; EnableXP

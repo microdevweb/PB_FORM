@@ -282,6 +282,13 @@
     state.i
     *listener._listener
   EndStructure
+  ;- option gadget
+  Structure _optionGadget Extends _gadget
+    title.s
+    state.b
+    group.i
+    *listener._listener
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -290,7 +297,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 282
-; FirstLine = 90
-; Folding = AwRAAAf-
+; CursorPosition = 287
+; FirstLine = 97
+; Folding = AwRAAA-+
 ; EnableXP

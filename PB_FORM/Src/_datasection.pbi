@@ -504,21 +504,38 @@ DataSection
   S_CHECKBOX_GADGET:
   ;{ GETTERS
   Data.i @CHECKBOXGADGET_getState()
+  Data.i @CHECKBOXGADGET_getTitle()
   Data.i @CHECKBOXGADGET_getListener()
   ;}
   ;{ SETTERS
   Data.i @CHECKBOXGADGET_setState()
+  Data.i @CHECKBOXGADGET_setTitle()
   Data.i @CHECKBOXGADGET_setListener()
   Data.i @CHECKBOXGADGET_setFlags()
   ;}
   E_CHECKBOX_GADGET:
 EndDataSection
 
+;- OPTIONGADGET
+DataSection
+  S_OPTIONGADGET:
+  ;{ GETTERS
+  Data.i @OPTIONGADGET_getState()
+  Data.i @OPTIONGADGET_getTitle()
+  Data.i @OPTIONGADGET_getListener()
+  ;}
+  ;{ SETTERS
+  Data.i @OPTIONGADGET_setState()
+  Data.i @OPTIONGADGET_setTitle()
+  Data.i @OPTIONGADGET_setListener()
+  ;}
+  E_OPTIONGADGET:
+EndDataSection
 
 
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 511
-; FirstLine = 94
-; Folding = AAAAAAAAAAAAw3--
+; CursorPosition = 530
+; FirstLine = 114
+; Folding = AAAAAAAAAAAAw3---
 ; EnableXP

@@ -166,7 +166,7 @@ Procedure.s FORM_buildXml(*this._form)
       xml + \mainLayout\build(\mainLayout)
     EndIf
     xml + "</window>"+Chr(10)
-    Debug xml
+;     Debug xml
     ProcedureReturn xml
   EndWith
 EndProcedure

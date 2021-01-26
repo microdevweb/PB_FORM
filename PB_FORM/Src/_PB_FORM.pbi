@@ -62,6 +62,7 @@ Module FORM
   XIncludeFile "Classes/_GadgetDate.pbi"
   XIncludeFile "Classes/_GadgetTrackBar.pbi"
   XIncludeFile "Classes/_checkBoxGadget.pbi"
+  XIncludeFile "Classes/_optionGadget.pbi"
   XIncludeFile "Classes/_Empty.pbi"
   
   
@@ -70,7 +71,7 @@ Module FORM
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 63
+; CursorPosition = 64
 ; FirstLine = 30
 ; Folding = -
 ; EnableXP

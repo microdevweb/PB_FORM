@@ -1,13 +1,13 @@
 ﻿;***************************************************************
 ; AUTHOR   : microdevWeb
 ; MODULE   : PB_FORM
-; VERSION  : BETA 1.13
+; VERSION  : BETA 1.14
 ; LICENCE  : MIT
-; CLASS checkBoxGadget   SOURCE CODE extends of Gadget
+; CLASS optionGadget   SOURCE CODE extends of Gadget
 ;***************************************************************
 ;{ PRIVATE METHODS
-Procedure CHECKBOXGADGET_evChange()
-  Protected *this._checkboxGadget = GetGadgetData(EventGadget())
+Procedure OPTIONGADGET_evChange()
+  Protected *this._optionGadget = GetGadgetData(EventGadget())
   With *this
     \state = GetGadgetState(\id)
     If \listener And \listener\callback
@@ -18,13 +18,9 @@ EndProcedure
 ;}
 
 ;{ PROTECTED ABSTRACT METHODS
-Procedure.s CHECKBOXGADGET_build(*this._checkboxGadget)
+Procedure.s OPTIONGADGET_build(*this._optionGadget)
   With *this
-    Protected xml.s = "<checkbox id='#PB_Any' name='"+*this+"' text='"+\title+"'"
-    Protected flags.s = \flag\get(\flag)
-    If Len(flags)
-      xml + " flags='"+flags+"' "
-    EndIf
+    Protected xml.s = "<option id='#PB_Any' name='"+*this+"' text='"+\title+"' group = '"+Str(\group)+"'" 
     If \sizes\widht
       xml + " width='"+Str(\sizes\widht)+"' "
     EndIf
@@ -48,32 +44,32 @@ Procedure.s CHECKBOXGADGET_build(*this._checkboxGadget)
   EndWith
 EndProcedure
 
-Procedure CHECKBOXGADGET_makeId(*this._checkboxGadget,*form._form)
+Procedure OPTIONGADGET_makeId(*this._optionGadget,*form._form)
   With *this
     \id = DialogGadget(*form\dialog,Str(*this))
     SetGadgetData(\id,*this)
     SetGadgetState(\id,\state)
     
-    BindGadgetEvent(\id,@CHECKBOXGADGET_evChange())
+    BindGadgetEvent(\id,@OPTIONGADGET_evChange())
   EndWith
 EndProcedure
 ;}
 
 ;{ GETTERS
-Procedure CHECKBOXGADGET_getState(*this._checkboxGadget)
+Procedure OPTIONGADGET_getState(*this._optionGadget)
   With *this
     ProcedureReturn \state
   EndWith
 EndProcedure
 
-Procedure.s CHECKBOXGADGET_getTitle(*this._checkboxGadget)
+Procedure.s OPTIONGADGET_getTitle(*this._optionGadget)
   With *this
     ProcedureReturn \title
   EndWith
 EndProcedure
 
 
-Procedure CHECKBOXGADGET_getListener(*this._checkboxGadget)
+Procedure OPTIONGADGET_getListener(*this._optionGadget)
   With *this
     ProcedureReturn \listener
   EndWith
@@ -81,7 +77,7 @@ EndProcedure
 
 ;}
 ;{ SETTERS
-Procedure CHECKBOXGADGET_setState(*this._checkboxGadget,state)
+Procedure OPTIONGADGET_setState(*this._optionGadget,state)
   With *this
     \state = state
     If IsGadget(\id)
@@ -90,7 +86,7 @@ Procedure CHECKBOXGADGET_setState(*this._checkboxGadget,state)
   EndWith
 EndProcedure
 
-Procedure CHECKBOXGADGET_setTitle(*this._checkboxGadget,title.s)
+Procedure OPTIONGADGET_setTitle(*this._optionGadget,title.s)
   With *this
     \title = title
     If IsGadget(\id)
@@ -100,55 +96,36 @@ Procedure CHECKBOXGADGET_setTitle(*this._checkboxGadget,title.s)
 EndProcedure
 
 
-Procedure CHECKBOXGADGET_setListener(*this._checkboxGadget,*listener)
+Procedure OPTIONGADGET_setListener(*this._optionGadget,*listener)
   With *this
      \listener = *listener
   EndWith
 EndProcedure
 
-Procedure CHECKBOXGADGET_setFlags(*this._checkboxGadget,flags)
-  With *this
-    Protected *f._checkboxFlags = \flag
-    *f\right = #False
-    *f\center = #False
-    *f\threeState = #False
-    
-    If flags & #PB_CheckBox_Right = #PB_CheckBox_Right
-      *f\right = #True
-    EndIf
-    
-    If flags & #PB_CheckBox_Center = #PB_CheckBox_Center
-      *f\center = #True
-    EndIf
-    
-    If flags & #PB_CheckBox_ThreeState = #PB_CheckBox_ThreeState
-      *f\threeState = #True
-    EndIf
-  EndWith
-EndProcedure
 ;}
 ; PUBLIC CONSTRUCTOR
-Procedure newCheckBoxGadget(title.s,state = #PB_Checkbox_Unchecked)
-  Protected *this._checkboxGadget = AllocateStructure(_checkboxGadget)
+Procedure newOptionGadget(title.s,group,state = #False)
+  Protected *this._optionGadget = AllocateStructure(_optionGadget)
   With *this
     Protected mothenL,ClassL,*method
     mothenL = GADGET_super(*this)
-    ClassL = ?E_CHECKBOX_GADGET - ?S_CHECKBOX_GADGET
+    ClassL = ?E_OPTIONGADGET - ?S_OPTIONGADGET
     *method = \methods
     ; empilate method addresses
     \methods = AllocateMemory(mothenL + ClassL)
     MoveMemory(*method,\methods,mothenL)
-    MoveMemory(?S_CHECKBOX_GADGET,\methods + mothenL,ClassL)
-    \flag = newCheckboxFlags()
+    MoveMemory(?S_OPTIONGADGET,\methods + mothenL,ClassL)
+    \flag = 0
     \state = state
     \title = title
-    \build = @CHECKBOXGADGET_build()
-    \makeId = @CHECKBOXGADGET_makeId()
+    \group = group
+    \build = @OPTIONGADGET_build()
+    \makeId = @OPTIONGADGET_makeId()
     ProcedureReturn *this
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 92
-; FirstLine = 11
-; Folding = 8r6
+; CursorPosition = 22
+; FirstLine = 6
+; Folding = dA+
 ; EnableXP
