@@ -42,6 +42,12 @@ Procedure GADGET_getFgColor(*this._gadget)
   EndWith
 EndProcedure
 
+Procedure GADGET_getData(*this._gadget)
+  With *this
+    ProcedureReturn \data
+  EndWith
+EndProcedure
+
 ;}
 ;{ SETTERS
 Procedure GADGET_setSizes(*this._gadget,width,height)
@@ -68,6 +74,13 @@ Procedure GADGET_setFgColor(*this._gadget,color)
      \colors\fgColor = color
   EndWith
 EndProcedure
+
+Procedure GADGET_setData(*this._gadget,*data)
+  With *this
+     \data = *data
+  EndWith
+EndProcedure
+
 ;}
 
 
@@ -81,7 +94,7 @@ Procedure GADGET_super(*this._gadget)
   EndWith
 EndProcedure
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 65
-; FirstLine = 8
-; Folding = BC-
+; CursorPosition = 79
+; FirstLine = 9
+; Folding = BH-
 ; EnableXP

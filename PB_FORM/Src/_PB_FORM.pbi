@@ -25,6 +25,7 @@ Module FORM
   Declare newGadgetDateFlags()
   Declare newTrackBarFlags()
   Declare newCheckboxFlags()
+  Declare newComboBoxFlags()
   
   XIncludeFile "_members.pbi"
   
@@ -50,6 +51,7 @@ Module FORM
   XIncludeFile "Classes/_GadgetDateFlags.pbi"
   XIncludeFile "Classes/_GadgetTrackBarFlags.pbi"
   XIncludeFile "Classes/_CheckboxFlags.pbi"
+  XIncludeFile "Classes/_ComboboxFlags.pbi"
   XIncludeFile "Classes/_Gadget.pbi"
   XIncludeFile "Classes/_GadgetButton.pbi"
   XIncludeFile "Classes/_GadgetString.pbi"
@@ -63,6 +65,8 @@ Module FORM
   XIncludeFile "Classes/_GadgetTrackBar.pbi"
   XIncludeFile "Classes/_checkBoxGadget.pbi"
   XIncludeFile "Classes/_optionGadget.pbi"
+  XIncludeFile "Classes/_comboContent.pbi"
+  XIncludeFile "Classes/_comboBoxGadget.pbi"
   XIncludeFile "Classes/_Empty.pbi"
   
   
@@ -71,7 +75,7 @@ Module FORM
   
 EndModule
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 64
-; FirstLine = 30
+; CursorPosition = 67
+; FirstLine = 33
 ; Folding = -
 ; EnableXP

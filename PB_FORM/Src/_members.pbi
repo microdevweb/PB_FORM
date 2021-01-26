@@ -97,6 +97,13 @@
     center.b
     threeState.b
   EndStructure
+  
+  Structure _comboboxFlags Extends _flag
+    editable.b
+    lowercase.b
+    uppercase.b
+  EndStructure
+  
   ;- Size Class 
   Structure _size
     *methods
@@ -213,6 +220,7 @@
   Structure _gadget Extends _content
     *flag._flag
     *sizes._size
+    *data
   EndStructure
   ;- VLayout Class extends of Layout
   Structure _VLayout Extends _layout
@@ -289,6 +297,19 @@
     group.i
     *listener._listener
   EndStructure
+  ;- combo content
+  Structure _comboContent 
+    *methods
+    *data
+    text.s
+    actif.b
+  EndStructure
+  ;- ComboBox gadget
+  Structure _comboBoxGadget Extends _gadget
+    List *myContent._comboContent()
+    *listener._listener
+    *current
+  EndStructure
   ;- Empty Class extends of Gadget
   Structure _empty Extends _gadget
     
@@ -297,7 +318,7 @@
   
   
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 287
-; FirstLine = 97
-; Folding = AwRAAA-+
+; CursorPosition = 310
+; FirstLine = 83
+; Folding = AACAAAA4
 ; EnableXP

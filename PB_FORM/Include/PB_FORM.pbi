@@ -171,6 +171,18 @@ DeclareModule FORM
     setThreeState(state.b)
     ;}
   EndInterface
+  Interface ComboBoxFlags
+    ;{ GETTERS
+    isEditable()
+    isLowerCase()
+    isUperCase()
+    ;}
+    ;{ SETTERS
+    setEditable(state.b)
+    setLowerCase(state.b)
+    setUperCase(state.b)
+    ;}
+  EndInterface
   
   Interface Sizes
     ;{ GETTERS
@@ -297,12 +309,14 @@ DeclareModule FORM
     getFont()
     getBackgroundColor()
     getFrontColor()
+    getData()
     ;}
     ;{ SETTERS
     setSizes(width,height)
     setFont(font)
     setBackgroundColor(color)
     setFrontColor(color)
+    setData(pdata)
     ;}
   EndInterface
   Interface Button_gadget Extends __Gadget
@@ -435,6 +449,32 @@ DeclareModule FORM
     setListener(listener)
     ;}
   EndInterface
+  Interface Combo_Content 
+    ;{ GETTERS
+    getText.s()
+    getData()
+    isActif()
+    ;}
+    ;{ SETTERS
+    setText(text.s)
+    setData(pdata)
+    setActif(state.s)
+    ;}
+  EndInterface
+  Interface ComboBox_gadget Extends __Gadget
+    ;{ GETTERS
+    getContent(nuber)
+    getCurrentContent()
+    getListener()
+    ;}
+    ;{ SETTERS
+    setListener(listener)
+    setFlags(flags)
+    ;}
+    ;{ PUBLIC METHODS
+    addContent(comboContent)
+    ;}
+  EndInterface
   Interface Empty Extends __Gadget
     
   EndInterface
@@ -461,12 +501,14 @@ DeclareModule FORM
   Declare newTrackBarGadget(min,max,value)
   Declare newCheckBoxGadget(title.s,state = #PB_Checkbox_Unchecked)
   Declare newOptionGadget(title.s,group,state = #False)
+  Declare newComboBoxGadget()
+  Declare newComboContent(text.s,actif.b = #False)
   Declare newEmpty()
 EndDeclareModule
 XIncludeFile "../Src/_PB_FORM.pbi"
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 434
-; FirstLine = 62
-; Folding = BAAAAOAAAAAAAAA5-
+; CursorPosition = 451
+; FirstLine = 54
+; Folding = BAAAAsBAAAADAAAA3--
 ; EnableXP

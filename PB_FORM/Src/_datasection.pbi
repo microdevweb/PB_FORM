@@ -201,12 +201,14 @@ DataSection
   Data.i @GADGET_getFont()
   Data.i @GADGET_getBgColor()
   Data.i @GADGET_getFgColor()
+  Data.i @GADGET_getData()
   ;}
   ;{ SETTERS
   Data.i @GADGET_setSizes()
   Data.i @GADGET_setFont()
   Data.i @GADGET_setBgColor()
   Data.i @GADGET_setFgColor()
+  Data.i @GADGET_setData()
   ;}
   E_gadget:
 EndDataSection
@@ -532,10 +534,58 @@ DataSection
   E_OPTIONGADGET:
 EndDataSection
 
+;- COMBOBOXFLAGS
+DataSection
+  S_COMBOBOXFLAGS:
+  ;{ GETTERS
+  Data.i @COMBOBOXFLAGS_isEditable()
+  Data.i @COMBOBOXFLAGS_isLowerCase()
+  Data.i @COMBOBOXFLAGS_isUperCase()
+  ;}
+  ;{ SETTERS
+  Data.i @COMBOBOXFLAGS_setEditable()
+  Data.i @COMBOBOXFLAGS_setLowerCase()
+  Data.i @COMBOBOXFLAGS_setUperCase()
+  ;}
+  E_COMBOBOXFLAGS:
+EndDataSection
 
+;- COMBOBOXGADGET
+DataSection
+  S_COMBOBOXGADGET:
+  ;{ GETTERS
+  Data.i @COMBOBOXGADGET_getContent()
+  Data.i @COMBOBOXGADGET_getCurrentContent()
+  Data.i @COMBOBOXGADGET_getListener()
+  ;}
+  ;{ SETTERS
+  Data.i @COMBOBOXGADGET_setListener()
+  Data.i @COMBOBOXGADGET_setFlags()
+  ;}
+  ;{ PUBLIC METHODS
+  Data.i @COMBOBOXGADGET_addContent()
+  ;}
+  E_COMBOBOXGADGET:
+EndDataSection
+
+;- COMBOCONTENT
+DataSection
+  S_COMBOCONTENT:
+  ;{ GETTERS
+  Data.i @COMBOCONTENT_getText()
+  Data.i @COMBOCONTENT_getData()
+  Data.i @COMBOCONTENT_isActif()
+  ;}
+  ;{ SETTERS
+  Data.i @COMBOCONTENT_setText()
+  Data.i @COMBOCONTENT_setData()
+  Data.i @COMBOCONTENT_setActif()
+  ;}
+  E_COMBOCONTENT:
+EndDataSection
 
 ; IDE Options = PureBasic 5.73 LTS (Windows - x64)
-; CursorPosition = 530
-; FirstLine = 114
-; Folding = AAAAAAAAAAAAw3---
+; CursorPosition = 582
+; FirstLine = 109
+; Folding = AAAAAAAAAAAAAAAI--
 ; EnableXP
